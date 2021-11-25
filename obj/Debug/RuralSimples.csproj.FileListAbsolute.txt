@@ -1,0 +1,9 @@
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.csproj.AssemblyReference.cache
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.Properties.Resources.resources
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.csproj.GenerateResource.cache
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.csproj.CoreCompileInputs.cache
+D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.exe.config
+D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.exe
+D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.pdb
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.exe
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.pdb
