@@ -49,18 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Animal.cs" />
+    <Compile Include="Classes\BosTaurus.cs" />
     <Compile Include="Classes\Contatos.cs" />
     <Compile Include="Classes\Endereco.cs" />
+    <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="fPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fPrincipal.Designer.cs">
+      <DependentUpon>fPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fPrincipal.resx">
+      <DependentUpon>fPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

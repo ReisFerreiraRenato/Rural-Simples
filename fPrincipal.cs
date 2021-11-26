@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RuralSimples
 {
-    public partial class Form1 : Form
+    public partial class fPrincipal : Form
     {
-        public Form1()
+        public fPrincipal()
         {
             InitializeComponent();
         }

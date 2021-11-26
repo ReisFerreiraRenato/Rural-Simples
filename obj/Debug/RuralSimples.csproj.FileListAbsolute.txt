@@ -7,3 +7,4 @@ D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.exe
 D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.pdb
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.exe
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.pdb
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.fPrincipal.resources

@@ -1,55 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RuralSimples.Classes
 {
     class Pessoa
     {
         private string FID;
-        private string FNome;
+        private string FCFPCNPJ;
+        private char FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; S - Sócio; Z - Funcionario
         private DateTime FDataNascimentoFundacao;
         private DateTime FDataCadastro;
-        private char FTipo; //Pessoa Física ou Jurídica (F ou J)
-        private string FCFPCNPJ;
-        private string FRG;
         private string FInscricaoEstadual;
         private string FInscricaoMunicipal;
+        private string FNome;
+        private string FRG;
+        private char FTipo; //Pessoa Física ou Jurídica (F ou J)
         private Endereco FEndereco;
         private Contatos FContatos;
 
         public Pessoa()
         {
             Guid g = new Guid();
-            FID = g.ToString();
-            FNome = "";
-            FDataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
-            FDataCadastro = DateTime.Today ;
-            FTipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
-            FCFPCNPJ = "";
-            FRG = "";
-            FInscricaoEstadual = "";
-            FInscricaoMunicipal = "";
-            FEndereco = new Endereco();
-            FContatos = new Contatos();
+            ID = g.ToString();
+            CFPCNPJ = "";
+            Classificacao = 'C';
+            Contatos = new Contatos();
+            DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
+            DataCadastro = DateTime.Today;
+            Endereco = new Endereco();
+            Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
+            Nome = "";
+            RG = "";
+            InscricaoEstadual = "";
+            InscricaoMunicipal = "";
         }
-        public Pessoa(Guid ID, String Nome, DateTime DataNascimentoFundacao, char Tipo, string CPFCNPJ,
+        public Pessoa(String Nome, char Classificacao, DateTime DataNascimentoFundacao, char Tipo, string CPFCNPJ,
                       string RG, String InscricaoEstadual, String InscricaoMunicipal, Endereco endereco,
                       Contatos contato)
         {
-            FID = ID.ToString();
-            FNome = Nome;
-            FDataNascimentoFundacao = DataNascimentoFundacao;
-            FDataCadastro = DateTime.Today;
-            FTipo = Tipo; //Pessoa Física ou Jurídica (F ou J)
-            FCFPCNPJ = CPFCNPJ;
-            FRG = RG;
-            FInscricaoEstadual = InscricaoEstadual;
-            FInscricaoMunicipal = InscricaoMunicipal;
-            FEndereco = endereco;
-            FContatos = contato;
+            Guid g = new Guid();
+            this.ID = g.ToString();
+            this.CFPCNPJ = CPFCNPJ;
+            this.Classificacao = Classificacao;
+            this.Contatos = contato;
+            this.DataNascimentoFundacao = DataNascimentoFundacao;
+            this.DataCadastro = DateTime.Today;
+            this.Endereco = endereco;
+            this.InscricaoEstadual = InscricaoEstadual;
+            this.InscricaoMunicipal = InscricaoMunicipal;
+            this.Nome = Nome;
+            this.Tipo = Tipo;
+            this.RG = RG;
         }
         public string ID
         {
@@ -81,17 +81,22 @@ namespace RuralSimples.Classes
             get { return FCFPCNPJ; }
             set { FCFPCNPJ = value; }
         }
+        public char Classificacao
+        {
+            get { return FClassificacao ; }
+            set { FClassificacao  = value; }
+        }
         public string RG
         {
             get { return FRG; }
             set { FRG = value; }
         }
-        public string InscEstadual
+        public string InscricaoEstadual
         {
             get { return FInscricaoEstadual; }
             set { FInscricaoEstadual = value; }
         }
-        public string InscMunicipal
+        public string InscricaoMunicipal
         {
             get { return FInscricaoMunicipal; }
             set { FInscricaoMunicipal = value; }

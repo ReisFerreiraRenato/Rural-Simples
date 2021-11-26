@@ -8,6 +8,7 @@ namespace RuralSimples.Classes
 {
     class Contatos
     {
+        private string FIDContatos;
         private string[] FTelFixo;
         private string[] FCelular;
         private string FFacebook;
@@ -26,6 +27,10 @@ namespace RuralSimples.Classes
 
         public Contatos()
         {
+            Guid g = new Guid();
+            IDContatos = g.ToString();
+            FTelFixo = null;
+            FCelular = null;
             FFacebook = "";
             FTwiter = "";
             FLinkedin = "";
@@ -44,6 +49,8 @@ namespace RuralSimples.Classes
                         string instagram, string github, string site, string pinterest, string tiktok,
                         string snapchat, string skype, string messenger, string teams, string youtube)
         {
+            Guid g = new Guid();
+            IDContatos = g.ToString();
             setTelFixo(telefones);
             setCelular(celulares);
             FFacebook = facebook;
@@ -129,6 +136,11 @@ namespace RuralSimples.Classes
             {
                 return FCelular[indice];
             }
+        }
+        public string IDContatos
+        {
+            get { return FIDContatos; }
+            set { FIDContatos = value; }
         }
         public string facebook
         {
