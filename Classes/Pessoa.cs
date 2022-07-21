@@ -12,6 +12,8 @@ namespace RuralSimples.Classes
         private string FInscricaoEstadual;
         private string FInscricaoMunicipal;
         private string FNome;
+        private string FOrgaoEmissor;
+        private string FFantasiaFazenda;
         private string FRG;
         private char FTipo; //Pessoa Física ou Jurídica (F ou J)
         private Endereco FEndereco;
@@ -27,29 +29,32 @@ namespace RuralSimples.Classes
             DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
             DataCadastro = DateTime.Today;
             Endereco = new Endereco();
+            FFantasiaFazenda = "";
             Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
             Nome = "";
             RG = "";
             InscricaoEstadual = "";
             InscricaoMunicipal = "";
         }
-        public Pessoa(String Nome, char Classificacao, DateTime DataNascimentoFundacao, char Tipo, string CPFCNPJ,
-                      string RG, String InscricaoEstadual, String InscricaoMunicipal, Endereco endereco,
-                      Contatos contato)
+        public Pessoa(String pNome, char pClassificacao, DateTime pDataNascimentoFundacao, char pTipo, string pCPFCNPJ,
+                      string pRG, String pInscricaoEstadual, String pInscricaoMunicipal, Endereco pEndereco,
+                      Contatos pContato, string pFantasiaFazenda, string pOrgaoEmissor)
         {
             Guid g = new Guid();
             this.ID = g.ToString();
-            this.CFPCNPJ = CPFCNPJ;
+            this.CFPCNPJ = pCPFCNPJ;
             this.Classificacao = Classificacao;
-            this.Contatos = contato;
-            this.DataNascimentoFundacao = DataNascimentoFundacao;
+            this.Contatos = pContato;
+            this.DataNascimentoFundacao = pDataNascimentoFundacao;
             this.DataCadastro = DateTime.Today;
-            this.Endereco = endereco;
-            this.InscricaoEstadual = InscricaoEstadual;
-            this.InscricaoMunicipal = InscricaoMunicipal;
-            this.Nome = Nome;
-            this.Tipo = Tipo;
-            this.RG = RG;
+            this.Endereco = pEndereco;
+            this.FantasiaFazenda = pFantasiaFazenda;
+            this.InscricaoEstadual = pInscricaoEstadual;
+            this.InscricaoMunicipal = pInscricaoMunicipal;
+            this.Nome = pNome;
+            this.OrgaoEmissor = pOrgaoEmissor;
+            this.Tipo = pTipo;
+            this.RG = pRG;
         }
         public string ID
         {
@@ -60,6 +65,16 @@ namespace RuralSimples.Classes
         {
             get { return FNome; }
             set { FNome = value; }
+        }
+        public string FantasiaFazenda
+        {
+            get { return FFantasiaFazenda; }
+            set { FFantasiaFazenda = value; }
+        }
+        public string OrgaoEmissor
+        {
+            get { return FOrgaoEmissor; }
+            set { FOrgaoEmissor = value; }
         }
         public DateTime DataNascimentoFundacao
         {
