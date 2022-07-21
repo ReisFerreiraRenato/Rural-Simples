@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RuralSimples.View;
 
 namespace RuralSimples
 {
@@ -16,7 +17,7 @@ namespace RuralSimples
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fPrincipal());
+            Application.Run(new View.fLogin());
         }
     }
 }

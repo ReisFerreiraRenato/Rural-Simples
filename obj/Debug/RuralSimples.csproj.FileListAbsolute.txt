@@ -8,3 +8,5 @@ D:\Rural Simples\RuralSimples\bin\Debug\RuralSimples.pdb
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.exe
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.pdb
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.fPrincipal.resources
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fCadastroPessoa.resources
+D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fLogin.resources

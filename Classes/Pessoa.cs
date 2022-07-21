@@ -6,7 +6,7 @@ namespace RuralSimples.Classes
     {
         private string FID;
         private string FCFPCNPJ;
-        private char FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; S - Sócio; Z - Funcionario
+        private char FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
         private DateTime FDataNascimentoFundacao;
         private DateTime FDataCadastro;
         private string FInscricaoEstadual;

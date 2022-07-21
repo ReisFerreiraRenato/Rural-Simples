@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RuralSimples
+namespace RuralSimples.View
 {
-    public partial class fPrincipal : Form
+    public partial class Form1 : Form
     {
-        public fPrincipal()
+        public Form1()
         {
             InitializeComponent();
         }

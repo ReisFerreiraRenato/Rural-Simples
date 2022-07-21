@@ -56,26 +56,45 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
-    <Compile Include="fPrincipal.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\fCadastroPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fPrincipal.Designer.cs">
+    <Compile Include="View\fCadastroPessoa.Designer.cs">
+      <DependentUpon>fCadastroPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fLogin.Designer.cs">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fPrincipal.Designer.cs">
       <DependentUpon>fPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="fPrincipal.resx">
+    <EmbeddedResource Include="View\fCadastroPessoa.resx">
+      <DependentUpon>fCadastroPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fLogin.resx">
+      <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fPrincipal.resx">
       <DependentUpon>fPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -88,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
