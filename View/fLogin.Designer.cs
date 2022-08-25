@@ -47,7 +47,7 @@ namespace RuralSimples.View
             this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsuario.Location = new System.Drawing.Point(104, 277);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(194, 22);
+            this.tbUsuario.Size = new System.Drawing.Size(194, 26);
             this.tbUsuario.TabIndex = 0;
             // 
             // tbSenha
@@ -57,7 +57,7 @@ namespace RuralSimples.View
             this.tbSenha.Location = new System.Drawing.Point(104, 324);
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.PasswordChar = '*';
-            this.tbSenha.Size = new System.Drawing.Size(194, 22);
+            this.tbSenha.Size = new System.Drawing.Size(194, 26);
             this.tbSenha.TabIndex = 1;
             // 
             // btOK
@@ -103,7 +103,7 @@ namespace RuralSimples.View
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(11, 280);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 16);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 5;
             this.label1.Text = "Usuário";
             // 
@@ -114,7 +114,7 @@ namespace RuralSimples.View
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(19, 327);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 6;
             this.label2.Text = "Senha";
             // 
@@ -131,7 +131,7 @@ namespace RuralSimples.View
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 432);
             this.Controls.Add(this.pbLogin);

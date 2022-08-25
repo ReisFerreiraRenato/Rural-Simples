@@ -56,16 +56,29 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
+    <Compile Include="FontesComuns\ConstantesEValidacoes.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="View\fCadastroAnimais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fCadastroAnimais.Designer.cs">
+      <DependentUpon>fCadastroAnimais.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fCadastroPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\fCadastroPessoa.Designer.cs">
       <DependentUpon>fCadastroPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fReproducao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fReproducao.Designer.cs">
+      <DependentUpon>fReproducao.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fLogin.cs">
       <SubType>Form</SubType>
@@ -81,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\fCadastroAnimais.resx">
+      <DependentUpon>fCadastroAnimais.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\fCadastroPessoa.resx">
       <DependentUpon>fCadastroPessoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +110,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fReproducao.resx">
+      <DependentUpon>fReproducao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
