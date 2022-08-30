@@ -12,3 +12,65 @@ D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fCadastroPessoa.resour
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fLogin.resources
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fCadastroAnimais.resources
 D:\Rural Simples\RuralSimples\obj\Debug\RuralSimples.View.fReproducao.resources
+D:\Rural Simples\RuralSimples\bin\Debug\EntityFramework.dll
+D:\Rural Simples\RuralSimples\bin\Debug\EntityFramework.SqlServer.dll
+D:\Rural Simples\RuralSimples\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Rural Simples\RuralSimples\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\Rural Simples\RuralSimples\bin\Debug\Npgsql.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Buffers.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Collections.Immutable.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Memory.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Numerics.Vectors.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Text.Encodings.Web.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Text.Json.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Threading.Channels.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Rural Simples\RuralSimples\bin\Debug\System.ValueTuple.dll
+D:\Rural Simples\RuralSimples\bin\Debug\EntityFramework.xml
+D:\Rural Simples\RuralSimples\bin\Debug\EntityFramework.SqlServer.xml
+D:\Rural Simples\RuralSimples\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Rural Simples\RuralSimples\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\Rural Simples\RuralSimples\bin\Debug\Npgsql.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Buffers.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Collections.Immutable.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Memory.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Numerics.Vectors.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Text.Encodings.Web.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Text.Json.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Threading.Channels.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Rural Simples\RuralSimples\bin\Debug\System.ValueTuple.xml
+D:\RS\RuralSimples\obj\Debug\RuralSimples.csproj.AssemblyReference.cache
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fCadastroAnimais.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fCadastroPessoa.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fLogin.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.fPrincipal.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.Properties.Resources.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fReproducao.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.csproj.GenerateResource.cache
+D:\RS\RuralSimples\obj\Debug\RuralSimples.csproj.CoreCompileInputs.cache
+D:\RS\RuralSimples\obj\Debug\RuralSimples.exe
+D:\RS\RuralSimples\obj\Debug\RuralSimples.pdb
+D:\RS\RuralSimples\bin\Debug\RuralSimples.exe.config
+D:\RS\RuralSimples\bin\Debug\RuralSimples.exe
+D:\RS\RuralSimples\bin\Debug\RuralSimples.pdb
+D:\RS\RuralSimples\bin\Debug\EntityFramework.SqlServer.dll
+D:\RS\RuralSimples\bin\Debug\EntityFramework.dll
+D:\RS\RuralSimples\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\RS\RuralSimples\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\RS\RuralSimples\bin\Debug\Npgsql.dll
+D:\RS\RuralSimples\bin\Debug\System.Buffers.dll
+D:\RS\RuralSimples\bin\Debug\System.Collections.Immutable.dll
+D:\RS\RuralSimples\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\RS\RuralSimples\bin\Debug\System.Memory.dll
+D:\RS\RuralSimples\bin\Debug\System.Numerics.Vectors.dll
+D:\RS\RuralSimples\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\RS\RuralSimples\bin\Debug\System.Text.Encodings.Web.dll
+D:\RS\RuralSimples\bin\Debug\System.Text.Json.dll
+D:\RS\RuralSimples\bin\Debug\System.Threading.Channels.dll
+D:\RS\RuralSimples\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\RS\RuralSimples\bin\Debug\System.ValueTuple.dll

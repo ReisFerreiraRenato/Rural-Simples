@@ -8,10 +8,13 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>RuralSimples</RootNamespace>
     <AssemblyName>RuralSimples</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,7 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,12 +56,16 @@
   <ItemGroup>
     <Compile Include="Classes\Animal.cs" />
     <Compile Include="Classes\BosTaurus.cs" />
+    <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Contatos.cs" />
     <Compile Include="Classes\Endereco.cs" />
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
     <Compile Include="FontesComuns\ConstantesEValidacoes.cs" />
+    <Compile Include="Model\Conexao.cs" />
+    <Compile Include="Model\Contexto.cs" />
+    <Compile Include="Model\RuralSimplesContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

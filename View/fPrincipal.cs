@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RuralSimples.View;
 using RuralSimples.Fontes_Comuns;
+using Npgsql;
 
 namespace RuralSimples
 {
@@ -17,6 +18,22 @@ namespace RuralSimples
         public fPrincipal()
         {
             InitializeComponent();
+            NpgsqlConnection con = new NpgsqlConnection("Server=34.151.203.114;Port=5432;DataBase=RS_FAZENDA_UNIAO;User Id=postgres;Password= ^GRnI5ts3B*9m#jR;");
+            con.Open();
+            NpgsqlCommand com = new NpgsqlCommand();
+            com.Connection = con;
+            com.CommandType = CommandType.Text;
+            com.CommandText = "select * from pessoas";
+            NpgsqlDataReader dr = com.ExecuteReader();
+            if (dr.HasRows)
+            {
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                DataSet ds = new DataSet();
+                dataGridView1.DataSource = dt;
+            }
+            com.Dispose();
+            con.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

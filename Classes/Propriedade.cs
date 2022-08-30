@@ -34,7 +34,7 @@ namespace RuralSimples.Classes
             Endereco = new Endereco();
             InscricaoEstadual = "";
             InscricaoMunicipal = "";
-            Nome = "";
+            NomeRazaoSocial = "";
             RG = "";
             Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
         }
@@ -55,7 +55,7 @@ namespace RuralSimples.Classes
             this.Longitude = Longitude;
             //Atributos Pessoas
             this.Classificacao = 'A'; //Propriedade
-            this.Nome = Nome;
+            this.NomeRazaoSocial = Nome;
             this.DataNascimentoFundacao = DataNascimentoFundacao;
             this.DataCadastro = DateTime.Today;
             this.Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)

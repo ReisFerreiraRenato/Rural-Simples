@@ -39,18 +39,20 @@ namespace RuralSimples
             this.cadastrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.animaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.estaçãoDeMontaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.estaçãoDeMontaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pbReproducao = new System.Windows.Forms.PictureBox();
             this.pbCadastroAnimais = new System.Windows.Forms.PictureBox();
             this.pbCadastroPessoas = new System.Windows.Forms.PictureBox();
-            this.pbReproducao = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1.SuspendLayout();
             this.mnPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroAnimais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroPessoas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -70,20 +72,20 @@ namespace RuralSimples
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(144, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 26);
             // 
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pessoasToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // pessoasToolStripMenuItem
             // 
             this.pessoasToolStripMenuItem.Name = "pessoasToolStripMenuItem";
-            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.pessoasToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.pessoasToolStripMenuItem.Text = "Pessoas";
             // 
             // mnPrincipal
@@ -108,27 +110,34 @@ namespace RuralSimples
             this.animaisToolStripMenuItem,
             this.pessoasToolStripMenuItem1});
             this.cadastrosToolStripMenuItem1.Name = "cadastrosToolStripMenuItem1";
-            this.cadastrosToolStripMenuItem1.Size = new System.Drawing.Size(115, 35);
+            this.cadastrosToolStripMenuItem1.Size = new System.Drawing.Size(93, 27);
             this.cadastrosToolStripMenuItem1.Text = "&Cadastros";
             // 
             // animaisToolStripMenuItem
             // 
             this.animaisToolStripMenuItem.Name = "animaisToolStripMenuItem";
-            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.animaisToolStripMenuItem.Text = "&Animais";
             this.animaisToolStripMenuItem.Click += new System.EventHandler(this.pbCadastroAnimais_Click);
             // 
             // pessoasToolStripMenuItem1
             // 
             this.pessoasToolStripMenuItem1.Name = "pessoasToolStripMenuItem1";
-            this.pessoasToolStripMenuItem1.Size = new System.Drawing.Size(170, 28);
+            this.pessoasToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
             this.pessoasToolStripMenuItem1.Text = "&Pessoas";
             this.pessoasToolStripMenuItem1.Click += new System.EventHandler(this.pbCadastroPessoas_Click);
+            // 
+            // estaçãoDeMontaToolStripMenuItem
+            // 
+            this.estaçãoDeMontaToolStripMenuItem.Name = "estaçãoDeMontaToolStripMenuItem";
+            this.estaçãoDeMontaToolStripMenuItem.Size = new System.Drawing.Size(106, 27);
+            this.estaçãoDeMontaToolStripMenuItem.Text = "&Reprodução";
+            this.estaçãoDeMontaToolStripMenuItem.Click += new System.EventHandler(this.pbReproducao_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(59, 35);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(49, 27);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -146,12 +155,18 @@ namespace RuralSimples
             this.panel1.Size = new System.Drawing.Size(1199, 65);
             this.panel1.TabIndex = 3;
             // 
-            // estaçãoDeMontaToolStripMenuItem
+            // pbReproducao
             // 
-            this.estaçãoDeMontaToolStripMenuItem.Name = "estaçãoDeMontaToolStripMenuItem";
-            this.estaçãoDeMontaToolStripMenuItem.Size = new System.Drawing.Size(131, 35);
-            this.estaçãoDeMontaToolStripMenuItem.Text = "&Reprodução";
-            this.estaçãoDeMontaToolStripMenuItem.Click += new System.EventHandler(this.pbReproducao_Click);
+            this.pbReproducao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbReproducao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbReproducao.Image = ((System.Drawing.Image)(resources.GetObject("pbReproducao.Image")));
+            this.pbReproducao.Location = new System.Drawing.Point(128, -1);
+            this.pbReproducao.Margin = new System.Windows.Forms.Padding(0);
+            this.pbReproducao.Name = "pbReproducao";
+            this.pbReproducao.Size = new System.Drawing.Size(65, 65);
+            this.pbReproducao.TabIndex = 2;
+            this.pbReproducao.TabStop = false;
+            this.pbReproducao.Click += new System.EventHandler(this.pbReproducao_Click);
             // 
             // pbCadastroAnimais
             // 
@@ -179,24 +194,20 @@ namespace RuralSimples
             this.pbCadastroPessoas.TabStop = false;
             this.pbCadastroPessoas.Click += new System.EventHandler(this.pbCadastroPessoas_Click);
             // 
-            // pbReproducao
+            // dataGridView1
             // 
-            this.pbReproducao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbReproducao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pbReproducao.Image = ((System.Drawing.Image)(resources.GetObject("pbReproducao.Image")));
-            this.pbReproducao.Location = new System.Drawing.Point(128, -1);
-            this.pbReproducao.Margin = new System.Windows.Forms.Padding(0);
-            this.pbReproducao.Name = "pbReproducao";
-            this.pbReproducao.Size = new System.Drawing.Size(65, 65);
-            this.pbReproducao.TabIndex = 2;
-            this.pbReproducao.TabStop = false;
-            this.pbReproducao.Click += new System.EventHandler(this.pbReproducao_Click);
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(535, 116);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(358, 202);
+            this.dataGridView1.TabIndex = 4;
             // 
             // fPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 703);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnPrincipal);
             this.Controls.Add(this.button1);
@@ -211,9 +222,10 @@ namespace RuralSimples
             this.mnPrincipal.ResumeLayout(false);
             this.mnPrincipal.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroAnimais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroPessoas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,6 +246,7 @@ namespace RuralSimples
         private System.Windows.Forms.ToolStripMenuItem animaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estaçãoDeMontaToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbReproducao;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
