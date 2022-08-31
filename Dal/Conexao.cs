@@ -13,7 +13,7 @@ namespace RuralSimples.Model
         //Constructor
         public Conexao()
         {
-            con.ConnectionString = "Server = 34.151.203.114; Port = 5432; DataBase = RS_FAZENDA_UNIAO; User Id = postgres; Password = ^GRnI5ts3B * 9m#jR;";
+            con.ConnectionString = "Server = 34.151.203.114; Port = 5432; DataBase = RS_FAZENDA_UNIAO; User Id = postgres; Password = ^GRnI5ts3B*9m#jR;";
         }
         //Conect
         public NpgsqlConnection Conectar()

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using Npgsql;
+using RuralSimples.Model;
+using RuralSimples.Fontes_Comuns;
 
 namespace RuralSimples.View
 {
@@ -23,8 +25,7 @@ namespace RuralSimples.View
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-            this.Close();
+           
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
@@ -33,31 +34,26 @@ namespace RuralSimples.View
             tbUsuario.Clear();
         }
 
-        private void btOK_Click(object sender, EventArgs e)
+        private void btEntrar_Click(object sender, EventArgs e)
         {
-            if (tbUsuario.Text == "")
+            if (!ValidacoesEConstantes.VerificarTextBoxVazio(tbUsuario, "Login"))
             {
-                MessageBox.Show("O campo Usuário não pode ficar vazio!");
-                tbUsuario.Focus();
-            }
-            else if (tbSenha.Text == "")
-            {
-                MessageBox.Show("O campo Usuário não pode ficar vazio!");
-                tbSenha.Focus();
-            }
-            else
-            {
-                if ((tbUsuario.Text == "ADM") && (tbSenha.Text == "123"))
-                {
-                    this.Close();
-                    principal = new Thread(novoForm);
-                    principal.SetApartmentState(ApartmentState.STA);
-                    principal.Start();
-                }
-                else
-                {
-                    MessageBox.Show("Login inválido!");
-                    tbUsuario.Focus();
+                if (!ValidacoesEConstantes.VerificarTextBoxVazio(tbSenha, "Senha"))
+                 {
+                    ControleLogin controle = new ControleLogin();
+                    controle.acessar(tbUsuario.Text, tbSenha.Text);
+                    if (controle.tem)
+                    {
+                        this.Close();
+                        principal = new Thread(novoForm);
+                        principal.SetApartmentState(ApartmentState.STA);
+                        principal.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuário não encontrado, verifique login e senha!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tbUsuario.Focus();
+                    }
                 }
             }
         }
@@ -69,9 +65,19 @@ namespace RuralSimples.View
 
         private void fLogin_Shown(object sender, EventArgs e)
         {
-            tbUsuario.Text = "ADM";
-            tbSenha.Text = "123";
-            btOK.Focus();
+            tbUsuario.Focus();
+        }
+
+        private void btSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            this.Close();
+        }
+
+        private void btCadastre_Click(object sender, EventArgs e)
+        {
+            fCadastreSe cadastrese = new fCadastreSe();
+            cadastrese.Show();
         }
     }
 }

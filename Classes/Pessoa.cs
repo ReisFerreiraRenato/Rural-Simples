@@ -142,15 +142,14 @@ namespace RuralSimples.Classes
                 //desconectar
                 conexao.Desconectar();
 
-
                 if (!this.Endereco.EstaVazio)
                 {
-                    //
+                    this.Endereco.Salvar();
                 }
 
                 if (!this.Contatos.EstaVazio)
                 {
-                    //
+                    this.Contatos.Salvar();
                 }
                 //retorno OK
                 return true;

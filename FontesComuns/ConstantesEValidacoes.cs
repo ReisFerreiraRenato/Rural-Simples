@@ -46,10 +46,10 @@ namespace RuralSimples.Fontes_Comuns
             {
                 MensagemErro(String.Format("O campo {0} não pode ficar vazio!", campo));
                 objeto.Focus();
-                return false;
+                return true;
             }
             else
-                return true;
+                return false;
         }
         public static Boolean ValidarDouble(TextBox objeto, string campo)
         {

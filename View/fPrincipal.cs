@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RuralSimples.View;
 using RuralSimples.Fontes_Comuns;
 using Npgsql;
+using RuralSimples.Model;
 
 namespace RuralSimples
 {
@@ -38,8 +39,33 @@ namespace RuralSimples
 
         private void button1_Click(object sender, EventArgs e)
         {
-            fReproducao reproducao = new fReproducao();
-            reproducao.Show();
+            //Comando
+            Conexao conexao = new Conexao();
+            NpgsqlCommand cmd = new NpgsqlCommand();
+            //Parametros
+            try
+            {
+                //Conectar
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "insert into teste (nome, telefone) values (@nome, @telefone)";
+                cmd.Parameters.AddWithValue("@nome", eNome.Text);
+                cmd.Parameters.AddWithValue("@telefone", eTelefone.Text);
+                //Executar comandos
+                cmd.Connection = conexao.Conectar();
+                cmd.ExecuteNonQuery();
+                //desconectar
+                conexao.Desconectar();
+                //Mostrar mensagem
+                MessageBox.Show("Cadastrado com sucesso!");
+                eNome.Clear();
+                eTelefone.Clear();
+                eNome.Focus();
+            }
+            catch (NpgsqlException er)
+            {
+                MessageBox.Show("Erro ao cadastrar no BD!" + er.Message);
+            }
+            
         }
 
         private void pbCadastroPessoas_Click(object sender, EventArgs e)

@@ -62,9 +62,10 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
+    <Compile Include="Dal\LoginDaoComandos.cs" />
     <Compile Include="FontesComuns\ConstantesEValidacoes.cs" />
-    <Compile Include="Model\Conexao.cs" />
-    <Compile Include="Model\Contexto.cs" />
+    <Compile Include="Dal\Conexao.cs" />
+    <Compile Include="Model\ControleLogin.cs" />
     <Compile Include="Model\RuralSimplesContext.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -82,6 +83,12 @@
     </Compile>
     <Compile Include="View\fCadastroPessoa.Designer.cs">
       <DependentUpon>fCadastroPessoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fCadastreSe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fCadastreSe.Designer.cs">
+      <DependentUpon>fCadastreSe.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fReproducao.cs">
       <SubType>Form</SubType>
@@ -111,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fCadastreSe.resx">
+      <DependentUpon>fCadastreSe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fPrincipal.resx">
       <DependentUpon>fPrincipal.cs</DependentUpon>
