@@ -1,23 +1,33 @@
-CREATE TABLE PESSOAS(
-    ID_PESSOA VARCHAR(255) PRIMARY KEY,
-	CPF_CNPJ VARCHAR(18) NOT NULL,
-	ACESSOSISTEMA CHAR(1) NOT NULL CHECK (ACESSOSISTEMA IN ('S', 'N')),
-	CLASSIFICACAO CHAR(1) NOT NULL,
-	DATA_NASCIMENTO_FUNDACAO DATE CHECK (DATA_NASCIMENTO_FUNDACAO > '1900-01-01'),
-	DATA_CADASTRO DATE CHECK (DATA_CADASTRO > DATA_NASCIMENTO_FUNDACAO),
-	FANTASIA_FAZENDA VARCHAR(255),	
-	INSCRICAO_ESTADUAL VARCHAR(255),
-	INSCRICAO_MUNICIPAL VARCHAR(255),
-	LOGIN VARCHAR(100),
-	NOME_RAZAO_SOCIAL VARCHAR(255) NOT NULL,
-	ORGAOEMISSOR VARCHAR(100),
-	RG VARCHAR(100),
-	SENHA VARCHAR(50),
-	TIPO CHAR(1) NOT NULL,
-	CHECK (TIPO IN ('F', 'J')),
-	CHECK (CLASSIFICACAO IN ('A', 'C', 'F', 'P', 'O', 'S', 'F'))
-);
-INSERT INTO pessoas (id_pessoa, cpf_cnpj, acessosistema, classificacao, data_nascimento_fundacao,
-				data_cadastro, fantasia_fazenda, login, nome_razao_social, senha, tipo)
-			VALUES ('1', '123.456.789-00', 'S', 'A', '2010-01-01', '2022-09-01', 'USER MASTER', 
-					'ADM', 'USER MASTER', '123456', 'F');
+-- Table: public.pessoas
+
+-- DROP TABLE IF EXISTS public.pessoas;
+
+CREATE TABLE IF NOT EXISTS public.pessoas
+(
+    id_pessoa character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    cpf_cnpj character varying(18) COLLATE pg_catalog."default" NOT NULL,
+    acesso_sistema character(1) COLLATE pg_catalog."default" NOT NULL,
+    classificacao character(1) COLLATE pg_catalog."default" NOT NULL,
+    data_nascimento_fundacao date,
+    data_cadastro date,
+    fantasia_fazenda character varying(255) COLLATE pg_catalog."default",
+    inscricao_estadual character varying(255) COLLATE pg_catalog."default",
+    inscricao_municipal character varying(255) COLLATE pg_catalog."default",
+    login character varying(100) COLLATE pg_catalog."default",
+    nome_razao_social character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    orgao_emissor character varying(100) COLLATE pg_catalog."default",
+    rg character varying(100) COLLATE pg_catalog."default",
+    senha character varying(50) COLLATE pg_catalog."default",
+    tipo character(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pessoas_pkey PRIMARY KEY (id_pessoa),
+    CONSTRAINT pessoas_acessosistema_check CHECK (acesso_sistema = ANY (ARRAY['S'::bpchar, 'N'::bpchar])),
+    CONSTRAINT pessoas_data_nascimento_fundacao_check CHECK (data_nascimento_fundacao > '1900-01-01'::date),
+    CONSTRAINT pessoas_check CHECK (data_cadastro > data_nascimento_fundacao),
+    CONSTRAINT pessoas_tipo_check CHECK (tipo = ANY (ARRAY['F'::bpchar, 'J'::bpchar])),
+    CONSTRAINT pessoas_classificacao_check CHECK (classificacao = ANY (ARRAY['A'::bpchar, 'C'::bpchar, 'F'::bpchar, 'P'::bpchar, 'O'::bpchar, 'S'::bpchar, 'F'::bpchar]))
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.pessoas
+    OWNER to postgres;
