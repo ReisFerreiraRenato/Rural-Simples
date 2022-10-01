@@ -29,7 +29,6 @@ namespace RuralSimples.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReproducao));
             this.lbIdentificacao = new System.Windows.Forms.Label();
             this.eIdentificacao = new System.Windows.Forms.TextBox();
@@ -66,7 +65,10 @@ namespace RuralSimples.View
             this.clObservacoesParto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbTitulo = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lbCodigo = new System.Windows.Forms.Label();
+            this.eCodigo = new System.Windows.Forms.TextBox();
+            this.lbAnimal = new System.Windows.Forms.Label();
+            this.lbNomeAnimal = new System.Windows.Forms.Label();
             this.pnEstacoesMonta.SuspendLayout();
             this.pnTituloEstacoesMonta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgEstacoesMonta)).BeginInit();
@@ -80,20 +82,20 @@ namespace RuralSimples.View
             // 
             this.lbIdentificacao.AutoSize = true;
             this.lbIdentificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdentificacao.Location = new System.Drawing.Point(8, 44);
+            this.lbIdentificacao.Location = new System.Drawing.Point(11, 50);
             this.lbIdentificacao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbIdentificacao.Name = "lbIdentificacao";
-            this.lbIdentificacao.Size = new System.Drawing.Size(121, 25);
+            this.lbIdentificacao.Size = new System.Drawing.Size(100, 20);
             this.lbIdentificacao.TabIndex = 33;
             this.lbIdentificacao.Text = "Identificação";
             // 
             // eIdentificacao
             // 
             this.eIdentificacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eIdentificacao.Location = new System.Drawing.Point(141, 41);
+            this.eIdentificacao.Location = new System.Drawing.Point(123, 47);
             this.eIdentificacao.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.eIdentificacao.Name = "eIdentificacao";
-            this.eIdentificacao.Size = new System.Drawing.Size(220, 30);
+            this.eIdentificacao.Size = new System.Drawing.Size(150, 26);
             this.eIdentificacao.TabIndex = 0;
             // 
             // pnEstacoesMonta
@@ -110,7 +112,7 @@ namespace RuralSimples.View
             this.pnEstacoesMonta.Controls.Add(this.eNomePai);
             this.pnEstacoesMonta.Controls.Add(this.dgEstacoesMonta);
             this.pnEstacoesMonta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnEstacoesMonta.Location = new System.Drawing.Point(6, 87);
+            this.pnEstacoesMonta.Location = new System.Drawing.Point(6, 121);
             this.pnEstacoesMonta.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.pnEstacoesMonta.Name = "pnEstacoesMonta";
             this.pnEstacoesMonta.Size = new System.Drawing.Size(740, 329);
@@ -121,7 +123,7 @@ namespace RuralSimples.View
             this.eDataToque.Location = new System.Drawing.Point(448, 81);
             this.eDataToque.Mask = "00/00/0000";
             this.eDataToque.Name = "eDataToque";
-            this.eDataToque.Size = new System.Drawing.Size(154, 30);
+            this.eDataToque.Size = new System.Drawing.Size(154, 26);
             this.eDataToque.TabIndex = 4;
             this.eDataToque.ValidatingType = typeof(System.DateTime);
             this.eDataToque.TextChanged += new System.EventHandler(this.eDataToque_TextChanged);
@@ -131,7 +133,7 @@ namespace RuralSimples.View
             this.eDataInseminacao.Location = new System.Drawing.Point(5, 81);
             this.eDataInseminacao.Mask = "00/00/0000";
             this.eDataInseminacao.Name = "eDataInseminacao";
-            this.eDataInseminacao.Size = new System.Drawing.Size(160, 30);
+            this.eDataInseminacao.Size = new System.Drawing.Size(160, 26);
             this.eDataInseminacao.TabIndex = 2;
             this.eDataInseminacao.ValidatingType = typeof(System.DateTime);
             this.eDataInseminacao.TextChanged += new System.EventHandler(this.eDataInseminacao_TextChanged);
@@ -142,7 +144,7 @@ namespace RuralSimples.View
             this.ckPrenhez.Location = new System.Drawing.Point(614, 49);
             this.ckPrenhez.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckPrenhez.Name = "ckPrenhez";
-            this.ckPrenhez.Size = new System.Drawing.Size(97, 29);
+            this.ckPrenhez.Size = new System.Drawing.Size(79, 24);
             this.ckPrenhez.TabIndex = 5;
             this.ckPrenhez.Text = "Prenha";
             this.ckPrenhez.UseVisualStyleBackColor = true;
@@ -154,7 +156,7 @@ namespace RuralSimples.View
             this.lbDataConfirmacao.Location = new System.Drawing.Point(443, 50);
             this.lbDataConfirmacao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbDataConfirmacao.Name = "lbDataConfirmacao";
-            this.lbDataConfirmacao.Size = new System.Drawing.Size(115, 25);
+            this.lbDataConfirmacao.Size = new System.Drawing.Size(93, 20);
             this.lbDataConfirmacao.TabIndex = 34;
             this.lbDataConfirmacao.Text = "Data Toque";
             // 
@@ -166,7 +168,7 @@ namespace RuralSimples.View
             this.pnTituloEstacoesMonta.Location = new System.Drawing.Point(-2, -2);
             this.pnTituloEstacoesMonta.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.pnTituloEstacoesMonta.Name = "pnTituloEstacoesMonta";
-            this.pnTituloEstacoesMonta.Size = new System.Drawing.Size(1338, 33);
+            this.pnTituloEstacoesMonta.Size = new System.Drawing.Size(740, 33);
             this.pnTituloEstacoesMonta.TabIndex = 0;
             // 
             // ckNaoSeAplicaInseminacao
@@ -175,7 +177,7 @@ namespace RuralSimples.View
             this.ckNaoSeAplicaInseminacao.Location = new System.Drawing.Point(14, 4);
             this.ckNaoSeAplicaInseminacao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckNaoSeAplicaInseminacao.Name = "ckNaoSeAplicaInseminacao";
-            this.ckNaoSeAplicaInseminacao.Size = new System.Drawing.Size(152, 29);
+            this.ckNaoSeAplicaInseminacao.Size = new System.Drawing.Size(123, 24);
             this.ckNaoSeAplicaInseminacao.TabIndex = 1;
             this.ckNaoSeAplicaInseminacao.Text = "Não se aplica";
             this.ckNaoSeAplicaInseminacao.UseVisualStyleBackColor = true;
@@ -186,7 +188,7 @@ namespace RuralSimples.View
             this.lbEstacoesMonta.Location = new System.Drawing.Point(275, 4);
             this.lbEstacoesMonta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbEstacoesMonta.Name = "lbEstacoesMonta";
-            this.lbEstacoesMonta.Size = new System.Drawing.Size(180, 25);
+            this.lbEstacoesMonta.Size = new System.Drawing.Size(147, 20);
             this.lbEstacoesMonta.TabIndex = 23;
             this.lbEstacoesMonta.Text = "Estações de Monta";
             // 
@@ -196,7 +198,7 @@ namespace RuralSimples.View
             this.lbIdentificacaoPai.Location = new System.Drawing.Point(172, 50);
             this.lbIdentificacaoPai.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbIdentificacaoPai.Name = "lbIdentificacaoPai";
-            this.lbIdentificacaoPai.Size = new System.Drawing.Size(154, 25);
+            this.lbIdentificacaoPai.Size = new System.Drawing.Size(126, 20);
             this.lbIdentificacaoPai.TabIndex = 30;
             this.lbIdentificacaoPai.Text = "Identificação Pai";
             // 
@@ -206,7 +208,7 @@ namespace RuralSimples.View
             this.lbDataInseminacao.Location = new System.Drawing.Point(1, 50);
             this.lbDataInseminacao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbDataInseminacao.Name = "lbDataInseminacao";
-            this.lbDataInseminacao.Size = new System.Drawing.Size(111, 25);
+            this.lbDataInseminacao.Size = new System.Drawing.Size(92, 20);
             this.lbDataInseminacao.TabIndex = 29;
             this.lbDataInseminacao.Text = "Data Insem";
             // 
@@ -226,7 +228,7 @@ namespace RuralSimples.View
             this.eNomePai.Location = new System.Drawing.Point(177, 81);
             this.eNomePai.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.eNomePai.Name = "eNomePai";
-            this.eNomePai.Size = new System.Drawing.Size(259, 30);
+            this.eNomePai.Size = new System.Drawing.Size(259, 26);
             this.eNomePai.TabIndex = 3;
             // 
             // dgEstacoesMonta
@@ -289,38 +291,38 @@ namespace RuralSimples.View
             this.pnPartos.Controls.Add(this.eObservacaoParto);
             this.pnPartos.Controls.Add(this.dgPartos);
             this.pnPartos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnPartos.Location = new System.Drawing.Point(6, 416);
+            this.pnPartos.Location = new System.Drawing.Point(6, 451);
             this.pnPartos.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.pnPartos.Name = "pnPartos";
-            this.pnPartos.Size = new System.Drawing.Size(740, 351);
+            this.pnPartos.Size = new System.Drawing.Size(740, 316);
             this.pnPartos.TabIndex = 2;
             // 
             // eDataParto
             // 
-            this.eDataParto.Location = new System.Drawing.Point(148, 71);
+            this.eDataParto.Location = new System.Drawing.Point(147, 72);
             this.eDataParto.Mask = "00/00/0000";
             this.eDataParto.Name = "eDataParto";
-            this.eDataParto.Size = new System.Drawing.Size(116, 30);
+            this.eDataParto.Size = new System.Drawing.Size(116, 26);
             this.eDataParto.TabIndex = 9;
             this.eDataParto.ValidatingType = typeof(System.DateTime);
             this.eDataParto.TextChanged += new System.EventHandler(this.eDataParto_TextChanged);
             // 
             // eDataPrevisaoParto
             // 
-            this.eDataPrevisaoParto.Location = new System.Drawing.Point(6, 71);
+            this.eDataPrevisaoParto.Location = new System.Drawing.Point(5, 72);
             this.eDataPrevisaoParto.Mask = "00/00/0000";
             this.eDataPrevisaoParto.Name = "eDataPrevisaoParto";
-            this.eDataPrevisaoParto.Size = new System.Drawing.Size(126, 30);
+            this.eDataPrevisaoParto.Size = new System.Drawing.Size(126, 26);
             this.eDataPrevisaoParto.TabIndex = 8;
             this.eDataPrevisaoParto.ValidatingType = typeof(System.DateTime);
             // 
             // lbDataPrevisaoParto
             // 
             this.lbDataPrevisaoParto.AutoSize = true;
-            this.lbDataPrevisaoParto.Location = new System.Drawing.Point(1, 40);
+            this.lbDataPrevisaoParto.Location = new System.Drawing.Point(0, 41);
             this.lbDataPrevisaoParto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbDataPrevisaoParto.Name = "lbDataPrevisaoParto";
-            this.lbDataPrevisaoParto.Size = new System.Drawing.Size(108, 25);
+            this.lbDataPrevisaoParto.Size = new System.Drawing.Size(86, 20);
             this.lbDataPrevisaoParto.TabIndex = 39;
             this.lbDataPrevisaoParto.Text = "Prev. Parto";
             // 
@@ -340,33 +342,33 @@ namespace RuralSimples.View
             this.lbPartos.Location = new System.Drawing.Point(340, 10);
             this.lbPartos.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbPartos.Name = "lbPartos";
-            this.lbPartos.Size = new System.Drawing.Size(68, 25);
+            this.lbPartos.Size = new System.Drawing.Size(55, 20);
             this.lbPartos.TabIndex = 23;
             this.lbPartos.Text = "Partos";
             // 
             // lbObservacaoParto
             // 
             this.lbObservacaoParto.AutoSize = true;
-            this.lbObservacaoParto.Location = new System.Drawing.Point(274, 40);
+            this.lbObservacaoParto.Location = new System.Drawing.Point(273, 41);
             this.lbObservacaoParto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbObservacaoParto.Name = "lbObservacaoParto";
-            this.lbObservacaoParto.Size = new System.Drawing.Size(119, 25);
+            this.lbObservacaoParto.Size = new System.Drawing.Size(94, 20);
             this.lbObservacaoParto.TabIndex = 30;
             this.lbObservacaoParto.Text = "Observação";
             // 
             // lbDataParto
             // 
             this.lbDataParto.AutoSize = true;
-            this.lbDataParto.Location = new System.Drawing.Point(143, 40);
+            this.lbDataParto.Location = new System.Drawing.Point(142, 41);
             this.lbDataParto.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbDataParto.Name = "lbDataParto";
-            this.lbDataParto.Size = new System.Drawing.Size(104, 25);
+            this.lbDataParto.Size = new System.Drawing.Size(86, 20);
             this.lbDataParto.TabIndex = 29;
             this.lbDataParto.Text = "Data Parto";
             // 
             // btAdicionarParto
             // 
-            this.btAdicionarParto.Location = new System.Drawing.Point(625, 65);
+            this.btAdicionarParto.Location = new System.Drawing.Point(624, 66);
             this.btAdicionarParto.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.btAdicionarParto.Name = "btAdicionarParto";
             this.btAdicionarParto.Size = new System.Drawing.Size(108, 36);
@@ -377,10 +379,10 @@ namespace RuralSimples.View
             // 
             // eObservacaoParto
             // 
-            this.eObservacaoParto.Location = new System.Drawing.Point(279, 71);
+            this.eObservacaoParto.Location = new System.Drawing.Point(278, 72);
             this.eObservacaoParto.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.eObservacaoParto.Name = "eObservacaoParto";
-            this.eObservacaoParto.Size = new System.Drawing.Size(333, 30);
+            this.eObservacaoParto.Size = new System.Drawing.Size(333, 26);
             this.eObservacaoParto.TabIndex = 10;
             // 
             // dgPartos
@@ -391,14 +393,14 @@ namespace RuralSimples.View
             this.clDataParto,
             this.clObservacoesParto});
             this.dgPartos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgPartos.Location = new System.Drawing.Point(6, 117);
+            this.dgPartos.Location = new System.Drawing.Point(5, 107);
             this.dgPartos.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.dgPartos.MultiSelect = false;
             this.dgPartos.Name = "dgPartos";
             this.dgPartos.RowHeadersVisible = false;
             this.dgPartos.RowHeadersWidth = 51;
             this.dgPartos.RowTemplate.Height = 24;
-            this.dgPartos.Size = new System.Drawing.Size(727, 229);
+            this.dgPartos.Size = new System.Drawing.Size(727, 204);
             this.dgPartos.TabIndex = 12;
             // 
             // clPrevisaoParto
@@ -434,24 +436,60 @@ namespace RuralSimples.View
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
-            this.lbTitulo.Font = new System.Drawing.Font("Arial Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(365, 4);
+            this.lbTitulo.Font = new System.Drawing.Font("Arial Black", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitulo.Location = new System.Drawing.Point(339, 0);
             this.lbTitulo.Name = "lbTitulo";
-            this.lbTitulo.Size = new System.Drawing.Size(141, 28);
+            this.lbTitulo.Size = new System.Drawing.Size(139, 27);
             this.lbTitulo.TabIndex = 0;
             this.lbTitulo.Text = "Reprodução";
             // 
-            // contextMenuStrip1
+            // lbCodigo
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.Location = new System.Drawing.Point(282, 50);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(59, 20);
+            this.lbCodigo.TabIndex = 38;
+            this.lbCodigo.Text = "Código";
+            // 
+            // eCodigo
+            // 
+            this.eCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eCodigo.Location = new System.Drawing.Point(350, 47);
+            this.eCodigo.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.eCodigo.Name = "eCodigo";
+            this.eCodigo.Size = new System.Drawing.Size(150, 26);
+            this.eCodigo.TabIndex = 39;
+            // 
+            // lbAnimal
+            // 
+            this.lbAnimal.AutoSize = true;
+            this.lbAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAnimal.Location = new System.Drawing.Point(1, 87);
+            this.lbAnimal.Name = "lbAnimal";
+            this.lbAnimal.Size = new System.Drawing.Size(78, 25);
+            this.lbAnimal.TabIndex = 40;
+            this.lbAnimal.Text = "Animal:";
+            // 
+            // lbNomeAnimal
+            // 
+            this.lbNomeAnimal.AutoSize = true;
+            this.lbNomeAnimal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNomeAnimal.Location = new System.Drawing.Point(85, 87);
+            this.lbNomeAnimal.Name = "lbNomeAnimal";
+            this.lbNomeAnimal.Size = new System.Drawing.Size(139, 25);
+            this.lbNomeAnimal.TabIndex = 41;
+            this.lbNomeAnimal.Text = "lbNomeAnimal";
             // 
             // fReproducao
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 767);
+            this.Controls.Add(this.lbNomeAnimal);
+            this.Controls.Add(this.lbAnimal);
+            this.Controls.Add(this.eCodigo);
+            this.Controls.Add(this.lbCodigo);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnEstacoesMonta);
             this.Controls.Add(this.pnPartos);
@@ -513,10 +551,13 @@ namespace RuralSimples.View
         private System.Windows.Forms.DataGridViewTextBoxColumn clPrevisaoParto;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDataParto;
         private System.Windows.Forms.DataGridViewTextBoxColumn clObservacoesParto;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MaskedTextBox eDataInseminacao;
         private System.Windows.Forms.MaskedTextBox eDataToque;
         private System.Windows.Forms.MaskedTextBox eDataPrevisaoParto;
         private System.Windows.Forms.MaskedTextBox eDataParto;
+        private System.Windows.Forms.Label lbCodigo;
+        private System.Windows.Forms.TextBox eCodigo;
+        private System.Windows.Forms.Label lbAnimal;
+        private System.Windows.Forms.Label lbNomeAnimal;
     }
 }

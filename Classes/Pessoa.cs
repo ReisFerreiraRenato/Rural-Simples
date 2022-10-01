@@ -9,180 +9,121 @@ namespace RuralSimples.Classes
     class Pessoa
     {
 
-        private string FID;
+        private int FIDPessoa;
         private string FAcessoSistema; //S - Sim; N - Não
-        private string FCFPCNPJ;
-        private char FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
+        private string FCpf;
+        private string FCnpj;
+        private string FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
         private DateTime FDataNascimentoFundacao;
         private DateTime FDataCadastro;
         private string FInscricaoEstadual;
         private string FInscricaoMunicipal;
         private string FLogin;
         private string FNomeRazaoSocial;
-        private string FOrgaoEmissor;
-        private string FFantasiaFazenda;
+        private string FNomeFantasia;
+        private string FOrgaoExpedidor;
+        private string FNomeFazenda;
         private string FRG;
         private string FSenha;
-        private char FTipo; //Pessoa Física ou Jurídica (F ou J)
-        private Endereco FEndereco;
-        private Contatos FContatos;
+        private string FTipoPessoa; //Pessoa Física ou Jurídica (F ou J)
+        private string FInativo;
+        private string FMensagemSalvarAtualizar;
+        private string FUfOrgaoExpedidor;
+        private string FObservacoes;
+        private bool FEstaVazio;
 
         public Pessoa()
         {
-            Guid g = new Guid();
-            ID = g.ToString();
-            AcessoSistema = "N";
-            CFPCNPJ = "";
-            Classificacao = 'C';
-            Contatos = new Contatos();
-            DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
-            DataCadastro = DateTime.Today;
-            FantasiaFazenda = "";
-            InscricaoEstadual = "";
-            InscricaoMunicipal = "";
-            Login = "";
-            NomeRazaoSocial = "";
-            OrgaoEmissor = "";
-            RG = "";
-            Senha = "";
-            Tipo = 'F';
-            Endereco = new Endereco();
-            Contatos = new Contatos();
+            PeencherClasse(0, "", "", new DateTime(1900, 1, 1, 1, 0, 0), DateTime.Today, "",
+                "", "", "", "", "", "", "", "",
+                "", "", "", "", "", "", true);
         }
-        public Pessoa(String nomerazaosocial, char classificacao, DateTime datanascimentofundacao, char tipo, string CPFCNPJ,
-                string rg, String inscricaoestadual, String inscricaomunicipal, string fantasiafazenda, string orgaoemissor, 
-                string login, string senha, string acessosistema, Endereco endereco, Contatos contato)
+        public Pessoa(int idPessoa, String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo, 
+                string cpf, string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, string orgaoExpedidor,
+                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
         {
-            Guid g = new Guid();
-            this.ID = g.ToString();
-            PeencherClasse(nomerazaosocial, classificacao, datanascimentofundacao, tipo, CPFCNPJ, rg, inscricaoestadual, inscricaomunicipal, 
-                fantasiafazenda,  orgaoemissor, login, senha, acessosistema, endereco, contato);
+            PeencherClasse(idPessoa, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
+                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
         }
-        public void PeencherClasse(String nomerazaosocial, char classificacao, DateTime datanascimentofundacao, char tipo, string CPFCNPJ,
-                string rg, String inscricaoestadual, String inscricaomunicipal, string fantasiafazenda, string orgaoemissor, string login, string senha,
-                string acessosistema, Endereco endereco, Contatos contato)
+        public Pessoa(String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo,
+                string cpf, string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, string orgaoExpedidor,
+                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
         {
+            PeencherClasse(0, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
+                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
+        }
+
+        public void PeencherClasse(int idPessoa, String nomerazaosocial, String classificacao, DateTime datanascimentofundacao, DateTime datacadastro, String tipoPessoa, 
+                String cpf, String cnpj, String rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, String orgaoExpedidor, 
+                String login, String senha, String acessosistema, String inativo, String observacoes, String ufOrgaoExpedidor, bool estaVazio)
+        {
+            this.IDPessoa = idPessoa;
             this.AcessoSistema = acessosistema;
-            this.CFPCNPJ = CPFCNPJ;
+            this.Inativo = inativo;
+            this.CPF = cpf;
+            this.CNPJ = cnpj;
             this.Classificacao = classificacao;
-            this.Contatos = contato;
             this.DataNascimentoFundacao = datanascimentofundacao;
-            this.DataCadastro = DateTime.Today;
-            this.Endereco = endereco;
-            this.FantasiaFazenda = fantasiafazenda;
+            this.DataCadastro = datacadastro;
+            this.DataCadastro = datacadastro;
+            this.NomeFantasia = nomeFantasia;
+            this.NomeFazenda = nomeFazenda;
             this.InscricaoEstadual = inscricaoestadual;
             this.InscricaoMunicipal = inscricaomunicipal;
             this.Login = login;
             this.NomeRazaoSocial = nomerazaosocial;
-            this.OrgaoEmissor = orgaoemissor;
+            this.OrgaoExpedidor = orgaoExpedidor;
             this.RG = rg;
+            this.UfOrgaoExpedidor = ufOrgaoExpedidor;
             this.Senha = senha;
-            this.Tipo = tipo;
+            this.TipoPessoa = tipoPessoa;
+            this.Observacoes = observacoes;
+            this.EstaVazio = estaVazio;
         }
         public Boolean Salvar()
         {
-            try
-            {
-                Conexao conexao = new Conexao();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                //Comando Sql - Salvando Cadastro de Pessoas 
-                cmd.CommandText = "insert into pessoas (" +
-                    "id_pessoa, " +
-                    "acesso_sistema, " +
-                    "cpf_cnpj, " +
-                    "classificacao," +
-                    "data_nascimento_fundacao," +
-                    "data_cadastro," +
-                    "fantasia_fazenda," +
-                    "inscricao_estadual," +
-                    "inscricao_municipal," +
-                    "login," +
-                    "nome_razao_social," +
-                    "orgao_emissor," +
-                    "rg," +
-                    "senha," +
-                    "tipo )" +
-                    " values (" +
-                    "@id_pessoa, " +
-                    "@acesso_sistema, " +
-                    "@cpf_cnpj, " +
-                    "@classificacao," +
-                    "@data_nascimento_fundacao," +
-                    "@data_cadastro," +
-                    "@fantasia_fazenda," +
-                    "@inscricao_estadual," +
-                    "@inscricao_municipal," +
-                    "@login," +
-                    "@nome_razao_social," +
-                    "@orgao_emissor," +
-                    "@rg," +
-                    "@senha," +
-                    "@tipo )";
-                //Parametros
-                cmd.Parameters.AddWithValue("@id_pessoa", this.ID);
-                cmd.Parameters.AddWithValue("@acesso_sistema", this.AcessoSistema);
-                cmd.Parameters.AddWithValue("@cpf_cnpj", this.CFPCNPJ);
-                cmd.Parameters.AddWithValue("@classificacao", this.Classificacao);
-                cmd.Parameters.AddWithValue("@data_nascimento_fundacao", this.DataNascimentoFundacao);
-                cmd.Parameters.AddWithValue("@data_cadastro", this.DataCadastro);
-                cmd.Parameters.AddWithValue("@fantasia_fazenda", this.FantasiaFazenda);
-                cmd.Parameters.AddWithValue("@inscricao_estadual", this.InscricaoEstadual);
-                cmd.Parameters.AddWithValue("@inscricao_municipal", this.InscricaoMunicipal);
-                cmd.Parameters.AddWithValue("@login", this.Login);
-                cmd.Parameters.AddWithValue("@nome_razao_social", this.NomeRazaoSocial);
-                cmd.Parameters.AddWithValue("@orgao_emissor", this.OrgaoEmissor);
-                cmd.Parameters.AddWithValue("@rg", this.RG);
-                cmd.Parameters.AddWithValue("@senha", this.Senha);
-                cmd.Parameters.AddWithValue("@tipo", this.Tipo);
-            
-                //conectar com banco
-                cmd.Connection = conexao.Conectar();
-                //executar comando
-                cmd.ExecuteNonQuery();
-                //desconectar
-                conexao.Desconectar();
+            ControlePessoas controlePessoa = new ControlePessoas();
 
-                if (!this.Endereco.EstaVazio)
-                {
-                    this.Endereco.Salvar();
-                }
-
-                if (!this.Contatos.EstaVazio)
-                {
-                    this.Contatos.Salvar();
-                }
-                //retorno OK
-                return true;
-            }
-            catch (NpgsqlException e)
-            {
-                return false;
-            }
+            //retorno OK
+            if (this.IDPessoa != 0)
+                return controlePessoa.salvar(this);
+            else
+                return controlePessoa.inserir(this);
         }
-        public Boolean Salvar(String nomerazaosocial, char classificacao, DateTime datanascimentofundacao, char tipo, string cpfcnpj,
-                      string rg, String inscricaoestadual, String inscricaomunicipal, string fantasiafazenda, string orgaoemissor, string login, string senha,
-                      string acessosistema, Endereco endereco, Contatos contato)
+        public Boolean Salvar(int idPessoa, String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo, string cpf,
+                string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, string fantasia, String fazenda, string orgaoemissor,
+                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
         {
-            PeencherClasse(nomerazaosocial, classificacao, datanascimentofundacao, tipo, cpfcnpj, rg, inscricaoestadual, inscricaomunicipal, fantasiafazenda, orgaoemissor,
-                login, senha, acessosistema, endereco, contato);
+            PeencherClasse(idPessoa, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
+                fantasia, fazenda, orgaoemissor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
             return Salvar();
         }
-        public string ID
+        public int IDPessoa
         {
-            get { return FID; }
-            set { FID = value; }
+            get { return FIDPessoa; }
+            set { FIDPessoa = value; }
         }
         public string AcessoSistema
         {
             get { return FAcessoSistema; }
             set { FAcessoSistema = value; }
         }
-        public string CFPCNPJ
+        public string Inativo
         {
-            get { return FCFPCNPJ; }
-            set { FCFPCNPJ = value; }
+            get { return FInativo; }
+            set { FInativo = value; }
         }
-        public char Classificacao
+        public string CPF
+        {
+            get { return FCpf; }
+            set { FCpf = value; }
+        }
+        public string CNPJ
+        {
+            get { return FCnpj; }
+            set { FCnpj = value; }
+        }
+        public string Classificacao
         {
             get { return FClassificacao; }
             set { FClassificacao = value; }
@@ -197,10 +138,15 @@ namespace RuralSimples.Classes
             get { return FDataNascimentoFundacao; }
             set { FDataNascimentoFundacao = value; }
         }
-        public string FantasiaFazenda
+        public string NomeFantasia
         {
-            get { return FFantasiaFazenda; }
-            set { FFantasiaFazenda = value; }
+            get { return FNomeFantasia; }
+            set { FNomeFantasia = value; }
+        }
+        public string NomeFazenda
+        {
+            get { return FNomeFazenda; }
+            set { FNomeFazenda = value; }
         }
         public string Login
         {
@@ -212,10 +158,10 @@ namespace RuralSimples.Classes
             get { return FNomeRazaoSocial; }
             set { FNomeRazaoSocial = value; }
         }        
-        public string OrgaoEmissor
+        public string OrgaoExpedidor
         {
-            get { return FOrgaoEmissor; }
-            set { FOrgaoEmissor = value; }
+            get { return FOrgaoExpedidor; }
+            set { FOrgaoExpedidor = value; }
         }
         public string RG
         {
@@ -227,10 +173,10 @@ namespace RuralSimples.Classes
             get { return FSenha; }
             set { FSenha = value; }
         }
-        public char Tipo
+        public string TipoPessoa
         {
-            get { return FTipo; }
-            set { FTipo = value; }
+            get { return FTipoPessoa; }
+            set { FTipoPessoa = value; }
         }
         public string InscricaoEstadual
         {
@@ -242,15 +188,26 @@ namespace RuralSimples.Classes
             get { return FInscricaoMunicipal; }
             set { FInscricaoMunicipal = value; }
         }
-        public Endereco Endereco
+        public String MensagemSalvarAtualizar
         {
-            get { return FEndereco; }
-            set { FEndereco = value; }
+            get { return FMensagemSalvarAtualizar; }
+            set { FMensagemSalvarAtualizar = value; }
         }
-        public Contatos Contatos
+        public String UfOrgaoExpedidor
         {
-            get { return FContatos; }
-            set { FContatos = value; }
+            get { return FUfOrgaoExpedidor; }
+            set { FUfOrgaoExpedidor = value; }
+        }
+        //Endereco
+        public String Observacoes
+        {
+            get { return FObservacoes; }
+            set { FObservacoes = value; }
+        }
+        public bool EstaVazio
+        {
+            get { return FEstaVazio; }
+            set { FEstaVazio = value; }
         }
     }
 }

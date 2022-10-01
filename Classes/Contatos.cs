@@ -8,78 +8,75 @@ using System.Threading.Tasks;
 
 namespace RuralSimples.Classes
 {
-    class Contatos
+    class Contato
     {
-        private string FIDContato;
-        private string FIDPessoa;
-        private string[] FTelFixo;
-        private string[] FCelular;
-        private string FFacebook;
-        private string FTwiter;
-        private string FLinkedin;
-        private string FInstagram;
-        private string FGitHub;
-        private string FSite;
-        private string FPinterest;
-        private string FTikTok;
-        private string FSnapchat;
-        private string FSkype;
-        private string FMessenger;
-        private string FTeams;
-        private string FYoutube;
+        private int FIDContato;
+        private int FIDPessoa;
+        private String FTelefoneFixo;
+        private String FCelular;
+        private String FFacebook;
+        private String FInstagram;
+        private String FTwiter;
+        private String FTikTok;
+        private String FYoutube;
+        private String FSite;
+        private String FCelularWhats;
+        private String FEmail;
+        private String FTelefoneRecado;
+        private String FNomePessoaRecado;
+
         private Boolean FEstaVazio;
 
-        public Contatos()
+        public Contato()
         {
-            Guid g = new Guid();
-            IDContato = g.ToString();
-            IDPessoa = "";
-            FTelFixo = null;
-            FCelular = null;
-            EstaVazio = true;
+            IDContato = 0;
+            IDPessoa = 0;
+            TelefoneFixo = "";
+            Celular = "";
+            
             Facebook = "";
-            Twiter = "";
-            Linkedin = "";
             Instagram = "";
-            GitHub = "";
-            Site = "";
-            Pinterest = "";
+            Twiter = "";
             TikTok = "";
-            Snapchat = "";
-            Skype = "";
-            Messeger = "";
-            Teams = "";
             Youtube = "";
+            Site = "";
+            CelularWhats = "";
+            Email = "";
+            TelefoneRecado = "";
+            NomePessoaRecado = "";
+
+            EstaVazio = true;
         }
-        public Contatos(string[] telefones, string[] celulares, string facebook, string twiter, string linkedin,
-                        string instagram, string github, string site, string pinterest, string tiktok,
-                        string snapchat, string skype, string messeger, string teams, string youtube)
+        public Contato(int idPessoa, String telefoneFixo, String celular, String facebook, String twiter, String nomePessoaRecado, String instagram, 
+            String telefoneRecado, String site, String email, String tiktok, String celularWhats, String youtube)
         {
-            Guid g = new Guid();
-            IDContato = g.ToString();
-            PreencherClasse(telefones, celulares, facebook, twiter, linkedin, instagram, github, site, pinterest, tiktok, 
-                snapchat, skype, messeger, teams, youtube);
+            preencherClasse(0, idPessoa, telefoneFixo, celular, facebook, twiter, nomePessoaRecado, instagram, telefoneRecado, site, email, tiktok,
+                celularWhats, youtube, false);
         }
-        public void PreencherClasse(string[] telefones, string[] celulares, string facebook, string twiter, string linkedin,
-                                    string instagram, string github, string site, string pinterest, string tiktok,
-                                    string snapchat, string skype, string messeger, string teams, string youtube)
+        public Contato(int idContato, int idPessoa, String telefoneFixo, String celular, String facebook, String twiter, String nomePessoaRecado,
+                        String instagram, String telefoneRecado, String site, String email, String tiktok, String celularWhats, String youtube)
         {
-            setTelFixo(telefones);
-            setCelular(celulares);
-            EstaVazio = false;
-            Facebook = facebook;
-            Twiter = twiter;
-            Linkedin = linkedin;
-            Instagram = instagram;
-            GitHub = github;
-            Site = site;
-            Pinterest = pinterest;
-            TikTok = tiktok;
-            Snapchat = snapchat;
-            Skype = skype;
-            Messeger = messeger;
-            Teams = teams;
-            Youtube = youtube;
+            preencherClasse(idContato, idPessoa, telefoneFixo, celular, facebook, twiter, nomePessoaRecado, instagram, telefoneRecado, site, email, tiktok,
+                celularWhats, youtube, false);
+        }
+        public void preencherClasse(int idContato, int idPessoa, String telefoneFixo, String celular, String facebook, String twiter, String nomePessoaRecado,
+              String instagram, String telefoneRecado, String site, String email, String tiktok, String celularWhats, String youtube, bool estaVazio)
+        {
+            this.IDContato = idContato;
+            this.IDPessoa = idPessoa;
+            this.TelefoneFixo = telefoneFixo;
+            this.Celular = celular;
+            this.Facebook = facebook;
+            this.Twiter = twiter;
+            this.Instagram = instagram;
+            this.Site = site;
+            this.TikTok = tiktok;
+            this.Youtube = youtube;
+            this.TelefoneRecado = telefoneRecado;
+            this.Email = email;
+            this.NomePessoaRecado = nomePessoaRecado;
+            this.CelularWhats = celularWhats;
+            this.EstaVazio = estaVazio;
         }
         public Boolean Salvar()
         {
@@ -128,16 +125,9 @@ namespace RuralSimples.Classes
                 cmd.Parameters.AddWithValue("@id_pessoa", this.IDPessoa);
                 cmd.Parameters.AddWithValue("@facebook", this.Facebook);
                 cmd.Parameters.AddWithValue("@twiter", this.Twiter);
-                cmd.Parameters.AddWithValue("@linkedin", this.Linkedin);
                 cmd.Parameters.AddWithValue("@instagram", this.Instagram);
-                cmd.Parameters.AddWithValue("@github", this.GitHub);
                 cmd.Parameters.AddWithValue("@site", this.Site);
-                cmd.Parameters.AddWithValue("@pinterest", this.Pinterest);
                 cmd.Parameters.AddWithValue("@tiktok", this.TikTok);
-                cmd.Parameters.AddWithValue("@snapchat", this.Snapchat);
-                cmd.Parameters.AddWithValue("@skype", this.Skype);
-                cmd.Parameters.AddWithValue("@messeger", this.Messeger);
-                cmd.Parameters.AddWithValue("@teams", this.Teams);
                 cmd.Parameters.AddWithValue("@youtube", this.Youtube);
                 
                 //conectar com banco
@@ -148,103 +138,60 @@ namespace RuralSimples.Classes
                 conexao.Desconectar();
                 return true;
             }
-            catch (NpgsqlException e)
+            catch (NpgsqlException)
             {
                 return false;
             }
         }
-        public Boolean Salvar(string[] telefones, string[] celulares, string facebook, string twiter, string linkedin,
-                              string instagram, string github, string site, string pinterest, string tiktok,
-                              string snapchat, string skype, string messeger, string teams, string youtube)
+        public Boolean Salvar(int idPessoa, String telefoneFixo, String celular, String facebook, String twiter, String nomePessoaRecado,
+              String instagram, String telefoneRecado, String site, String email, String tiktok, String celularWhats, String youtube, bool estaVazio)
         {
-            PreencherClasse(telefones, celulares, facebook, twiter, linkedin, instagram, github, site, pinterest, tiktok,
-                            snapchat, skype, messeger, teams, youtube);
+            preencherClasse(0, idPessoa, telefoneFixo, celular, facebook, twiter, nomePessoaRecado, instagram, telefoneRecado, site, email, tiktok, 
+                celularWhats, youtube, estaVazio);
             return Salvar();
         }
-        public Boolean Salvar(Contatos contato)
+        public Boolean Salvar(Contato contato)
         {
-            string[] cont;
-
-            return Salvar(contato.FTelFixo, contato.FCelular, contato.Facebook, contato.Twiter, contato.Linkedin,
+            return false;/* Salvar(contato.TelefoneFixo, contato.Celular, contato.Facebook, contato.Twiter, contato.Linkedin,
                           contato.Instagram, contato.GitHub, contato.Site, contato.Pinterest, contato.TikTok,
-                          contato.Snapchat, contato.Skype, contato.Messeger, contato.Teams, contato.Youtube);
+                          contato.Snapchat, contato.Skype, contato.Messeger, contato.Teams, contato.Youtube);*/
         }
-        public void setTelFixo(params string[] telefones) //Validar antes da insercao
+        public String TelefoneFixo
         {
-            for (int cont = 0; cont <telefones.Length; cont++)
-            {
-                FTelFixo[cont] = telefones[cont];
-            }
+            get { return FTelefoneFixo; }
+            set { FTelefoneFixo = value; }
         }
-        public void setTelFixo(int indice, string telefone) //Validar antes da insercao
+        public String Celular
         {
-            FTelFixo[indice] = telefone;
+            get { return FCelular; }
+            set { FCelular = value; }
         }
-        public void setCelular(params string[] celular) //Validar antes da insercao
+        public String CelularWhats
         {
-            for (int cont = 0; cont < celular.Length; cont++)
-            {
-                FTelFixo[cont] = celular[cont];
-            }
+            get { return FCelularWhats; }
+            set { FCelularWhats = value; }
         }
-        public void setCelular(int indice, string celular) //Validar antes da insercao
+        public String Email
         {
-            FCelular[indice] = celular;
+            get { return FEmail; }
+            set { FEmail = value; }
         }
-        //Retornar os telefones fixos cadastrados
-        public string[] getTelFixo()
+        public String TelefoneRecado
         {
-            if (FTelFixo.Length>0) //Verificando se está vazio
-            {
-                return FTelFixo;
-            }
-            else
-            {
-                return null;
-            }
+            get { return FTelefoneRecado; }
+            set { FTelefoneRecado = value; }
         }
-        //Retornar o telefone fixo pelo indice
-        public string getTelFixo(int indice)
+        public String NomePessoaRecado
         {
-            if (string.IsNullOrEmpty(FTelFixo[indice])) //Verificando se está vazio
-            {
-                return "";
-            }
-            else
-            {
-                return FTelFixo[indice];
-            }
+            get { return FNomePessoaRecado; }
+            set { FNomePessoaRecado = value; }
         }
-        //Retornar os celulares cadastrados
-        public string[] getTelCelular()
-        {
-            if (FCelular.Length > 0) //Verificando se está vazio
-            {
-                return FCelular;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        //Retornar os celulares cadastrados pelo índice
-        public string getCelular(int indice)
-        {
-            if (string.IsNullOrEmpty(FCelular[indice])) //Verificando se está vazio
-            {
-                return null;
-            }
-            else
-            {
-                return FCelular[indice];
-            }
-        }
-        public string IDContato
+        public int IDContato
         {
             get { return FIDContato; }
             set { FIDContato = value; }
         }
-        public string IDPessoa
+        public int IDPessoa
         {
             get { return FIDPessoa; }
             set { FIDPessoa = value; }
@@ -259,11 +206,6 @@ namespace RuralSimples.Classes
             get { return FFacebook; }
             set { FFacebook = value; }
         }
-        public string Linkedin
-        {
-            get { return FLinkedin; }
-            set { FLinkedin = value; }
-        }
         public string Twiter
         {
             get { return FTwiter; }
@@ -274,45 +216,15 @@ namespace RuralSimples.Classes
             get { return FInstagram; }
             set { FInstagram = value; }
         }
-        public string GitHub
-        {
-            get { return FGitHub; }
-            set { FGitHub = value; }
-        }
         public string Site
         {
             get { return FSite; }
             set { FSite = value; }
         }
-        public string Pinterest
-        {
-            get { return FPinterest; }
-            set { FPinterest = value; }
-        }
         public string TikTok
         {
             get { return FTikTok; }
             set { FTikTok = value; }
-        }
-        public string Snapchat
-        {
-            get { return FSnapchat; }
-            set { FSnapchat = value; }
-        }
-        public string Skype
-        {
-            get { return FSkype; }
-            set { FSkype = value; }
-        }
-        public string Messeger
-        {
-            get { return FMessenger; }
-            set { FMessenger = value; }
-        }
-        public string Teams
-        {
-            get { return FTeams; }
-            set { FTeams = value; }
         }
         public string Youtube
         {

@@ -62,11 +62,18 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
+    <Compile Include="Dal\BosTaurusDaoComandos.cs" />
+    <Compile Include="Dal\ContatosDaoComandos.cs" />
+    <Compile Include="Dal\EnderecosDaoComandos.cs" />
     <Compile Include="Dal\LoginDaoComandos.cs" />
-    <Compile Include="FontesComuns\ConstantesEValidacoes.cs" />
+    <Compile Include="Dal\PessoasDaoComandos.cs" />
+    <Compile Include="FontesComuns\ValidacoesEConstantes.cs" />
     <Compile Include="Dal\Conexao.cs" />
+    <Compile Include="Model\ControleBosTaurus.cs" />
+    <Compile Include="Model\ControleContatos.cs" />
+    <Compile Include="Model\ControleEnderecos.cs" />
     <Compile Include="Model\ControleLogin.cs" />
-    <Compile Include="Model\RuralSimplesContext.cs" />
+    <Compile Include="Model\ControlePessoas.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,6 +97,18 @@
     <Compile Include="View\fCadastreSe.Designer.cs">
       <DependentUpon>fCadastreSe.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\fPesagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fPesagem.Designer.cs">
+      <DependentUpon>fPesagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\fVermifugacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fVermifugacao.Designer.cs">
+      <DependentUpon>fVermifugacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\fReproducao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +129,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\fVacinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\fVacinas.Designer.cs">
+      <DependentUpon>fVacinas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\fCadastroAnimais.resx">
       <DependentUpon>fCadastroAnimais.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +147,9 @@
     <EmbeddedResource Include="View\fCadastreSe.resx">
       <DependentUpon>fCadastreSe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\fPesagem.resx">
+      <DependentUpon>fPesagem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\fPrincipal.resx">
       <DependentUpon>fPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +160,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\fReproducao.resx">
       <DependentUpon>fReproducao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fVacinas.resx">
+      <DependentUpon>fVacinas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\fVermifugacao.resx">
+      <DependentUpon>fVermifugacao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -17,6 +17,7 @@ namespace RuralSimples.View
     public partial class fLogin : Form
     {
         Thread principal;
+        ValidacoesEConstantes validar = new ValidacoesEConstantes();
 
         public fLogin()
         {
@@ -78,6 +79,14 @@ namespace RuralSimples.View
         {
             fCadastreSe cadastrese = new fCadastreSe();
             cadastrese.Show();
+        }
+
+        private void fLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+            }
         }
     }
 }

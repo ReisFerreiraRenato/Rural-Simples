@@ -75,3 +75,6 @@ D:\RS\RuralSimples\bin\Debug\System.Threading.Channels.dll
 D:\RS\RuralSimples\bin\Debug\System.Threading.Tasks.Extensions.dll
 D:\RS\RuralSimples\bin\Debug\System.ValueTuple.dll
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fCadastreSe.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fPesagem.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fVacinas.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fVermifugacao.resources

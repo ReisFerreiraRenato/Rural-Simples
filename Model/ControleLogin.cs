@@ -25,7 +25,6 @@ namespace RuralSimples.Model
         }
         public String cadastrar(String login, String senha, String confirmarSenha)
         {
-
             return mensagem;
         }
     }

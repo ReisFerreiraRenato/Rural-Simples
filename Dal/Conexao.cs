@@ -9,27 +9,45 @@ namespace RuralSimples.Model
 {
     public class Conexao
     {
-        NpgsqlConnection con = new NpgsqlConnection();
+        private NpgsqlConnection conexao = new NpgsqlConnection();
+        private NpgsqlTransaction transacao;
+
+        private string serverName = "34.151.203.114";                //localhost
+        private string port = "5432";                                //porta default
+        private string userName = "postgres";                        //nome do administrador
+        private string password = "^GRnI5ts3B*9m#jR";                //senha do administrador
+        private string databaseName = "RS_FAZENDA_UNIAO";            //nome do banco de dados
         //Constructor
         public Conexao()
         {
-            con.ConnectionString = "Server = 34.151.203.114; Port = 5432; DataBase = RS_FAZENDA_UNIAO; User Id = postgres; Password = ^GRnI5ts3B*9m#jR;";
+            conexao.ConnectionString = String.Format("Server = {0}; Port = {1}; DataBase = {2}; User Id = {3}; Password = {4};", serverName, port, databaseName, userName, password);
         }
         //Conect
         public NpgsqlConnection Conectar()
         {
-            if (con.State == System.Data.ConnectionState.Closed)
+            if (conexao.State == System.Data.ConnectionState.Closed)
             {
-                con.Open();
+                conexao.Open();
+                transacao = (NpgsqlTransaction)conexao.BeginTransaction();
             }
-            return con;
+            return conexao;
         }
         //Desconect
         public void Desconectar()
         {
-            if (con.State == System.Data.ConnectionState.Open)
+            if (conexao.State == System.Data.ConnectionState.Open)
             {
-                con.Close();
+                transacao.Commit();
+                conexao.Close();
+            }
+        }
+      
+        public void CancelarTransacao()
+        {
+            if (conexao.State == System.Data.ConnectionState.Open)
+            {
+                transacao.Rollback();
+                conexao.Close();
             }
         }
     }

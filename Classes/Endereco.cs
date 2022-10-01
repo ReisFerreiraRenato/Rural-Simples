@@ -6,8 +6,8 @@ namespace RuralSimples.Classes
 {
     class Endereco
     {
-        private string FIDEndereco;
-        private string FIDPessoa;
+        private int FIDEndereco;
+        private int FIDPessoa;
         private string FCEP;
         private string FLogradouro;
         private string FNumero;
@@ -23,32 +23,22 @@ namespace RuralSimples.Classes
 
         public Endereco()
         {
-            Guid g = new Guid();
-            IDEndereco = g.ToString();
-            IDPessoa = "";
-            CEP = "";
-            Logradouro = "";
-            Numero = "";
-            Complemento = "";
-            Bairro = "";
-            Cidade = "";
-            UF = "";
-            IBGE = 0;
-            Gia = 0;
-            Siafi = 0;
-            DDD = 0;
-            EstaVazio = true;
+            prencherClasse(0, 0, "", "", "", "", "", "", "", 0, 0, 0, 0, false);
         }
-        public Endereco(string cep, string logradouro, string numero, string complemento, string bairro,
-                        string cidade, string uf, int ibge, int gia, int siafi, int ddd, string idPessoa)
+        public Endereco(int idPessoa, string cep, string logradouro, string numero, string complemento, string bairro,
+                        string cidade, string uf, int ibge, int gia, int siafi, int ddd)
         {
-            Guid g = new Guid();
-            IDEndereco = g.ToString();
-            PeencherClasse(cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, ddd, idPessoa);
+            prencherClasse(0, idPessoa, cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, ddd, false);
         }
-        public void PeencherClasse(string cep, string logradouro, string numero, string complemento, string bairro,
-                        string cidade, string uf, int ibge, int gia, int siafi, int ddd, string idPessoa)
+        public Endereco(int idEndereco, int idPessoa, string cep, string logradouro, string numero, string complemento, string bairro,
+                        string cidade, string uf, int ibge, int gia, int siafi, int ddd)
         {
+            prencherClasse(idEndereco, idPessoa, cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, ddd, false);
+        }
+        public void prencherClasse(int idEndereco, int idPessoa, string cep, string logradouro, string numero, string complemento, string bairro,
+                        string cidade, string uf, int ibge, int gia, int siafi, int ddd, bool estaVazio)
+        {
+            IDEndereco = idEndereco;
             IDPessoa = idPessoa;
             CEP = cep;
             Logradouro = logradouro;
@@ -61,93 +51,36 @@ namespace RuralSimples.Classes
             Gia = gia;
             Siafi = siafi;
             DDD = ddd;
-            EstaVazio = false;
+            EstaVazio = estaVazio;
         }
         public Boolean Salvar()
         {
-            Conexao conexao = new Conexao();
-            NpgsqlCommand cmd = new NpgsqlCommand();
+            ControleEnderecos controleEndereco = new ControleEnderecos();
 
-            try
+            //retorno OK
+            if (this.IDEndereco != 0)
             {
-                //Comando Sql - Salvando Endereco de Pessoas 
-                cmd.CommandText = "insert into enderecos (" +
-                        "id_endereco, " +
-                        "id_pessoa, " +
-                        "cep, " +
-                        "logradouro, " +
-                        "numero, " +
-                        "complemento, " +
-                        "bairro, " +
-                        "cidade, " +
-                        "uf, " +
-                        "ibge, " +
-                        "gia, " +
-                        "siafi, " +
-                        "ddd" +
-                    ") " +
-                    " values (" +
-                        "@id_endereco, " +
-                        "@id_pessoa, " +
-                        "@cep, " +
-                        "@logradouro, " +
-                        "@numero, " +
-                        "@complemento, " +
-                        "@bairro, " +
-                        "@cidade, " +
-                        "@uf, " +
-                        "@ibge, " +
-                        "@gia, " +
-                        "@siafi, " +
-                        "@ddd " +
-                    ")";
-                //Parametros
-                cmd.Parameters.AddWithValue("@id_endereco", this.IDEndereco);
-                cmd.Parameters.AddWithValue("@id_pessoa", this.IDPessoa);
-                cmd.Parameters.AddWithValue("@cep", this.CEP);
-                cmd.Parameters.AddWithValue("@logradouro", this.Logradouro);
-                cmd.Parameters.AddWithValue("@numero", this.Numero);
-                cmd.Parameters.AddWithValue("@complemento", this.Complemento);
-                cmd.Parameters.AddWithValue("@bairro", this.Bairro);
-                cmd.Parameters.AddWithValue("@cidade", this.Cidade);
-                cmd.Parameters.AddWithValue("@uf", this.UF);
-                cmd.Parameters.AddWithValue("@ibge", this.IBGE);
-                cmd.Parameters.AddWithValue("@gia", this.Gia);
-                cmd.Parameters.AddWithValue("@siafi", this.Siafi);
-                cmd.Parameters.AddWithValue("@ddd", this.DDD);
-
-                //conectar com banco
-                cmd.Connection = conexao.Conectar();
-                //executar comando
-                cmd.ExecuteNonQuery();
-                //desconectar
-                conexao.Desconectar();
-                return true;
+                return controleEndereco.salvar(this);
             }
-            catch (NpgsqlException e)
+            else
             {
-                return false;
-            }
+                return controleEndereco.inserir(this);
+            }  
         }
-        public Boolean Salvar(string cep, string logradouro, string numero, string complemento, string bairro,
-                        string cidade, string uf, int ibge, int gia, int siafi, int ddd, string idPessoa)
+        public Boolean Salvar(int idPessoa, string cep, string logradouro, string numero, string complemento, string bairro,
+                        string cidade, string uf, int ibge, int gia, int siafi, int ddd)
         {
-            PeencherClasse(cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, 
-                ddd, idPessoa);
+            prencherClasse(0, idPessoa, cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, 
+                ddd, false);
 
             return Salvar();
         }
-        public Boolean Salvar(Endereco endereco)
-        {
-            return Salvar(endereco.CEP, endereco.Logradouro, endereco.Numero, endereco.Complemento, endereco.Bairro, endereco.Cidade, endereco.UF, endereco.IBGE, endereco.Gia,
-                endereco.Siafi, endereco.DDD, endereco.IDPessoa);
-        }
-        public string IDEndereco
+        public int IDEndereco
         {
             get { return FIDEndereco; }
             set { FIDEndereco = value; }
         }
-        public string IDPessoa
+        public int IDPessoa
         {
             get { return FIDPessoa; }
             set { FIDPessoa = value; }

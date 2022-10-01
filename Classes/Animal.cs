@@ -8,21 +8,27 @@ namespace RuralSimples.Classes
 {
     class Animal
     {
-        private string FClassificacao;      //Vertebrado ou invertebrado
+        private string FClassificacaoOssea;      //Vertebrado ou invertebrado
         private string FClassificacaoPatas; //Bipede, quadrupede, etc
         private DateTime FDataCadastro;
         private DateTime FDataNascimento;
         private string FFamilia;
         private string FGrupo;              //Mamíferos, répteis, Aves, Peixes, Amfíbio, Insetos, Aracnídeos, etc..
+        private String FInativo;
         private string FNomeCientifico;
-        private string FNome;
+        private string FNomeAnimal;
         private string FRaca;
         private string FTipoReproducao;     //Sexuada ou Assexuada
 
-        public string Classificacao
+        public String Inativo
         {
-            get { return FClassificacao; }
-            set { FClassificacao = value; }
+            get { return FInativo; }
+            set { FInativo = value; }
+        }
+        public string ClassificacaoOssea
+        {
+            get { return FClassificacaoOssea; }
+            set { FClassificacaoOssea = value; }
         }
         public string ClassificacaoPatas
         {
@@ -54,10 +60,10 @@ namespace RuralSimples.Classes
             get { return FNomeCientifico; }
             set { FNomeCientifico = value; }
         }
-        public string Nome
+        public string NomeAnimal
         {
-            get { return FNome; }
-            set { FNome = value; }
+            get { return FNomeAnimal; }
+            set { FNomeAnimal = value; }
         }
         public string Raca
         {

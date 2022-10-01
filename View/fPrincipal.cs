@@ -19,53 +19,11 @@ namespace RuralSimples
         public fPrincipal()
         {
             InitializeComponent();
-            NpgsqlConnection con = new NpgsqlConnection("Server=34.151.203.114;Port=5432;DataBase=RS_FAZENDA_UNIAO;User Id=postgres;Password= ^GRnI5ts3B*9m#jR;");
-            con.Open();
-            NpgsqlCommand com = new NpgsqlCommand();
-            com.Connection = con;
-            com.CommandType = CommandType.Text;
-            com.CommandText = "select * from pessoas";
-            NpgsqlDataReader dr = com.ExecuteReader();
-            if (dr.HasRows)
-            {
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                DataSet ds = new DataSet();
-                dataGridView1.DataSource = dt;
-            }
-            com.Dispose();
-            con.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Comando
-            Conexao conexao = new Conexao();
-            NpgsqlCommand cmd = new NpgsqlCommand();
-            //Parametros
-            try
-            {
-                //Conectar
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "insert into teste (nome, telefone) values (@nome, @telefone)";
-                cmd.Parameters.AddWithValue("@nome", eNome.Text);
-                cmd.Parameters.AddWithValue("@telefone", eTelefone.Text);
-                //Executar comandos
-                cmd.Connection = conexao.Conectar();
-                cmd.ExecuteNonQuery();
-                //desconectar
-                conexao.Desconectar();
-                //Mostrar mensagem
-                MessageBox.Show("Cadastrado com sucesso!");
-                eNome.Clear();
-                eTelefone.Clear();
-                eNome.Focus();
-            }
-            catch (NpgsqlException er)
-            {
-                MessageBox.Show("Erro ao cadastrar no BD!" + er.Message);
-            }
-            
+                        
         }
 
         private void pbCadastroPessoas_Click(object sender, EventArgs e)

@@ -8,86 +8,157 @@ namespace RuralSimples.Classes
 {
     class BosTaurus:Animal //Classificacao das vacas e bois
     {
-        private string FID;
-        private string FIDPai;
-        private string FIDMae;
-        private string FAptidao; //Leite, Carne, etc..
-        private int FNumero;
-        private string FRegistro;
-        private char FSexo; //M - MAcho, F - Fêmea
+        private int FIDBosTaurus;
+        private int FIDPessoa;
+        private int FIDBosTaurusPai;
+        private int FIDBosTaurusMae;
+        private String FAptidao; //Leite, Carne, etc..
+        private String FIdentificacao;
+        private String FNumeroRegistro;
+        private String FSexo; //M - MAcho, F - Fêmea
+        private String FNomePai;
+        private String FNomeMae;
+        private DateTime FDataDescarte;
+        private String FMotivoDescarte;
+        private String FObservacoes;
         
         public BosTaurus()
         {
-            Guid g = new Guid();
-            ID = g.ToString();
-            Classificacao = "Vertebrado";
-            ClassificacaoPatas = "Quadrupede";
-            DataNascimento = new DateTime(1900, 1, 1, 0, 0, 0);
-            DataCadastro = DateTime.Today;
-            Grupo = "Mamífero";
-            NomeCientifico = "Bos Taurus";
-            TipoReproducao = "Sexuada";
-            Aptidao = "";
-            Nome = "";
-            Numero = 0;
-            Raca = "";
-            Registro = "";
-            Sexo = 'M';
+            preencherClasse(0, 0, "", "", "", new DateTime(1900, 1, 1, 0, 0, 0), "M",
+                "", 0, 0, "", "Vertebrado", "Quadrupede", DateTime.Today,
+                "Mamífero", "Sexuada", "Bos Taurus", "", "", "Bovídeos", "N", new DateTime(1900, 1, 1, 0, 0, 0), "", "");
         }
-        public BosTaurus(string raca, string nome, int numero, DateTime datanascimento, char sexo, 
-                         string aptidao, string idpai, string idmae, string registro)
+        public BosTaurus(string raca, string nomeAnimal, String identificacao, DateTime datanascimento, String sexo, 
+                         string aptidao, int idBostaurusPai, int idBosTaurusMae, string numeroRegistro, String nomePai, 
+                         String nomeMae, String inativo, String motivoDescarte, String observacoes, DateTime dataDescarte)
         {
-            Guid g = new Guid();
-            ID = g.ToString();
-            Classificacao = "Vertebrado";
-            ClassificacaoPatas = "Quadrupede";
-            DataNascimento = datanascimento;
-            DataCadastro = DateTime.Today;
-            Grupo = "Mamífero";
-            TipoReproducao = "Sexuada";
+            //Padrão ao definir a classe
+            var idBosTaurus = 0;
+            var idPessoa = 0;
+            var classificacaoOssea = "Vertebrado";
+            var classificacaoPatas = "Quadrupede";
+            var dataCadastro = DateTime.Today;
+            var grupo = "Mamífero";
+            var tipoReproducao = "Sexuada";
+            var nomeCientifico = "Bos Taurus";
+            var familia = "Bovídeos";
+            preencherClasse(idBosTaurus, idPessoa, raca, nomeAnimal, identificacao, datanascimento, sexo,
+                aptidao, idBostaurusPai, idBosTaurusMae, numeroRegistro, classificacaoOssea, classificacaoPatas, dataCadastro,
+                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes);
+        }
+        public BosTaurus(int idBosTaurus, int idPessoa, string raca, string nomeAnimal, String identificacao, DateTime datanascimento, String sexo,
+            string aptidao, int idBostaurusPai, int idBosTaurusMae, string numeroRegistro, string classificacaoOssea, string classificacaoPatas, DateTime dataCadastro,
+            string grupo, string tipoReproducao, String nomeCientifico, String nomePai, String nomeMae, String familia, String inativo, DateTime dataDescarte,
+            String motivoDescarte, String observacoes)
+        {
+            preencherClasse(idBosTaurus, idPessoa, raca, nomeAnimal, identificacao, datanascimento, sexo, 
+                aptidao, idBostaurusPai, idBosTaurusMae, numeroRegistro, classificacaoOssea, classificacaoPatas, dataCadastro,
+                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes);
+        }
+        public BosTaurus(int idPessoa, string raca, string nomeAnimal, String identificacao, DateTime datanascimento, String sexo,
+            string aptidao, int idBostaurusPai, int idBosTaurusMae, string numeroRegistro, string classificacaoOssea, string classificacaoPatas, DateTime dataCadastro,
+            string grupo, string tipoReproducao, String nomeCientifico, String nomePai, String nomeMae, String familia, String inativo, DateTime dataDescarte,
+            String motivoDescarte, String observacoes)
+        {
+            preencherClasse(0, idPessoa, raca, nomeAnimal, identificacao, datanascimento, sexo,
+                aptidao, idBostaurusPai, idBosTaurusMae, numeroRegistro, classificacaoOssea, classificacaoPatas, dataCadastro,
+                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes);
+        }
+        public void preencherClasse(int idBosTaurus, int idPessoa, string raca, string nomeAnimal, String identificacao, DateTime datanascimento, String sexo,
+            string aptidao, int idBostaurusPai, int idBosTaurusMae, string numeroRegistro, string classificacaoOssea, string classificacaoPatas, DateTime dataCadastro, 
+            string grupo, string tipoReproducao, String nomeCientifico, String nomePai, String nomeMae, String familia, String inativo, DateTime dataDescarte,
+            String motivoDescarte, String observacoes)
+        {
+            IDBosTaurus = idBosTaurus;
+            IDPessoa = idPessoa;
+            IDBosTaurusMae = idBostaurusPai;
+            IDBosTaurusPai = idBosTaurusMae;
+
             Aptidao = aptidao;
-            IDMae = idpai;
-            IDPai = idmae;
-            Nome = nome;
-            Numero = numero;
+            ClassificacaoOssea = classificacaoOssea;
+            ClassificacaoPatas = classificacaoPatas;
+            DataCadastro = dataCadastro;
+            DataDescarte = dataDescarte;
+            DataNascimento = datanascimento;
+            Familia = familia;
+            Grupo = grupo;
+            Identificacao = identificacao;
+            Inativo = inativo;
+            MotivoDescarte = motivoDescarte;
+            NomeAnimal = nomeAnimal;
+            NomeCientifico = nomeCientifico;
+            NomePai = nomePai;
+            NomeMae = nomeMae;
+            NumeroRegistro = numeroRegistro;
+            Observacoes = observacoes;
             Raca = raca;
-            Registro = registro;
             Sexo = sexo;
+            TipoReproducao = tipoReproducao;
         }
-        public string ID
+        public int IDBosTaurus
         {
-            get { return FID; }
-            set { FID = value; }
+            get { return FIDBosTaurus; }
+            set { FIDBosTaurus = value; }
         }
-        public string IDPai
+        public int IDPessoa
         {
-            get { return FIDPai; }
-            set { FIDPai = value; }
+            get { return FIDPessoa; }
+            set { FIDPessoa = value; }
         }
-        public string IDMae
+        public int IDBosTaurusPai
         {
-            get { return FIDMae; }
-            set { FIDMae = value; }
+            get { return FIDBosTaurusPai; }
+            set { FIDBosTaurusPai = value; }
+        }
+        public int IDBosTaurusMae
+        {
+            get { return FIDBosTaurusMae; }
+            set { FIDBosTaurusMae = value; }
         }
         public string Aptidao
         {
             get { return FAptidao; }
             set { FAptidao = value; }
         }
-        public int Numero
+        public DateTime DataDescarte
         {
-            get { return FNumero; }
-            set { FNumero = value; }
+            get { return FDataDescarte; }
+            set { FDataDescarte = value; }
         }
-        public string Registro
+        public String Identificacao
         {
-            get { return FRegistro; }
-            set { FRegistro = value; }
+            get { return FIdentificacao; }
+            set { FIdentificacao = value; }
         }
-        public char Sexo
+        public string MotivoDescarte
+        {
+            get { return FMotivoDescarte; }
+            set { FMotivoDescarte = value; }
+        }
+        public string Observacoes
+        {
+            get { return FObservacoes; }
+            set { FObservacoes = value; }
+        }
+        public string NumeroRegistro
+        {
+            get { return FNumeroRegistro; }
+            set { FNumeroRegistro = value; }
+        }
+        public String Sexo
         {
             get { return FSexo; }
             set { FSexo = value; }
+        }
+        public String NomePai
+        {
+            get { return FNomePai; }
+            set { FNomePai = value; }
+        }
+        public String NomeMae
+        {
+            get { return FNomeMae; }
+            set { FNomeMae = value; }
         }
     }
 }

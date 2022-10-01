@@ -31,7 +31,6 @@ namespace RuralSimples
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPrincipal));
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,30 +44,13 @@ namespace RuralSimples
             this.pbReproducao = new System.Windows.Forms.PictureBox();
             this.pbCadastroAnimais = new System.Windows.Forms.PictureBox();
             this.pbCadastroPessoas = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbTelefone = new System.Windows.Forms.Label();
-            this.eNome = new System.Windows.Forms.TextBox();
-            this.eTelefone = new System.Windows.Forms.MaskedTextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.mnPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroAnimais)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroPessoas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(140, 247);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(206, 56);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // contextMenuStrip1
             // 
@@ -198,60 +180,13 @@ namespace RuralSimples
             this.pbCadastroPessoas.TabStop = false;
             this.pbCadastroPessoas.Click += new System.EventHandler(this.pbCadastroPessoas_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(535, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(358, 202);
-            this.dataGridView1.TabIndex = 4;
-            // 
-            // lbNome
-            // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(64, 147);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(55, 20);
-            this.lbNome.TabIndex = 5;
-            this.lbNome.Text = "Nome:";
-            // 
-            // lbTelefone
-            // 
-            this.lbTelefone.AutoSize = true;
-            this.lbTelefone.Location = new System.Drawing.Point(54, 196);
-            this.lbTelefone.Name = "lbTelefone";
-            this.lbTelefone.Size = new System.Drawing.Size(75, 20);
-            this.lbTelefone.TabIndex = 6;
-            this.lbTelefone.Text = "Telefone:";
-            // 
-            // eNome
-            // 
-            this.eNome.Location = new System.Drawing.Point(140, 141);
-            this.eNome.Name = "eNome";
-            this.eNome.Size = new System.Drawing.Size(330, 26);
-            this.eNome.TabIndex = 0;
-            // 
-            // eTelefone
-            // 
-            this.eTelefone.Location = new System.Drawing.Point(140, 193);
-            this.eTelefone.Mask = "(99) 00000-0000";
-            this.eTelefone.Name = "eTelefone";
-            this.eTelefone.Size = new System.Drawing.Size(130, 26);
-            this.eTelefone.TabIndex = 1;
-            // 
             // fPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 703);
-            this.Controls.Add(this.eTelefone);
-            this.Controls.Add(this.eNome);
-            this.Controls.Add(this.lbTelefone);
-            this.Controls.Add(this.lbNome);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnPrincipal);
-            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnPrincipal;
@@ -266,15 +201,11 @@ namespace RuralSimples
             ((System.ComponentModel.ISupportInitialize)(this.pbReproducao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroAnimais)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCadastroPessoas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pessoasToolStripMenuItem;
@@ -288,11 +219,6 @@ namespace RuralSimples
         private System.Windows.Forms.ToolStripMenuItem animaisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estaçãoDeMontaToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbReproducao;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbTelefone;
-        private System.Windows.Forms.TextBox eNome;
-        private System.Windows.Forms.MaskedTextBox eTelefone;
     }
 }
 

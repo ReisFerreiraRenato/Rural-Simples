@@ -40,7 +40,7 @@ namespace RuralSimples.Dal
 
         public String cadastrar(String login, String senha, String confirmarSenha)
         {
-            //Cadastrar o usuário no manco de dados
+            //Cadastrar o usuário no banco de dados
             return mensagem;
         }
     }

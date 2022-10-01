@@ -16,36 +16,33 @@ namespace RuralSimples.Classes
         public Propriedade()
         {
             //Atributos Propriedades
-            Guid g = new Guid();
-            ID = g.ToString();
-            Aptidao = "";
-            Area = 0;
-            Areaprodutiva = 0;
-            CAR = "";
-            ITR = "";
-            Latitude = 0;
-            Longitude = 0;
+            this.IDPessoa = 0;
+            this.Aptidao = "";
+            this.Area = 0;
+            this.Areaprodutiva = 0;
+            this.CAR = "";
+            this.ITR = "";
+            this.Latitude = 0;
+            this.Longitude = 0;
             //Atributos Pessoas
-            CFPCNPJ = "";
-            Classificacao = 'A'; //Propriedade
-            Contatos = new Contatos();
-            DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
-            DataCadastro = DateTime.Today;
-            Endereco = new Endereco();
-            InscricaoEstadual = "";
-            InscricaoMunicipal = "";
-            NomeRazaoSocial = "";
-            RG = "";
-            Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
+            this.CPF = "";
+            this.CNPJ = "";
+            this.Classificacao = "A"; //Propriedade
+            this.DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
+            this.DataCadastro = DateTime.Today;
+            this.InscricaoEstadual = "";
+            this.InscricaoMunicipal = "";
+            this.NomeRazaoSocial = "";
+            this.RG = "";
+            this.TipoPessoa = "F"; //Pessoa Física ou Jurídica (F ou J)
         }
         public Propriedade(string Aptidao, double Area, double AreaProdutiva, string CAR, string ITR,
                            double Latitude, double Longitude, string Nome, DateTime DataNascimentoFundacao,
-                           char tipo, string CPFCNPJ, string RG, string InscricaoEstadual, string InscricaoMunicipal,
-                           Endereco Endereco, Contatos Contatos)
+                           string tipo, string cpf, String cnpj, string RG, string InscricaoEstadual, string InscricaoMunicipal,
+                           string ativo)
         {
             //Atributos Propriedades
-            Guid g = new Guid();
-            ID = g.ToString();
+            IDPessoa = 0;
             this.Aptidao = Aptidao;
             this.Area = Area;
             this.Areaprodutiva = AreaProdutiva;
@@ -54,17 +51,17 @@ namespace RuralSimples.Classes
             this.Latitude = Latitude;
             this.Longitude = Longitude;
             //Atributos Pessoas
-            this.Classificacao = 'A'; //Propriedade
+            this.Classificacao = "A"; //Propriedade
             this.NomeRazaoSocial = Nome;
             this.DataNascimentoFundacao = DataNascimentoFundacao;
             this.DataCadastro = DateTime.Today;
-            this.Tipo = 'F'; //Pessoa Física ou Jurídica (F ou J)
-            this.CFPCNPJ = CPFCNPJ;
+            this.TipoPessoa = "F"; //Pessoa Física ou Jurídica (F ou J)
+            this.CPF = cpf;
+            this.CNPJ = cnpj;
             this.RG = RG;
             this.InscricaoEstadual = InscricaoEstadual;
             this.InscricaoMunicipal = InscricaoMunicipal;
-            this.Endereco = Endereco;
-            this.Contatos = Contatos;
+            this.Inativo = ativo;
         }
 
         public double Area

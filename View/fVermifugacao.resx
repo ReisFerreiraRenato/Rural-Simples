@@ -117,50 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="clDataInseminacao.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="clDataVermifugo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="clPaiInseminacao.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="clNomeVermifugo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="clPrenha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="clDataToque.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="clPrevisaoParto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="clDataParto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="clObservacoesParto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAHYAAAB2AAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAASHh4e1SMjI9YpKSm6AAAAAAAAAAAAAAAALSsrlBoaGtotLCzNLisrcAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAABCwsKukdHBz4QD4+6gAAAAAAAAAAAAAAADAwMKAVFBP6RURC/Dk3
-        N7kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoaGiRXl1d4YiHh8gAAAAAAAAAAAAAAAAAAAAAbm5sqlZW
-        VuN7enqwFRUVJRsbG14AAAAAAAAAAAAAAAAAAAAAa2lplF1cXOG0s7LxHBwcJAAAAAAAAAAaHiBWwSgq
-        aN8nJyzukpKS3CQiIaMzMC7MAAAAAAAAAAAAAAAAAAAAADY2NsVvb2/m4+Lh/3p4eMeCgYHEW1pfxykq
-        WOcoKm3xdnaA8JOSktwlJCS5Hx8ezgAAAAAAAAAAAAAAAE5OTmXIx8b35eTj/+Xk4/97enn/UE1K/05L
-        Sv/a2dj/yMfG/+Xk4/9MS0r3S0tLoD8/P24AAAAAAAAAAAAAAAAwLi7oZWRi/+Tj4v/l5OP/ZmVi/1dT
-        T/9RTk3/29rZ/+Xk4/9+fXz/U05L/yYmJdtSUlJ9AAAAAAAAAAAAAAAAODY08lFNSv+xr67/5eTj/5CO
-        jf92dHL/y8rK/+Lh4P/l5OP/YV9d/1tWUv8pKCjkampqnAAAAAAAAAAAHh4ehgkJC/0fHSj6MDAy/OXk
-        4//l5OP/joyL/1BNSv9raWj/5eTj/8rJyP9paGb/JyYl5WxsaqMAAAAAKipNT0lJj+00NGT5YmK+/yAg
-        Ne6zsrL5o6Kh/1BMSP9bVlL/VFBN/4uKiP/l5OP/x8bF+jAwMOBGRkY+AAAAABsbJchISIz7Pz988TIy
-        W+taWmvoUlJS3ERERI8fHx+eIyEhqisrKsI8PDq8bW1smkpKSm4AAAAAAAAAAAAAAAA6ODbuKygt/jQy
-        NP3l5OP/l5aW/1ZWX+hFRYfELS1UZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfHzMZISEo7EhE
-        Qf9ZV1b/5eTj/+Tj4v8iIyfzIyQq+R0dK+MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOTlzuy0t
-        O/0YGBr4o6Oi+ainp+ttbW28ODxCiEdMVM8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEh
-        MNY5O0PcUlhhpRERES4AAAARAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAPkJLOiwsNxcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAA4cMAAOHDAADx4AAA8IAAAPAAAADgAAAA4AAAAOAAAADAAAAAgAAAAIADAACAfwAAAH8AAAD/
-        AAAG/wAAn/8AAA==
-</value>
-  </data>
 </root>
