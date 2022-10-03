@@ -62,11 +62,14 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
+    <Compile Include="Classes\Vacinacao.cs" />
     <Compile Include="Dal\BosTaurusDaoComandos.cs" />
     <Compile Include="Dal\ContatosDaoComandos.cs" />
     <Compile Include="Dal\EnderecosDaoComandos.cs" />
     <Compile Include="Dal\LoginDaoComandos.cs" />
     <Compile Include="Dal\PessoasDaoComandos.cs" />
+    <Compile Include="Dal\ReproducaoDaoComandos.cs" />
+    <Compile Include="Dal\VacinacaoDaoComandos.cs" />
     <Compile Include="FontesComuns\ValidacoesEConstantes.cs" />
     <Compile Include="Dal\Conexao.cs" />
     <Compile Include="Model\ControleBosTaurus.cs" />
@@ -74,6 +77,8 @@
     <Compile Include="Model\ControleEnderecos.cs" />
     <Compile Include="Model\ControleLogin.cs" />
     <Compile Include="Model\ControlePessoas.cs" />
+    <Compile Include="Model\ControleReproducao.cs" />
+    <Compile Include="Model\ControleVacinacao.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,11 +134,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\fVacinas.cs">
+    <Compile Include="View\fVacina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fVacinas.Designer.cs">
-      <DependentUpon>fVacinas.cs</DependentUpon>
+    <Compile Include="View\fVacina.Designer.cs">
+      <DependentUpon>fVacina.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="View\fCadastroAnimais.resx">
       <DependentUpon>fCadastroAnimais.cs</DependentUpon>
@@ -161,8 +166,8 @@
     <EmbeddedResource Include="View\fReproducao.resx">
       <DependentUpon>fReproducao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fVacinas.resx">
-      <DependentUpon>fVacinas.cs</DependentUpon>
+    <EmbeddedResource Include="View\fVacina.resx">
+      <DependentUpon>fVacina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fVermifugacao.resx">
       <DependentUpon>fVermifugacao.cs</DependentUpon>

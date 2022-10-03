@@ -51,5 +51,19 @@ namespace RuralSimples
             reproducao.Text = ValidacoesEConstantes.cTituloReproducao;
             reproducao.Show();
         }
+
+        private void vacinacaoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fVacina vacina = new fVacina();
+            vacina.Text = ValidacoesEConstantes.cTituloReproducao;
+            vacina.Show();
+        }
+
+        private void vermifugacaoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fVermifugacao vermifugacao = new fVermifugacao();
+            vermifugacao.Text = ValidacoesEConstantes.cTituloReproducao;
+            vermifugacao.Show();
+        }
     }
 }

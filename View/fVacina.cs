@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RuralSimples.View
 {
-    public partial class fVacinas : Form
+    public partial class fVacina : Form
     {
-        public fVacinas()
+        public fVacina()
         {
             InitializeComponent();
         }

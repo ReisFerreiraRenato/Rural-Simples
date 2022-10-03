@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RuralSimples.Classes;
 using RuralSimples.Fontes_Comuns;
+using RuralSimples.Model;
 
 namespace RuralSimples.View
 {
@@ -61,7 +63,26 @@ namespace RuralSimples.View
 
         private void fReproducao_Shown(object sender, EventArgs e)
         {
+            //
+        }
 
+        private void eIdentificacao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
+            {
+                int codigo = ValidacoesEConstantes.stringToInteger(eCodigo.Text);
+                ControleBosTaurus controleBostaurus = new ControleBosTaurus();
+                BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
+                if (bostaurus != null)
+                {
+                    lbNomeAnimal.Text = bostaurus.NomeAnimal;
+
+                }
+                else
+                {
+                    ValidacoesEConstantes.MensagemErro(controleBostaurus.mensagem);
+                }
+            }
         }
     }
 }

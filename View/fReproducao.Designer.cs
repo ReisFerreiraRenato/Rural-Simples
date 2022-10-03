@@ -97,6 +97,7 @@ namespace RuralSimples.View
             this.eIdentificacao.Name = "eIdentificacao";
             this.eIdentificacao.Size = new System.Drawing.Size(150, 26);
             this.eIdentificacao.TabIndex = 0;
+            this.eIdentificacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eIdentificacao_KeyPress);
             // 
             // pnEstacoesMonta
             // 

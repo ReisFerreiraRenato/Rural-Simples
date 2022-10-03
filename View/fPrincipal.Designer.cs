@@ -38,12 +38,16 @@ namespace RuralSimples
             this.cadastrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.animaisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.estaçãoDeMontaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimentacaoDeMontaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pbReproducao = new System.Windows.Forms.PictureBox();
             this.pbCadastroAnimais = new System.Windows.Forms.PictureBox();
             this.pbCadastroPessoas = new System.Windows.Forms.PictureBox();
+            this.reproducaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vacinacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vermifugacaoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatoriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.mnPrincipal.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,7 +85,8 @@ namespace RuralSimples
             this.mnPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mnPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem1,
-            this.estaçãoDeMontaToolStripMenuItem,
+            this.movimentacaoDeMontaToolStripMenuItem,
+            this.relatoriosToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.mnPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mnPrincipal.Name = "mnPrincipal";
@@ -102,23 +107,26 @@ namespace RuralSimples
             // animaisToolStripMenuItem
             // 
             this.animaisToolStripMenuItem.Name = "animaisToolStripMenuItem";
-            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.animaisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.animaisToolStripMenuItem.Text = "&Animais";
             this.animaisToolStripMenuItem.Click += new System.EventHandler(this.pbCadastroAnimais_Click);
             // 
             // pessoasToolStripMenuItem1
             // 
             this.pessoasToolStripMenuItem1.Name = "pessoasToolStripMenuItem1";
-            this.pessoasToolStripMenuItem1.Size = new System.Drawing.Size(138, 22);
+            this.pessoasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.pessoasToolStripMenuItem1.Text = "&Pessoas";
             this.pessoasToolStripMenuItem1.Click += new System.EventHandler(this.pbCadastroPessoas_Click);
             // 
-            // estaçãoDeMontaToolStripMenuItem
+            // movimentacaoDeMontaToolStripMenuItem
             // 
-            this.estaçãoDeMontaToolStripMenuItem.Name = "estaçãoDeMontaToolStripMenuItem";
-            this.estaçãoDeMontaToolStripMenuItem.Size = new System.Drawing.Size(106, 27);
-            this.estaçãoDeMontaToolStripMenuItem.Text = "&Reprodução";
-            this.estaçãoDeMontaToolStripMenuItem.Click += new System.EventHandler(this.pbReproducao_Click);
+            this.movimentacaoDeMontaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reproducaoToolStripMenuItem,
+            this.vacinacaoToolStripMenuItem,
+            this.vermifugacaoToolStripMenuItem1});
+            this.movimentacaoDeMontaToolStripMenuItem.Name = "movimentacaoDeMontaToolStripMenuItem";
+            this.movimentacaoDeMontaToolStripMenuItem.Size = new System.Drawing.Size(122, 27);
+            this.movimentacaoDeMontaToolStripMenuItem.Text = "&Movimentação";
             // 
             // sairToolStripMenuItem
             // 
@@ -180,6 +188,33 @@ namespace RuralSimples
             this.pbCadastroPessoas.TabStop = false;
             this.pbCadastroPessoas.Click += new System.EventHandler(this.pbCadastroPessoas_Click);
             // 
+            // reproducaoToolStripMenuItem
+            // 
+            this.reproducaoToolStripMenuItem.Name = "reproducaoToolStripMenuItem";
+            this.reproducaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reproducaoToolStripMenuItem.Text = "&Reprodução";
+            this.reproducaoToolStripMenuItem.Click += new System.EventHandler(this.pbReproducao_Click);
+            // 
+            // vacinacaoToolStripMenuItem
+            // 
+            this.vacinacaoToolStripMenuItem.Name = "vacinacaoToolStripMenuItem";
+            this.vacinacaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vacinacaoToolStripMenuItem.Text = "&Vacinação";
+            this.vacinacaoToolStripMenuItem.Click += new System.EventHandler(this.vacinacaoToolStripMenuItem_Click);
+            // 
+            // vermifugacaoToolStripMenuItem1
+            // 
+            this.vermifugacaoToolStripMenuItem1.Name = "vermifugacaoToolStripMenuItem1";
+            this.vermifugacaoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.vermifugacaoToolStripMenuItem1.Text = "&Vermifugação";
+            this.vermifugacaoToolStripMenuItem1.Click += new System.EventHandler(this.vermifugacaoToolStripMenuItem1_Click);
+            // 
+            // relatoriosToolStripMenuItem
+            // 
+            this.relatoriosToolStripMenuItem.Name = "relatoriosToolStripMenuItem";
+            this.relatoriosToolStripMenuItem.Size = new System.Drawing.Size(91, 27);
+            this.relatoriosToolStripMenuItem.Text = "Relatórios";
+            // 
             // fPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -217,8 +252,12 @@ namespace RuralSimples
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbCadastroAnimais;
         private System.Windows.Forms.ToolStripMenuItem animaisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estaçãoDeMontaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimentacaoDeMontaToolStripMenuItem;
         private System.Windows.Forms.PictureBox pbReproducao;
+        private System.Windows.Forms.ToolStripMenuItem reproducaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vacinacaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vermifugacaoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem relatoriosToolStripMenuItem;
     }
 }
 
