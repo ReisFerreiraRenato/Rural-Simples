@@ -12,19 +12,29 @@ namespace RuralSimples.Model
     {
         public bool tem = false;
         public String mensagem = "";
-        public bool Salvar(Vacinacao vacinacao)
+        public bool SalvarVacinacao(Vacinacao vacinacao)
         {
             VacinacaoDaoComandos vacinacaoDao = new VacinacaoDaoComandos();
             this.tem = vacinacaoDao.SalvarVacinacao(vacinacao);
             this.mensagem = vacinacaoDao.mensagem;
             return tem;
         }
-        public bool Inserir(Vacinacao vacinacao)
+        public bool SalvarVacinacao(int idVacina, int idAnimal, String nomeVacina, DateTime dataVacinacao, DateTime dataCadastro, Double dosagem)
+        {
+            Vacinacao vacinacao = new Vacinacao(idVacina, idAnimal, nomeVacina, dataVacinacao, dataCadastro, dosagem);
+            return SalvarVacinacao(vacinacao);
+        }
+        public bool InserirVacinacao(Vacinacao vacinacao)
         {
             VacinacaoDaoComandos vacinacaoDao = new VacinacaoDaoComandos();
             tem = vacinacaoDao.InserirVacinacao(vacinacao);
             this.mensagem = vacinacaoDao.mensagem;
             return tem;
+        }
+        public bool InserirVacinacao(int idAnimal, String nomeVacina, DateTime dataVacinacao, DateTime dataCadastro, Double dosagem)
+        {
+            Vacinacao vacinacao = new Vacinacao(idAnimal, nomeVacina, dataVacinacao, dataCadastro, dosagem);
+            return InserirVacinacao(vacinacao);
         }
         public Vacinacao BuscarVacinacao(int idVacina)
         {

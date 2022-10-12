@@ -39,8 +39,8 @@ namespace RuralSimples.View
             this.lbSenha = new System.Windows.Forms.Label();
             this.pbLogin = new System.Windows.Forms.PictureBox();
             this.btCadastre = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbNomeSoftware = new System.Windows.Forms.Label();
+            this.lbNomeEmpresa = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,35 +154,35 @@ namespace RuralSimples.View
             this.btCadastre.UseVisualStyleBackColor = false;
             this.btCadastre.Click += new System.EventHandler(this.btCadastre_Click);
             // 
-            // label1
+            // lbNomeSoftware
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 36);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Software Rural Simples ";
+            this.lbNomeSoftware.AutoSize = true;
+            this.lbNomeSoftware.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNomeSoftware.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lbNomeSoftware.Location = new System.Drawing.Point(12, 9);
+            this.lbNomeSoftware.Name = "lbNomeSoftware";
+            this.lbNomeSoftware.Size = new System.Drawing.Size(333, 36);
+            this.lbNomeSoftware.TabIndex = 9;
+            this.lbNomeSoftware.Text = "Software Rural Simples ";
             // 
-            // label2
+            // lbNomeEmpresa
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label2.Location = new System.Drawing.Point(515, 350);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 24);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Rural Simples Tecnology";
+            this.lbNomeEmpresa.AutoSize = true;
+            this.lbNomeEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNomeEmpresa.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lbNomeEmpresa.Location = new System.Drawing.Point(515, 350);
+            this.lbNomeEmpresa.Name = "lbNomeEmpresa";
+            this.lbNomeEmpresa.Size = new System.Drawing.Size(221, 24);
+            this.lbNomeEmpresa.TabIndex = 10;
+            this.lbNomeEmpresa.Text = "Rural Simples Tecnology";
             // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 378);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbNomeEmpresa);
+            this.Controls.Add(this.lbNomeSoftware);
             this.Controls.Add(this.btCadastre);
             this.Controls.Add(this.pbLogin);
             this.Controls.Add(this.lbSenha);
@@ -219,7 +219,7 @@ namespace RuralSimples.View
         private System.Windows.Forms.Label lbSenha;
         private System.Windows.Forms.PictureBox pbLogin;
         private System.Windows.Forms.Button btCadastre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbNomeSoftware;
+        private System.Windows.Forms.Label lbNomeEmpresa;
     }
 }

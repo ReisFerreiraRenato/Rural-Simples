@@ -11,13 +11,13 @@ using System.Threading;
 using Npgsql;
 using RuralSimples.Model;
 using RuralSimples.Fontes_Comuns;
+using RuralSimples.FontesComuns;
 
 namespace RuralSimples.View
 {
     public partial class fLogin : Form
     {
         Thread principal;
-        ValidacoesEConstantes validar = new ValidacoesEConstantes();
 
         public fLogin()
         {
@@ -37,26 +37,25 @@ namespace RuralSimples.View
 
         private void btEntrar_Click(object sender, EventArgs e)
         {
-            if (!ValidacoesEConstantes.VerificarTextBoxVazio(tbUsuario, "Login"))
+            if (Funcoes.VerificarTextBoxVazio(tbUsuario, lbLogin))
+                return;
+
+            if (Funcoes.VerificarTextBoxVazio(tbSenha, lbSenha))
+                return;
+            
+            ControleLogin controle = new ControleLogin();
+            controle.Acessar(tbUsuario.Text, tbSenha.Text);
+            
+            if (!controle.tem)
             {
-                if (!ValidacoesEConstantes.VerificarTextBoxVazio(tbSenha, "Senha"))
-                 {
-                    ControleLogin controle = new ControleLogin();
-                    controle.acessar(tbUsuario.Text, tbSenha.Text);
-                    if (controle.tem)
-                    {
-                        this.Close();
-                        principal = new Thread(novoForm);
-                        principal.SetApartmentState(ApartmentState.STA);
-                        principal.Start();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuário não encontrado, verifique login e senha!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        tbUsuario.Focus();
-                    }
-                }
+                Funcoes.MensagemErro("Usuário não encontrado, verifique login e senha!");
+                tbUsuario.Focus();
             }
+            
+            this.Close();
+            principal = new Thread(novoForm);
+            principal.SetApartmentState(ApartmentState.STA);
+            principal.Start();
         }
 
         private void novoForm()
@@ -66,6 +65,8 @@ namespace RuralSimples.View
 
         private void fLogin_Shown(object sender, EventArgs e)
         {
+            lbNomeSoftware.Text = Constantes.cNomeSoftware;
+            lbNomeEmpresa.Text = Constantes.cNomeEmpresa;
             tbUsuario.Focus();
         }
 

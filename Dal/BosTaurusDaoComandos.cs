@@ -229,6 +229,7 @@ namespace RuralSimples.Dal
                 }
                 else
                 {
+                    bostaurus = null;
                     this.mensagem = "Animal não encontrada no BD.";
                 }
             }

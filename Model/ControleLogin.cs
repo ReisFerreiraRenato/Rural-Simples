@@ -13,10 +13,10 @@ namespace RuralSimples.Model
         public bool tem;
         public String mensagem = "";
 
-        public bool acessar(String login, String senha)
+        public bool Acessar(String login, String senha)
         {
             LoginDaoComandos loginDao = new LoginDaoComandos();
-            tem = loginDao.verificarLogin(login, senha);
+            tem = loginDao.VerificarLogin(login, senha);
             if (!loginDao.mensagem.Equals(""))
             {
                 this.mensagem = loginDao.mensagem;

@@ -65,38 +65,38 @@ namespace RuralSimples.View
         }
         private bool verificarCampos()
         { 
-            if (ValidacoesEConstantes.VerificarTextBoxVazio(eCPF_CNPJ, "CPF/CNPJ"))
+            if (Funcoes.VerificarTextBoxVazio(eCPF_CNPJ, lbCPFCNPJ))
             {
                 return false;
             }
-            if (ValidacoesEConstantes.VerificarTextBoxVazio(eNascimento, "Data de Nascimento/Fundação"))
+            if (Funcoes.VerificarTextBoxVazio(eNascimento, lbDataNascimento))
             {
                 return false;
             }
-            if (ValidacoesEConstantes.VerificarTextBoxVazio(eNome, "Nome/Razão Social"))
+            if (Funcoes.VerificarTextBoxVazio(eNome, lbNomeRazao))
             {
                 return false;
             }
-            if (ValidacoesEConstantes.VerificarTextBoxVazio(eDataCadastro, "Data de Cadastro"))
+            if (Funcoes.VerificarTextBoxVazio(eDataCadastro, lbDataCadastro))
             {
                 return false;
             }
             if (ckAcessoSistema.Checked)
             {
-                if (ValidacoesEConstantes.VerificarTextBoxVazio(eLogin, "Login"))
+                if (Funcoes.VerificarTextBoxVazio(eLogin, lbLogin))
                 {
                     return false;
                 }
-                if (ValidacoesEConstantes.VerificarTextBoxVazio(eSenha, "Senha"))
+                if (Funcoes.VerificarTextBoxVazio(eSenha, lbSenha))
                 {
                     return false;
                 }
             }
-            if (ValidacoesEConstantes.VerificarComboBoxSelecionado(cbClassificacao, "Classificação"))
+            if (Funcoes.VerificarComboBoxSelecionado(cbClassificacao, lbClassificacao))
             {
                 return false;
             }
-            if (ValidacoesEConstantes.VerificarComboBoxSelecionado(cbTipoPessoa, "Tipo pessoa"))
+            if (Funcoes.VerificarComboBoxSelecionado(cbTipoPessoa, lbTipoPessoa))
             {
                 return false;
             }
@@ -113,7 +113,7 @@ namespace RuralSimples.View
         {
             if (inserindoEditando)
             {
-                if (!ValidacoesEConstantes.MensagemQuestionar("As informações não foram inseridas/salvas e serão perdidas, deseja sair?"))
+                if (!Funcoes.MensagemQuestionar("As informações não foram inseridas/salvas e serão perdidas, deseja sair?"))
                 {
                     return;
                 }
@@ -134,7 +134,7 @@ namespace RuralSimples.View
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacao.Text != ""))
             {
-                int codigo = ValidacoesEConstantes.stringToInteger(eIdentificacao.Text);
+                int codigo = Funcoes.stringToInteger(eIdentificacao.Text);
                 ControlePessoas controlePessoa = new ControlePessoas();
                 Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
                 if (pessoa != null)
@@ -151,14 +151,14 @@ namespace RuralSimples.View
                 }
                 else
                 {
-                    ValidacoesEConstantes.MensagemErro(controlePessoa.mensagem);
+                    Funcoes.MensagemErro(controlePessoa.mensagem);
                 }
             }
         }
 
         private void btLimpar_Click(object sender, EventArgs e)
         {
-            if (ValidacoesEConstantes.MensagemQuestionar("Deseja cancelar?"))
+            if (Funcoes.MensagemQuestionar("Deseja cancelar?"))
             {
                 limparTela();
             }
@@ -200,7 +200,7 @@ namespace RuralSimples.View
         private void btSalvar_Click(object sender, EventArgs e)
         {
             bool retorno;
-            if (!ValidacoesEConstantes.MensagemQuestionar("Deseja salvar o cadastro de Pessoa?"))
+            if (!Funcoes.MensagemQuestionar("Deseja salvar o cadastro de Pessoa?"))
             {
                 return;
             }
@@ -255,10 +255,10 @@ namespace RuralSimples.View
                     eBairro.Text,
                     eCidade.Text,
                     eUfCidade.Text,
-                    ValidacoesEConstantes.stringToInteger(eIbge.Text),
-                    ValidacoesEConstantes.stringToInteger(eGia.Text),
-                    ValidacoesEConstantes.stringToInteger(eSiafi.Text),
-                    ValidacoesEConstantes.stringToInteger(eDdd.Text),
+                    Funcoes.stringToInteger(eIbge.Text),
+                    Funcoes.stringToInteger(eGia.Text),
+                    Funcoes.stringToInteger(eSiafi.Text),
+                    Funcoes.stringToInteger(eDdd.Text),
                     //Contatos
                     eTelefoneFixo.Text,
                     eCelular.Text,
@@ -277,7 +277,7 @@ namespace RuralSimples.View
             else
             {
                 retorno = controlePessoa.salvarPessoaEnderecoContato(
-                    ValidacoesEConstantes.stringToInteger(eIdentificacao.Text),
+                    Funcoes.stringToInteger(eIdentificacao.Text),
                     eNome.Text,
                     getcbClassificacaoString(),
                     getDateTime(eNascimento.Text),
@@ -298,7 +298,7 @@ namespace RuralSimples.View
                     eObservacoes.Text,
                     eUfEmissor.Text,
                     //Endereco
-                    ValidacoesEConstantes.stringToInteger(eIdEndereco.Text),
+                    Funcoes.stringToInteger(eIdEndereco.Text),
                     eCep.Text,
                     eLogradouro.Text,
                     eNumero.Text,
@@ -306,12 +306,12 @@ namespace RuralSimples.View
                     eBairro.Text,
                     eCidade.Text,
                     eUfCidade.Text,
-                    ValidacoesEConstantes.stringToInteger(eIbge.Text),
-                    ValidacoesEConstantes.stringToInteger(eGia.Text),
-                    ValidacoesEConstantes.stringToInteger(eSiafi.Text),
-                    ValidacoesEConstantes.stringToInteger(eDdd.Text),
+                    Funcoes.stringToInteger(eIbge.Text),
+                    Funcoes.stringToInteger(eGia.Text),
+                    Funcoes.stringToInteger(eSiafi.Text),
+                    Funcoes.stringToInteger(eDdd.Text),
                     //Contatos
-                    ValidacoesEConstantes.stringToInteger(eIdContato.Text),
+                    Funcoes.stringToInteger(eIdContato.Text),
                     eTelefoneFixo.Text,
                     eCelular.Text,
                     eFacebook.Text,
@@ -326,7 +326,7 @@ namespace RuralSimples.View
                     eYoutube.Text
                 );
             }
-            ValidacoesEConstantes.Mensagem(controlePessoa.mensagem);
+            Funcoes.Mensagem(controlePessoa.mensagem);
             if (retorno)
             {
                 limparTela();

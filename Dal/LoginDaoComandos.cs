@@ -16,7 +16,7 @@ namespace RuralSimples.Dal
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
 
-        public bool verificarLogin(String login, String senha)
+        public bool VerificarLogin(String login, String senha)
         {
             //comandos NpgSQL para verificar se tem no banco
             cmd.CommandText = "select login, senha from pessoas where login = @login and senha = @senha and acesso_sistema = 'S'";
@@ -38,7 +38,7 @@ namespace RuralSimples.Dal
             return tem;
         }
 
-        public String cadastrar(String login, String senha, String confirmarSenha)
+        public String Cadastrar(String login, String senha, String confirmarSenha)
         {
             //Cadastrar o usuário no banco de dados
             return mensagem;

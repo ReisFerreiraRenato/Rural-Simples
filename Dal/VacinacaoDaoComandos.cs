@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using RuralSimples.Classes;
+using RuralSimples.Fontes_Comuns;
 using RuralSimples.Model;
 using System;
 using System.Collections.Generic;
@@ -28,8 +29,7 @@ namespace RuralSimples.Dal
             "from " +
             "   public.vacinas ";
         public string sqlInserirVacina =
-            "insert into enderecos (" +
-                "id_vacina, " +
+            "insert into vacinas (" +
                 "id_animal, " +
                 "nome_vacina, " +
                 "dosagem, " +
@@ -37,7 +37,6 @@ namespace RuralSimples.Dal
                 "data_vacinacao " +
             ") " +
                 " values (" +
-                "@id_vacina, " +
                 "@id_animal, " +
                 "@nome_vacina, " +
                 "@dosagem, " +
@@ -45,7 +44,7 @@ namespace RuralSimples.Dal
                 "@data_vacinacao " +
         ")";
         public string sqlSalvarVacina =
-            "UPDATE public.enderecos SET " +
+            "UPDATE public.vacinas SET " +
                 "id_animal = @id_animal, " +
                 "nome_vacina = @nome_vacina, " +
                 "dosagem = @dosagem, " +
@@ -104,23 +103,22 @@ namespace RuralSimples.Dal
         public List<Vacinacao> BuscarVacinacoes(int idAnimal)
         {
             List<Vacinacao> vacinacoes = new List<Vacinacao>();
-            String where = " where id_pessoa = @id_pessoa";
+            String where = " where id_animal = @id_animal";
 
             cmd.CommandText = sqlBuscarVacina + where;
 
-            cmd.Parameters.AddWithValue("@id_pessoa", idAnimal);
+            cmd.Parameters.AddWithValue("@id_animal", idAnimal);
             try
             {
                 cmd.Connection = con.Conectar();
                 dr = cmd.ExecuteReader();
-                dr.Read();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
                         Vacinacao vacinacao = new Vacinacao(
-                            dr.GetInt32(dr.GetOrdinal("id_vacinacao")),
-                            dr.GetInt32(dr.GetOrdinal("id_pessoa")),
+                            dr.GetInt32(dr.GetOrdinal("id_vacina")),
+                            dr.GetInt32(dr.GetOrdinal("id_animal")),
                             dr.GetString(dr.GetOrdinal("nome_vacina")),
                             dr.GetDateTime(dr.GetOrdinal("data_vacinacao")),
                             dr.GetDateTime(dr.GetOrdinal("data_cadastro")),

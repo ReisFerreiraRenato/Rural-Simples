@@ -47,21 +47,20 @@ namespace RuralSimples.View
 
         private void eDataNascimento_TextChanged(object sender, EventArgs e)
         {
-            if ((eDataNascimento.Text != "") && (eDataNascimento.Text.Replace("/", "").Trim().Length == 8))
-                ValidacoesEConstantes.ValidarDataMensagemErro(eDataNascimento);
+
         }
 
         private void eDataDescarte_TextChanged(object sender, EventArgs e)
         {
             if ((eDataDescarte.Text != "") && (eDataDescarte.Text.Replace("/", "").Trim().Length == 8))
-                ValidacoesEConstantes.ValidarDataMensagemErro(eDataDescarte);
+                Funcoes.ValidarDataMensagemErro(eDataDescarte, lbDataDescarte);
         }
 
         private void eCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
-                int codigo = ValidacoesEConstantes.stringToInteger(eCodigo.Text);
+                int codigo = Funcoes.stringToInteger(eCodigo.Text);
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
                 BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
                 if (bostaurus != null)
@@ -70,23 +69,23 @@ namespace RuralSimples.View
                 }
                 else
                 {
-                    ValidacoesEConstantes.MensagemErro(controleBostaurus.mensagem);
+                    Funcoes.MensagemErro(controleBostaurus.mensagem);
                 }
             }
         }
         private void eIdentificacao_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacao.Text != ""))
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
-                BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdentificacaoAtivo(eIdentificacao.Text);
+                BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdentificacaoAtivo(eCodigo.Text);
                 if (bostaurus != null)
                 {
                     PreencherBostaurus(bostaurus);
                 }
                 else
                 {
-                    ValidacoesEConstantes.MensagemErro(controleBostaurus.mensagem);
+                    Funcoes.MensagemErro(controleBostaurus.mensagem);
                 }
             }
         }
@@ -95,8 +94,8 @@ namespace RuralSimples.View
             ControlaEditsFormularios(true);
             ControlaBotoes(true);
             eAptidao.Text = bostaurus.Aptidao;
-            eCodigoPropriedade.Text = ValidacoesEConstantes.NumeroPadrao(bostaurus.IDPessoa);
-            eCodigo.Text = ValidacoesEConstantes.NumeroPadrao(bostaurus.IDBosTaurus);
+            eCodigoPropriedade.Text = Funcoes.NumeroPadrao(bostaurus.IDPessoa);
+            eCodigo.Text = Funcoes.NumeroPadrao(bostaurus.IDBosTaurus);
             eIdentificacao.Text = bostaurus.Identificacao;
             eNumeroRegistro.Text = bostaurus.NumeroRegistro;
             SetSexo(bostaurus.Sexo);
@@ -104,10 +103,10 @@ namespace RuralSimples.View
             eNomeAnimal.Text = bostaurus.NomeAnimal;
             eRaca.Text = bostaurus.Raca;
             eDataNascimento.Text = bostaurus.DataNascimento.ToString();
-            eIdade.Text = ValidacoesEConstantes.CalcularIdade(bostaurus.DataNascimento);
-            eCodigoBosTaurusPai.Text = ValidacoesEConstantes.NumeroPadrao(bostaurus.IDBosTaurusPai);
+            eIdade.Text = Funcoes.CalcularIdade(bostaurus.DataNascimento);
+            eCodigoBosTaurusPai.Text = Funcoes.NumeroPadrao(bostaurus.IDBosTaurusPai);
             eNomePai.Text = bostaurus.NomePai;
-            eCodigoBosTaurusMae.Text = ValidacoesEConstantes.NumeroPadrao(bostaurus.IDBosTaurusMae);
+            eCodigoBosTaurusMae.Text = Funcoes.NumeroPadrao(bostaurus.IDBosTaurusMae);
             eNomeMae.Text = bostaurus.NomeMae;
             SetInativo(bostaurus.Inativo);
             if (bostaurus.DataDescarte != new DateTime(1900, 1, 1, 0, 0, 0))
@@ -233,7 +232,7 @@ namespace RuralSimples.View
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-            if (ValidacoesEConstantes.MensagemQuestionar("Deseja cancelar a inserção/edição?"))
+            if (Funcoes.MensagemQuestionar("Deseja cancelar a inserção/edição?"))
             {
                 LimparTela();
             }
@@ -247,7 +246,7 @@ namespace RuralSimples.View
         {
             if (btSalvar.Enabled)
             {
-                if (!ValidacoesEConstantes.MensagemQuestionar("Atenção, informações serão pedidas! Deseja sair?"))
+                if (!Funcoes.MensagemQuestionar("Atenção, informações serão pedidas! Deseja sair?"))
                 {
                     return;
                 }
@@ -262,12 +261,12 @@ namespace RuralSimples.View
 
         private bool VerificarCampos()
         {
-            if (ValidacoesEConstantes.VerificarComboBoxSelecionado(cbSexo, "Sexo"))
+            if (Funcoes.VerificarComboBoxSelecionado(cbSexo, lbSexo))
             {
                 return false;
             }
 
-            if (ValidacoesEConstantes.VerificarTextBoxVazio(eCodigoPropriedade, "Código Propriedade"))
+            if (Funcoes.VerificarTextBoxVazio(eCodigoPropriedade, lbCodigoPropriedade))
             {
                 return false;
             }
@@ -278,7 +277,7 @@ namespace RuralSimples.View
         private void btSalvar_Click(object sender, EventArgs e)
         {
             bool retorno;
-            if (!ValidacoesEConstantes.MensagemQuestionar("Deseja salvar o cadastro de Pessoa?"))
+            if (!Funcoes.MensagemQuestionar("Deseja salvar o cadastro de Pessoa?"))
             {
                 return;
             }
@@ -288,83 +287,90 @@ namespace RuralSimples.View
 
             ControleBosTaurus controleBostaurus = new ControleBosTaurus();
             DateTime dataDescarte;
-            if (ValidacoesEConstantes.VerificarDataVazia(eDataDescarte))
-                dataDescarte = ValidacoesEConstantes.StringToDateTime(eDataDescarte.Text);
+            if (Funcoes.VerificarDataVazia(eDataDescarte))
+                dataDescarte = Funcoes.StringToDateTime(eDataDescarte.Text);
             else
                 dataDescarte = new DateTime(1900, 1, 1, 0, 0, 0);
 
             if (eCodigo.Text == "")
             {
                 retorno = controleBostaurus.InserirBosTaurus(
-                    ValidacoesEConstantes.stringToInteger(eCodigoPropriedade.Text),
-                    eRaca.Text, 
-                    eNomeAnimal.Text, 
-                    eIdentificacao.Text, 
-                    ValidacoesEConstantes.StringToDateTime(eDataNascimento.Text), 
+                    Funcoes.stringToInteger(eCodigoPropriedade.Text.Trim()),
+                    eRaca.Text.Trim(), 
+                    eNomeAnimal.Text.Trim(),
+                    eIdentificacao.Text.Trim(),
+                    Funcoes.StringToDateTime(eDataNascimento.Text.Trim()), 
                     GetSexo(),
-                    eAptidao.Text,
-                    ValidacoesEConstantes.stringToInteger(eCodigoBosTaurusPai.Text),
-                    ValidacoesEConstantes.stringToInteger(eCodigoBosTaurusMae.Text), 
-                    eNumeroRegistro.Text,
-                    eClassificacaoOssea.Text, 
-                    eClassificacaoPatas.Text, 
-                    ValidacoesEConstantes.StringToDateTime(eDataCadastro.Text),
-                    eGrupo.Text, 
-                    eTipoReproducao.Text, 
-                    eNomeCientifico.Text, 
-                    eNomePai.Text, 
-                    eNomeMae.Text,
-                    eFamilia.Text, 
+                    eAptidao.Text.Trim(),
+                    Funcoes.stringToInteger(eCodigoBosTaurusPai.Text.Trim()),
+                    Funcoes.stringToInteger(eCodigoBosTaurusMae.Text.Trim()), 
+                    eNumeroRegistro.Text.Trim(),
+                    eClassificacaoOssea.Text.Trim(), 
+                    eClassificacaoPatas.Text.Trim(),
+                    Funcoes.StringToDateTime(eDataCadastro.Text.Trim()),
+                    eGrupo.Text.Trim(), 
+                    eTipoReproducao.Text.Trim(), 
+                    eNomeCientifico.Text.Trim(), 
+                    eNomePai.Text.Trim(), 
+                    eNomeMae.Text.Trim(),
+                    eFamilia.Text.Trim(), 
                     GetInativo(), 
                     dataDescarte,
-                    eMotivoDescarte.Text, 
-                    eObservacoes.Text
+                    eMotivoDescarte.Text.Trim(), 
+                    eObservacoes.Text.Trim()
                 );
             }
             else
             {
                 retorno = controleBostaurus.SalvarBosTaurus(
-                    ValidacoesEConstantes.stringToInteger(eCodigo.Text),
-                    ValidacoesEConstantes.stringToInteger(eCodigoPropriedade.Text),
-                    eRaca.Text,
-                    eNomeAnimal.Text,
-                    eIdentificacao.Text,
-                    ValidacoesEConstantes.StringToDateTime(eDataNascimento.Text),
+                    Funcoes.stringToInteger(eCodigo.Text.Trim()),
+                    Funcoes.stringToInteger(eCodigoPropriedade.Text.Trim()),
+                    eRaca.Text.Trim(),
+                    eNomeAnimal.Text.Trim(),
+                    eIdentificacao.Text.Trim(),
+                    Funcoes.StringToDateTime(eDataNascimento.Text.Trim()),
                     GetSexo(),
-                    eAptidao.Text,
-                    ValidacoesEConstantes.stringToInteger(eCodigoBosTaurusPai.Text),
-                    ValidacoesEConstantes.stringToInteger(eCodigoBosTaurusMae.Text),
-                    eNumeroRegistro.Text,
-                    eClassificacaoOssea.Text,
-                    eClassificacaoPatas.Text,
-                    ValidacoesEConstantes.StringToDateTime(eDataCadastro.Text),
-                    eGrupo.Text,
-                    eTipoReproducao.Text,
-                    eNomeCientifico.Text,
-                    eNomePai.Text,
-                    eNomeMae.Text,
-                    eFamilia.Text,
+                    eAptidao.Text.Trim(),
+                    Funcoes.stringToInteger(eCodigoBosTaurusPai.Text.Trim()),
+                    Funcoes.stringToInteger(eCodigoBosTaurusMae.Text.Trim()),
+                    eNumeroRegistro.Text.Trim(),
+                    eClassificacaoOssea.Text.Trim(),
+                    eClassificacaoPatas.Text.Trim(),
+                    Funcoes.StringToDateTime(eDataCadastro.Text.Trim()),
+                    eGrupo.Text.Trim(),
+                    eTipoReproducao.Text.Trim(),
+                    eNomeCientifico.Text.Trim(),
+                    eNomePai.Text.Trim(),
+                    eNomeMae.Text.Trim(),
+                    eFamilia.Text.Trim(),
                     GetInativo(),
                     dataDescarte,
-                    eMotivoDescarte.Text,
-                    eObservacoes.Text
+                    eMotivoDescarte.Text.Trim(),
+                    eObservacoes.Text.Trim()
                 );
             }
-            ValidacoesEConstantes.Mensagem(controleBostaurus.mensagem);
+            Funcoes.Mensagem(controleBostaurus.mensagem);
             if (retorno)
             {
                 LimparTela();
             }
         }
 
-        private void lbIdentificacao_Click(object sender, EventArgs e)
+        private void eIdentificacao_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-
-        }
-
-        private void eIdentificacao_TextChanged(object sender, EventArgs e)
-        {
-
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacao.Text != "") && (eCodigo.Text.Trim() == ""))
+            {
+                ControleBosTaurus controleBostaurus = new ControleBosTaurus();
+                BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdentificacaoAtivo(eIdentificacao.Text);
+                if (bostaurus != null)
+                {
+                    PreencherBostaurus(bostaurus);
+                }
+                else
+                {
+                    Funcoes.MensagemErro(controleBostaurus.mensagem);
+                }
+            }
         }
     }
 }

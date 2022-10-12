@@ -22,7 +22,7 @@ namespace RuralSimples.View
 
         private void ckPrenhez_CheckedChanged(object sender, EventArgs e)
         {
-            if ((ckPrenhez.Checked) && (ValidacoesEConstantes.ValidarData(eDataInseminacao)))
+            if ((ckPrenhez.Checked) && (Funcoes.ValidarData(eDataInseminacao, lbDataInseminacao)))
             {
                 eDataToque.Text = DateTime.Now.ToString();
                 if (!ckNaoSeAplicaInseminacao.Checked)
@@ -32,9 +32,9 @@ namespace RuralSimples.View
 
         private void btAdicionarEstacaoMonta_Click(object sender, EventArgs e)
         {
-            if ((ckPrenhez.Checked) && ValidacoesEConstantes.ValidarData(eDataInseminacao))
+            if ((ckPrenhez.Checked) && Funcoes.ValidarData(eDataInseminacao, lbDataInseminacao))
             {
-                if (ValidacoesEConstantes.MensagemQuestionar("A prenhez foi informada, adicionar a previsão do parto?"))
+                if (Funcoes.MensagemQuestionar("A prenhez foi informada, adicionar a previsão do parto?"))
                 {
                     btAdicionarParto_Click(sender, e);
                 }
@@ -48,17 +48,17 @@ namespace RuralSimples.View
 
         private void eDataInseminacao_TextChanged(object sender, EventArgs e)
         {
-            ValidacoesEConstantes.ValidarDataMensagemErro(eDataInseminacao);
+            Funcoes.ValidarDataMensagemErro(eDataInseminacao, lbDataInseminacao);
         }
 
         private void eDataToque_TextChanged(object sender, EventArgs e)
         {
-            ValidacoesEConstantes.ValidarDataMensagemErro(eDataToque);
+            Funcoes.ValidarDataMensagemErro(eDataToque, lbDataToque);
         }
 
         private void eDataParto_TextChanged(object sender, EventArgs e)
         {
-            ValidacoesEConstantes.ValidarDataMensagemErro(eDataParto);
+            Funcoes.ValidarDataMensagemErro(eDataParto, lbDataParto);
         }
 
         private void fReproducao_Shown(object sender, EventArgs e)
@@ -70,17 +70,16 @@ namespace RuralSimples.View
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
-                int codigo = ValidacoesEConstantes.stringToInteger(eCodigo.Text);
+                int codigo = Funcoes.stringToInteger(eCodigo.Text);
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
                 BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
                 if (bostaurus != null)
                 {
                     lbNomeAnimal.Text = bostaurus.NomeAnimal;
-
                 }
                 else
                 {
-                    ValidacoesEConstantes.MensagemErro(controleBostaurus.mensagem);
+                    Funcoes.MensagemErro(controleBostaurus.mensagem);
                 }
             }
         }

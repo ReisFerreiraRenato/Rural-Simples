@@ -96,8 +96,8 @@ namespace RuralSimples.Dal
                 if (dr.HasRows)
                 {
                     endereco.prencherClasse(
-                        ValidacoesEConstantes.stringToInteger(dr["id_endereco"].ToString()),
-                        ValidacoesEConstantes.stringToInteger(dr["id_pessoa"].ToString()),
+                        Funcoes.stringToInteger(dr["id_endereco"].ToString()),
+                        Funcoes.stringToInteger(dr["id_pessoa"].ToString()),
                         dr["cep"].ToString(),
                         dr["logradouro"].ToString(),
                         dr["numero"].ToString(),
@@ -105,10 +105,10 @@ namespace RuralSimples.Dal
                         dr["bairro"].ToString(),
                         dr["cidade"].ToString(),
                         dr["uf"].ToString(),
-                        ValidacoesEConstantes.stringToInteger(dr["ibge"].ToString()),
-                        ValidacoesEConstantes.stringToInteger(dr["gia"].ToString()),
-                        ValidacoesEConstantes.stringToInteger(dr["siafi"].ToString()),
-                        ValidacoesEConstantes.stringToInteger(dr["ddd"].ToString()),
+                        Funcoes.stringToInteger(dr["ibge"].ToString()),
+                        Funcoes.stringToInteger(dr["gia"].ToString()),
+                        Funcoes.stringToInteger(dr["siafi"].ToString()),
+                        Funcoes.stringToInteger(dr["ddd"].ToString()),
                         false
                     );
                     this.mensagem = "Endereço encontrada no BD.";

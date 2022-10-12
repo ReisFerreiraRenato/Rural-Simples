@@ -24,6 +24,10 @@ namespace RuralSimples.Classes
         {
             PreencherClasse(idVacinacao, idAnimal, nomeVacina, dataVacinacao, dataCadastro, dosagem);
         }
+        public Vacinacao(int idAnimal, String nomeVacina, DateTime dataVacinacao, DateTime dataCadastro, Double dosagem)
+        {
+            PreencherClasse(0, idAnimal, nomeVacina, dataVacinacao, dataCadastro, dosagem);
+        }
         public void PreencherClasse(int idVacinacao, int idAnimal, String nomeVacina, DateTime dataVacinacao, DateTime dataCadastro, Double dosagem)
         {
             IDVacinacao = idVacinacao;
@@ -68,9 +72,9 @@ namespace RuralSimples.Classes
             ControleVacinacao controleVacinacao = new ControleVacinacao();
             //retorno OK
             if (this.IDAnimal != 0)
-                return controleVacinacao.Salvar(this);
+                return controleVacinacao.SalvarVacinacao(this);
             else
-                return controleVacinacao.Inserir(this);
+                return controleVacinacao.InserirVacinacao(this);
         }
     }
 }

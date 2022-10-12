@@ -36,7 +36,7 @@ namespace RuralSimples.View
             this.eDataToque = new System.Windows.Forms.MaskedTextBox();
             this.eDataInseminacao = new System.Windows.Forms.MaskedTextBox();
             this.ckPrenhez = new System.Windows.Forms.CheckBox();
-            this.lbDataConfirmacao = new System.Windows.Forms.Label();
+            this.lbDataToque = new System.Windows.Forms.Label();
             this.pnTituloEstacoesMonta = new System.Windows.Forms.Panel();
             this.ckNaoSeAplicaInseminacao = new System.Windows.Forms.CheckBox();
             this.lbEstacoesMonta = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@ namespace RuralSimples.View
             this.pnEstacoesMonta.Controls.Add(this.eDataToque);
             this.pnEstacoesMonta.Controls.Add(this.eDataInseminacao);
             this.pnEstacoesMonta.Controls.Add(this.ckPrenhez);
-            this.pnEstacoesMonta.Controls.Add(this.lbDataConfirmacao);
+            this.pnEstacoesMonta.Controls.Add(this.lbDataToque);
             this.pnEstacoesMonta.Controls.Add(this.pnTituloEstacoesMonta);
             this.pnEstacoesMonta.Controls.Add(this.lbIdentificacaoPai);
             this.pnEstacoesMonta.Controls.Add(this.lbDataInseminacao);
@@ -151,15 +151,15 @@ namespace RuralSimples.View
             this.ckPrenhez.UseVisualStyleBackColor = true;
             this.ckPrenhez.CheckedChanged += new System.EventHandler(this.ckPrenhez_CheckedChanged);
             // 
-            // lbDataConfirmacao
+            // lbDataToque
             // 
-            this.lbDataConfirmacao.AutoSize = true;
-            this.lbDataConfirmacao.Location = new System.Drawing.Point(443, 50);
-            this.lbDataConfirmacao.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.lbDataConfirmacao.Name = "lbDataConfirmacao";
-            this.lbDataConfirmacao.Size = new System.Drawing.Size(93, 20);
-            this.lbDataConfirmacao.TabIndex = 34;
-            this.lbDataConfirmacao.Text = "Data Toque";
+            this.lbDataToque.AutoSize = true;
+            this.lbDataToque.Location = new System.Drawing.Point(443, 50);
+            this.lbDataToque.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lbDataToque.Name = "lbDataToque";
+            this.lbDataToque.Size = new System.Drawing.Size(93, 20);
+            this.lbDataToque.TabIndex = 34;
+            this.lbDataToque.Text = "Data Toque";
             // 
             // pnTituloEstacoesMonta
             // 
@@ -525,7 +525,7 @@ namespace RuralSimples.View
         private System.Windows.Forms.TextBox eIdentificacao;
         private System.Windows.Forms.Panel pnEstacoesMonta;
         private System.Windows.Forms.CheckBox ckPrenhez;
-        private System.Windows.Forms.Label lbDataConfirmacao;
+        private System.Windows.Forms.Label lbDataToque;
         private System.Windows.Forms.Panel pnTituloEstacoesMonta;
         private System.Windows.Forms.CheckBox ckNaoSeAplicaInseminacao;
         private System.Windows.Forms.Label lbEstacoesMonta;

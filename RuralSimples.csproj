@@ -70,7 +70,8 @@
     <Compile Include="Dal\PessoasDaoComandos.cs" />
     <Compile Include="Dal\ReproducaoDaoComandos.cs" />
     <Compile Include="Dal\VacinacaoDaoComandos.cs" />
-    <Compile Include="FontesComuns\ValidacoesEConstantes.cs" />
+    <Compile Include="FontesComuns\Constantes.cs" />
+    <Compile Include="FontesComuns\Funcoes.cs" />
     <Compile Include="Dal\Conexao.cs" />
     <Compile Include="Model\ControleBosTaurus.cs" />
     <Compile Include="Model\ControleContatos.cs" />

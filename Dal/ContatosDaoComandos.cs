@@ -100,8 +100,8 @@ namespace RuralSimples.Dal
                 if (dr.HasRows)
                 {
                     contato.preencherClasse(
-                        ValidacoesEConstantes.stringToInteger(dr["id_contato"].ToString()),
-                        ValidacoesEConstantes.stringToInteger(dr["id_pessoa"].ToString()),
+                        Funcoes.stringToInteger(dr["id_contato"].ToString()),
+                        Funcoes.stringToInteger(dr["id_pessoa"].ToString()),
                         dr["telefone_fixo"].ToString(),
                         dr["celular"].ToString(),
                         dr["facebook"].ToString(),

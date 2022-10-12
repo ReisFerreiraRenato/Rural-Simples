@@ -74,7 +74,7 @@ namespace RuralSimples.View
             this.lbMae = new System.Windows.Forms.Label();
             this.lbNomePai = new System.Windows.Forms.Label();
             this.lbIdade = new System.Windows.Forms.Label();
-            this.lbNascimento = new System.Windows.Forms.Label();
+            this.lbDataNascimento = new System.Windows.Forms.Label();
             this.lbRaca = new System.Windows.Forms.Label();
             this.lbIdentificacao = new System.Windows.Forms.Label();
             this.eRaca = new System.Windows.Forms.TextBox();
@@ -142,7 +142,7 @@ namespace RuralSimples.View
             this.pnIdentificacao.Controls.Add(this.lbMae);
             this.pnIdentificacao.Controls.Add(this.lbNomePai);
             this.pnIdentificacao.Controls.Add(this.lbIdade);
-            this.pnIdentificacao.Controls.Add(this.lbNascimento);
+            this.pnIdentificacao.Controls.Add(this.lbDataNascimento);
             this.pnIdentificacao.Controls.Add(this.lbRaca);
             this.pnIdentificacao.Controls.Add(this.lbIdentificacao);
             this.pnIdentificacao.Controls.Add(this.eRaca);
@@ -549,7 +549,6 @@ namespace RuralSimples.View
             this.eDataNascimento.Size = new System.Drawing.Size(129, 26);
             this.eDataNascimento.TabIndex = 11;
             this.eDataNascimento.ValidatingType = typeof(System.DateTime);
-            this.eDataNascimento.TextChanged += new System.EventHandler(this.eDataNascimento_TextChanged);
             // 
             // cbSexo
             // 
@@ -605,16 +604,16 @@ namespace RuralSimples.View
             this.lbIdade.TabIndex = 34;
             this.lbIdade.Text = "Idade";
             // 
-            // lbNascimento
+            // lbDataNascimento
             // 
-            this.lbNascimento.AutoSize = true;
-            this.lbNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNascimento.Location = new System.Drawing.Point(312, 190);
-            this.lbNascimento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbNascimento.Name = "lbNascimento";
-            this.lbNascimento.Size = new System.Drawing.Size(93, 20);
-            this.lbNascimento.TabIndex = 33;
-            this.lbNascimento.Text = "Nascimento";
+            this.lbDataNascimento.AutoSize = true;
+            this.lbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDataNascimento.Location = new System.Drawing.Point(312, 190);
+            this.lbDataNascimento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDataNascimento.Name = "lbDataNascimento";
+            this.lbDataNascimento.Size = new System.Drawing.Size(93, 20);
+            this.lbDataNascimento.TabIndex = 33;
+            this.lbDataNascimento.Text = "Nascimento";
             // 
             // lbRaca
             // 
@@ -637,7 +636,6 @@ namespace RuralSimples.View
             this.lbIdentificacao.Size = new System.Drawing.Size(100, 20);
             this.lbIdentificacao.TabIndex = 31;
             this.lbIdentificacao.Text = "Identificação";
-            this.lbIdentificacao.Click += new System.EventHandler(this.lbIdentificacao_Click);
             // 
             // eRaca
             // 
@@ -689,8 +687,7 @@ namespace RuralSimples.View
             this.eIdentificacao.Name = "eIdentificacao";
             this.eIdentificacao.Size = new System.Drawing.Size(120, 26);
             this.eIdentificacao.TabIndex = 4;
-            this.eIdentificacao.TextChanged += new System.EventHandler(this.eIdentificacao_TextChanged);
-            this.eIdentificacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eIdentificacao_KeyPress);
+            this.eIdentificacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eIdentificacao_KeyPress_1);
             // 
             // pnCamposOcultos
             // 
@@ -837,7 +834,7 @@ namespace RuralSimples.View
         private System.Windows.Forms.Label lbMae;
         private System.Windows.Forms.Label lbNomePai;
         private System.Windows.Forms.Label lbIdade;
-        private System.Windows.Forms.Label lbNascimento;
+        private System.Windows.Forms.Label lbDataNascimento;
         private System.Windows.Forms.Label lbRaca;
         private System.Windows.Forms.Label lbIdentificacao;
         private System.Windows.Forms.TextBox eRaca;
