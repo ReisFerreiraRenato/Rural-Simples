@@ -12,11 +12,11 @@ namespace RuralSimples.Model
         private NpgsqlConnection conexao = new NpgsqlConnection();
         private NpgsqlTransaction transacao;
 
-        private string serverName = "34.151.203.114";                //localhost
-        private string port = "5432";                                //porta default
-        private string userName = "postgres";                        //nome do administrador
-        private string password = "^GRnI5ts3B*9m#jR";                //senha do administrador
-        private string databaseName = "RS_FAZENDA_UNIAO";            //nome do banco de dados
+        private string serverName = "localhost";            //localhost
+        private string port = "5432";                       //porta default
+        private string userName = "postgres";               //nome do administrador
+        private string password = "45a16b25c06D@";          //senha do administrador
+        private string databaseName = "rural_simple_base";  //nome do banco de dados
         //Constructor
         public Conexao()
         {

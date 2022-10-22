@@ -29,6 +29,7 @@ namespace RuralSimples.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCadastroPessoa));
             this.cbTipoPessoa = new System.Windows.Forms.ComboBox();
             this.lbTipoPessoa = new System.Windows.Forms.Label();
             this.eIdentificacao = new System.Windows.Forms.TextBox();
@@ -37,7 +38,7 @@ namespace RuralSimples.View
             this.eNome = new System.Windows.Forms.TextBox();
             this.eRG_Inscricao = new System.Windows.Forms.TextBox();
             this.eOrgaoEmissor = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
+            this.lbIDPessoa = new System.Windows.Forms.Label();
             this.lbCPFCNPJ = new System.Windows.Forms.Label();
             this.lbNomeRazao = new System.Windows.Forms.Label();
             this.lbFazendaFantasia = new System.Windows.Forms.Label();
@@ -119,15 +120,30 @@ namespace RuralSimples.View
             this.lbInstagran = new System.Windows.Forms.Label();
             this.lbTwiter = new System.Windows.Forms.Label();
             this.lbFacebook = new System.Windows.Forms.Label();
+            this.tabPagePropriedades = new System.Windows.Forms.TabPage();
+            this.btAdicionarPropriedade = new System.Windows.Forms.Button();
+            this.lbPropriedade = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.eIdentificacaoPropriedade = new System.Windows.Forms.TextBox();
+            this.dgPropriedades = new System.Windows.Forms.DataGridView();
             this.lbUfEmissor = new System.Windows.Forms.Label();
-            this.eUfEmissor = new System.Windows.Forms.TextBox();
+            this.eUfOrgaoEmissor = new System.Windows.Forms.TextBox();
             this.eObservacoes = new System.Windows.Forms.TextBox();
             this.lbObservacoes = new System.Windows.Forms.Label();
+            this.eCEI = new System.Windows.Forms.TextBox();
+            this.lbCEI = new System.Windows.Forms.Label();
+            this.btBuscarIdPessoa = new System.Windows.Forms.Button();
+            this.btBuscarPropriedade = new System.Windows.Forms.Button();
+            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNomePropriedade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageEndereco.SuspendLayout();
             this.tabPageContatos.SuspendLayout();
             this.tabPageWeb.SuspendLayout();
+            this.tabPagePropriedades.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropriedades)).BeginInit();
             this.SuspendLayout();
             // 
             // cbTipoPessoa
@@ -138,201 +154,193 @@ namespace RuralSimples.View
             this.cbTipoPessoa.Items.AddRange(new object[] {
             "Física",
             "Jurídica"});
-            this.cbTipoPessoa.Location = new System.Drawing.Point(177, 30);
-            this.cbTipoPessoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbTipoPessoa.Location = new System.Drawing.Point(210, 35);
             this.cbTipoPessoa.Name = "cbTipoPessoa";
-            this.cbTipoPessoa.Size = new System.Drawing.Size(127, 24);
+            this.cbTipoPessoa.Size = new System.Drawing.Size(142, 28);
             this.cbTipoPessoa.TabIndex = 1;
             this.cbTipoPessoa.SelectedIndexChanged += new System.EventHandler(this.cbTipoPessoa_SelectedIndexChanged);
             // 
             // lbTipoPessoa
             // 
             this.lbTipoPessoa.AutoSize = true;
-            this.lbTipoPessoa.Location = new System.Drawing.Point(173, 12);
+            this.lbTipoPessoa.Location = new System.Drawing.Point(218, 12);
             this.lbTipoPessoa.Name = "lbTipoPessoa";
-            this.lbTipoPessoa.Size = new System.Drawing.Size(105, 16);
+            this.lbTipoPessoa.Size = new System.Drawing.Size(125, 20);
             this.lbTipoPessoa.TabIndex = 1;
             this.lbTipoPessoa.Text = "Tipo de Pessoa";
             // 
             // eIdentificacao
             // 
             this.eIdentificacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eIdentificacao.Location = new System.Drawing.Point(12, 30);
-            this.eIdentificacao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eIdentificacao.Location = new System.Drawing.Point(14, 35);
             this.eIdentificacao.Name = "eIdentificacao";
-            this.eIdentificacao.Size = new System.Drawing.Size(159, 22);
+            this.eIdentificacao.Size = new System.Drawing.Size(152, 26);
             this.eIdentificacao.TabIndex = 0;
-            this.eIdentificacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eCodigo_KeyPress);
+            this.eIdentificacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eIdentificacao_KeyPress);
             // 
             // eInscricaoMunicipal
             // 
             this.eInscricaoMunicipal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eInscricaoMunicipal.Enabled = false;
-            this.eInscricaoMunicipal.Location = new System.Drawing.Point(12, 229);
-            this.eInscricaoMunicipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eInscricaoMunicipal.Location = new System.Drawing.Point(14, 286);
             this.eInscricaoMunicipal.Name = "eInscricaoMunicipal";
-            this.eInscricaoMunicipal.Size = new System.Drawing.Size(165, 22);
+            this.eInscricaoMunicipal.Size = new System.Drawing.Size(186, 26);
             this.eInscricaoMunicipal.TabIndex = 11;
             // 
             // eNomeFazendaNomeFantasia
             // 
             this.eNomeFazendaNomeFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eNomeFazendaNomeFantasia.Enabled = false;
-            this.eNomeFazendaNomeFantasia.Location = new System.Drawing.Point(12, 121);
-            this.eNomeFazendaNomeFantasia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eNomeFazendaNomeFantasia.Location = new System.Drawing.Point(14, 151);
             this.eNomeFazendaNomeFantasia.Name = "eNomeFazendaNomeFantasia";
-            this.eNomeFazendaNomeFantasia.Size = new System.Drawing.Size(772, 22);
+            this.eNomeFazendaNomeFantasia.Size = new System.Drawing.Size(868, 26);
             this.eNomeFazendaNomeFantasia.TabIndex = 6;
             // 
             // eNome
             // 
             this.eNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eNome.Enabled = false;
-            this.eNome.Location = new System.Drawing.Point(12, 75);
-            this.eNome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eNome.Location = new System.Drawing.Point(14, 94);
             this.eNome.Name = "eNome";
-            this.eNome.Size = new System.Drawing.Size(772, 22);
+            this.eNome.Size = new System.Drawing.Size(868, 26);
             this.eNome.TabIndex = 5;
             // 
             // eRG_Inscricao
             // 
             this.eRG_Inscricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eRG_Inscricao.Enabled = false;
-            this.eRG_Inscricao.Location = new System.Drawing.Point(164, 172);
-            this.eRG_Inscricao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eRG_Inscricao.Location = new System.Drawing.Point(184, 215);
             this.eRG_Inscricao.Name = "eRG_Inscricao";
-            this.eRG_Inscricao.Size = new System.Drawing.Size(201, 22);
+            this.eRG_Inscricao.Size = new System.Drawing.Size(226, 26);
             this.eRG_Inscricao.TabIndex = 8;
             // 
             // eOrgaoEmissor
             // 
             this.eOrgaoEmissor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eOrgaoEmissor.Enabled = false;
-            this.eOrgaoEmissor.Location = new System.Drawing.Point(384, 172);
-            this.eOrgaoEmissor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eOrgaoEmissor.Location = new System.Drawing.Point(432, 215);
             this.eOrgaoEmissor.Name = "eOrgaoEmissor";
-            this.eOrgaoEmissor.Size = new System.Drawing.Size(139, 22);
+            this.eOrgaoEmissor.Size = new System.Drawing.Size(156, 26);
             this.eOrgaoEmissor.TabIndex = 9;
             // 
-            // lbID
+            // lbIDPessoa
             // 
-            this.lbID.AutoSize = true;
-            this.lbID.Location = new System.Drawing.Point(9, 11);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(84, 16);
-            this.lbID.TabIndex = 12;
-            this.lbID.Text = "Identificação";
+            this.lbIDPessoa.AutoSize = true;
+            this.lbIDPessoa.Location = new System.Drawing.Point(10, 14);
+            this.lbIDPessoa.Name = "lbIDPessoa";
+            this.lbIDPessoa.Size = new System.Drawing.Size(103, 20);
+            this.lbIDPessoa.TabIndex = 12;
+            this.lbIDPessoa.Text = "Identificação";
             // 
             // lbCPFCNPJ
             // 
             this.lbCPFCNPJ.AutoSize = true;
-            this.lbCPFCNPJ.Location = new System.Drawing.Point(309, 11);
+            this.lbCPFCNPJ.Location = new System.Drawing.Point(363, 12);
             this.lbCPFCNPJ.Name = "lbCPFCNPJ";
-            this.lbCPFCNPJ.Size = new System.Drawing.Size(34, 16);
+            this.lbCPFCNPJ.Size = new System.Drawing.Size(42, 20);
             this.lbCPFCNPJ.TabIndex = 13;
             this.lbCPFCNPJ.Text = "CPF";
             // 
             // lbNomeRazao
             // 
             this.lbNomeRazao.AutoSize = true;
-            this.lbNomeRazao.Location = new System.Drawing.Point(11, 57);
+            this.lbNomeRazao.Location = new System.Drawing.Point(9, 71);
             this.lbNomeRazao.Name = "lbNomeRazao";
-            this.lbNomeRazao.Size = new System.Drawing.Size(45, 16);
+            this.lbNomeRazao.Size = new System.Drawing.Size(53, 20);
             this.lbNomeRazao.TabIndex = 14;
             this.lbNomeRazao.Text = "Nome";
             // 
             // lbFazendaFantasia
             // 
             this.lbFazendaFantasia.AutoSize = true;
-            this.lbFazendaFantasia.Location = new System.Drawing.Point(9, 102);
+            this.lbFazendaFantasia.Location = new System.Drawing.Point(10, 128);
             this.lbFazendaFantasia.Name = "lbFazendaFantasia";
-            this.lbFazendaFantasia.Size = new System.Drawing.Size(61, 16);
+            this.lbFazendaFantasia.Size = new System.Drawing.Size(73, 20);
             this.lbFazendaFantasia.TabIndex = 15;
             this.lbFazendaFantasia.Text = "Fazenda";
             // 
             // lbDataNascimento
             // 
             this.lbDataNascimento.AutoSize = true;
-            this.lbDataNascimento.Location = new System.Drawing.Point(9, 153);
+            this.lbDataNascimento.Location = new System.Drawing.Point(10, 191);
             this.lbDataNascimento.Name = "lbDataNascimento";
-            this.lbDataNascimento.Size = new System.Drawing.Size(80, 16);
+            this.lbDataNascimento.Size = new System.Drawing.Size(98, 20);
             this.lbDataNascimento.TabIndex = 16;
             this.lbDataNascimento.Text = "Nascimento";
             // 
             // lbDataCadastro
             // 
             this.lbDataCadastro.AutoSize = true;
-            this.lbDataCadastro.Location = new System.Drawing.Point(633, 11);
+            this.lbDataCadastro.Location = new System.Drawing.Point(712, 14);
             this.lbDataCadastro.Name = "lbDataCadastro";
-            this.lbDataCadastro.Size = new System.Drawing.Size(95, 16);
+            this.lbDataCadastro.Size = new System.Drawing.Size(118, 20);
             this.lbDataCadastro.TabIndex = 17;
             this.lbDataCadastro.Text = "Data Cadastro";
             // 
             // lbClassificacao
             // 
             this.lbClassificacao.AutoSize = true;
-            this.lbClassificacao.Location = new System.Drawing.Point(464, 11);
+            this.lbClassificacao.Location = new System.Drawing.Point(542, 14);
             this.lbClassificacao.Name = "lbClassificacao";
-            this.lbClassificacao.Size = new System.Drawing.Size(89, 16);
+            this.lbClassificacao.Size = new System.Drawing.Size(110, 20);
             this.lbClassificacao.TabIndex = 18;
             this.lbClassificacao.Text = "Classificação";
             // 
             // lbRG_Inscricao
             // 
             this.lbRG_Inscricao.AutoSize = true;
-            this.lbRG_Inscricao.Location = new System.Drawing.Point(160, 154);
+            this.lbRG_Inscricao.Location = new System.Drawing.Point(180, 192);
             this.lbRG_Inscricao.Name = "lbRG_Inscricao";
-            this.lbRG_Inscricao.Size = new System.Drawing.Size(28, 16);
+            this.lbRG_Inscricao.Size = new System.Drawing.Size(34, 20);
             this.lbRG_Inscricao.TabIndex = 19;
             this.lbRG_Inscricao.Text = "RG";
             // 
             // lbInscricaoMunicipal
             // 
             this.lbInscricaoMunicipal.AutoSize = true;
-            this.lbInscricaoMunicipal.Location = new System.Drawing.Point(12, 209);
+            this.lbInscricaoMunicipal.Location = new System.Drawing.Point(14, 262);
             this.lbInscricaoMunicipal.Name = "lbInscricaoMunicipal";
-            this.lbInscricaoMunicipal.Size = new System.Drawing.Size(122, 16);
+            this.lbInscricaoMunicipal.Size = new System.Drawing.Size(153, 20);
             this.lbInscricaoMunicipal.TabIndex = 20;
             this.lbInscricaoMunicipal.Text = "Inscrição Municipal";
             // 
             // lbOrgaoEmissor
             // 
             this.lbOrgaoEmissor.AutoSize = true;
-            this.lbOrgaoEmissor.Location = new System.Drawing.Point(380, 153);
+            this.lbOrgaoEmissor.Location = new System.Drawing.Point(428, 191);
             this.lbOrgaoEmissor.Name = "lbOrgaoEmissor";
-            this.lbOrgaoEmissor.Size = new System.Drawing.Size(57, 16);
+            this.lbOrgaoEmissor.Size = new System.Drawing.Size(71, 20);
             this.lbOrgaoEmissor.TabIndex = 21;
             this.lbOrgaoEmissor.Text = "Emissor";
             // 
             // eCPF_CNPJ
             // 
             this.eCPF_CNPJ.Enabled = false;
-            this.eCPF_CNPJ.Location = new System.Drawing.Point(313, 30);
-            this.eCPF_CNPJ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.eCPF_CNPJ.Mask = "000.000.000-00";
+            this.eCPF_CNPJ.Location = new System.Drawing.Point(367, 35);
+            this.eCPF_CNPJ.Mask = "000,000,000-00";
             this.eCPF_CNPJ.Name = "eCPF_CNPJ";
-            this.eCPF_CNPJ.Size = new System.Drawing.Size(147, 22);
+            this.eCPF_CNPJ.Size = new System.Drawing.Size(156, 26);
             this.eCPF_CNPJ.TabIndex = 2;
             // 
             // eNascimento
             // 
             this.eNascimento.Enabled = false;
-            this.eNascimento.Location = new System.Drawing.Point(12, 172);
-            this.eNascimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eNascimento.Location = new System.Drawing.Point(14, 215);
+            this.eNascimento.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eNascimento.Mask = "00/00/0000";
             this.eNascimento.Name = "eNascimento";
-            this.eNascimento.Size = new System.Drawing.Size(136, 22);
+            this.eNascimento.Size = new System.Drawing.Size(152, 26);
             this.eNascimento.TabIndex = 7;
             this.eNascimento.ValidatingType = typeof(System.DateTime);
             // 
             // eDataCadastro
             // 
             this.eDataCadastro.Enabled = false;
-            this.eDataCadastro.Location = new System.Drawing.Point(637, 28);
-            this.eDataCadastro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eDataCadastro.Location = new System.Drawing.Point(706, 35);
+            this.eDataCadastro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eDataCadastro.Mask = "00/00/0000";
             this.eDataCadastro.Name = "eDataCadastro";
-            this.eDataCadastro.Size = new System.Drawing.Size(147, 22);
+            this.eDataCadastro.Size = new System.Drawing.Size(164, 26);
             this.eDataCadastro.TabIndex = 4;
             this.eDataCadastro.TabStop = false;
             this.eDataCadastro.ValidatingType = typeof(System.DateTime);
@@ -350,19 +358,19 @@ namespace RuralSimples.View
             "Parceiro",
             "Propriedade",
             "Sócio"});
-            this.cbClassificacao.Location = new System.Drawing.Point(468, 28);
-            this.cbClassificacao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbClassificacao.Location = new System.Drawing.Point(536, 35);
+            this.cbClassificacao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbClassificacao.Name = "cbClassificacao";
-            this.cbClassificacao.Size = new System.Drawing.Size(160, 24);
+            this.cbClassificacao.Size = new System.Drawing.Size(160, 28);
             this.cbClassificacao.TabIndex = 3;
             // 
             // btNovo
             // 
             this.btNovo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btNovo.Location = new System.Drawing.Point(4, 10);
-            this.btNovo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btNovo.Location = new System.Drawing.Point(4, 12);
+            this.btNovo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btNovo.Name = "btNovo";
-            this.btNovo.Size = new System.Drawing.Size(147, 41);
+            this.btNovo.Size = new System.Drawing.Size(165, 51);
             this.btNovo.TabIndex = 1;
             this.btNovo.Text = "&Novo";
             this.btNovo.UseVisualStyleBackColor = true;
@@ -375,19 +383,19 @@ namespace RuralSimples.View
             this.panel1.Controls.Add(this.btCancelar);
             this.panel1.Controls.Add(this.btSalvar);
             this.panel1.Controls.Add(this.btNovo);
-            this.panel1.Location = new System.Drawing.Point(12, 609);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(15, 791);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(773, 58);
+            this.panel1.Size = new System.Drawing.Size(870, 72);
             this.panel1.TabIndex = 40;
             // 
             // btLimpar
             // 
             this.btLimpar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLimpar.Location = new System.Drawing.Point(468, 10);
-            this.btLimpar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btLimpar.Location = new System.Drawing.Point(526, 12);
+            this.btLimpar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btLimpar.Name = "btLimpar";
-            this.btLimpar.Size = new System.Drawing.Size(147, 41);
+            this.btLimpar.Size = new System.Drawing.Size(165, 51);
             this.btLimpar.TabIndex = 4;
             this.btLimpar.Text = "&Limpar";
             this.btLimpar.UseVisualStyleBackColor = true;
@@ -396,10 +404,10 @@ namespace RuralSimples.View
             // btSair
             // 
             this.btSair.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSair.Location = new System.Drawing.Point(623, 10);
-            this.btSair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSair.Location = new System.Drawing.Point(700, 12);
+            this.btSair.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btSair.Name = "btSair";
-            this.btSair.Size = new System.Drawing.Size(147, 41);
+            this.btSair.Size = new System.Drawing.Size(165, 51);
             this.btSair.TabIndex = 5;
             this.btSair.Text = "Sai&r";
             this.btSair.UseVisualStyleBackColor = true;
@@ -408,10 +416,10 @@ namespace RuralSimples.View
             // btCancelar
             // 
             this.btCancelar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancelar.Location = new System.Drawing.Point(313, 10);
-            this.btCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btCancelar.Location = new System.Drawing.Point(352, 12);
+            this.btCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btCancelar.Name = "btCancelar";
-            this.btCancelar.Size = new System.Drawing.Size(147, 41);
+            this.btCancelar.Size = new System.Drawing.Size(165, 51);
             this.btCancelar.TabIndex = 3;
             this.btCancelar.Text = "&Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
@@ -420,10 +428,10 @@ namespace RuralSimples.View
             // btSalvar
             // 
             this.btSalvar.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSalvar.Location = new System.Drawing.Point(159, 10);
-            this.btSalvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSalvar.Location = new System.Drawing.Point(178, 12);
+            this.btSalvar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btSalvar.Name = "btSalvar";
-            this.btSalvar.Size = new System.Drawing.Size(147, 41);
+            this.btSalvar.Size = new System.Drawing.Size(165, 51);
             this.btSalvar.TabIndex = 2;
             this.btSalvar.Text = "&Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
@@ -432,30 +440,30 @@ namespace RuralSimples.View
             // lbLogin
             // 
             this.lbLogin.AutoSize = true;
-            this.lbLogin.Location = new System.Drawing.Point(387, 212);
+            this.lbLogin.Location = new System.Drawing.Point(376, 262);
             this.lbLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Size = new System.Drawing.Size(41, 16);
+            this.lbLogin.Size = new System.Drawing.Size(50, 20);
             this.lbLogin.TabIndex = 48;
             this.lbLogin.Text = "Login";
             // 
             // lbSenha
             // 
             this.lbSenha.AutoSize = true;
-            this.lbSenha.Location = new System.Drawing.Point(540, 212);
+            this.lbSenha.Location = new System.Drawing.Point(536, 262);
             this.lbSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSenha.Name = "lbSenha";
-            this.lbSenha.Size = new System.Drawing.Size(47, 16);
+            this.lbSenha.Size = new System.Drawing.Size(56, 20);
             this.lbSenha.TabIndex = 49;
             this.lbSenha.Text = "Senha";
             // 
             // ckAcessoSistema
             // 
             this.ckAcessoSistema.AutoSize = true;
-            this.ckAcessoSistema.Location = new System.Drawing.Point(239, 231);
-            this.ckAcessoSistema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckAcessoSistema.Location = new System.Drawing.Point(207, 289);
+            this.ckAcessoSistema.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckAcessoSistema.Name = "ckAcessoSistema";
-            this.ckAcessoSistema.Size = new System.Drawing.Size(142, 20);
+            this.ckAcessoSistema.Size = new System.Drawing.Size(171, 24);
             this.ckAcessoSistema.TabIndex = 13;
             this.ckAcessoSistema.Text = "Acesso ao sistema";
             this.ckAcessoSistema.UseVisualStyleBackColor = true;
@@ -465,29 +473,29 @@ namespace RuralSimples.View
             // 
             this.eLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eLogin.Enabled = false;
-            this.eLogin.Location = new System.Drawing.Point(391, 231);
-            this.eLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eLogin.Location = new System.Drawing.Point(381, 286);
+            this.eLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eLogin.Name = "eLogin";
-            this.eLogin.Size = new System.Drawing.Size(132, 22);
+            this.eLogin.Size = new System.Drawing.Size(148, 26);
             this.eLogin.TabIndex = 14;
             // 
             // eSenha
             // 
             this.eSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.eSenha.Enabled = false;
-            this.eSenha.Location = new System.Drawing.Point(544, 231);
-            this.eSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eSenha.Location = new System.Drawing.Point(540, 286);
+            this.eSenha.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eSenha.Name = "eSenha";
-            this.eSenha.Size = new System.Drawing.Size(155, 22);
+            this.eSenha.Size = new System.Drawing.Size(174, 26);
             this.eSenha.TabIndex = 15;
             // 
             // ckInativo
             // 
             this.ckInativo.AutoSize = true;
-            this.ckInativo.Location = new System.Drawing.Point(708, 231);
-            this.ckInativo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckInativo.Location = new System.Drawing.Point(738, 289);
+            this.ckInativo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckInativo.Name = "ckInativo";
-            this.ckInativo.Size = new System.Drawing.Size(66, 20);
+            this.ckInativo.Size = new System.Drawing.Size(76, 24);
             this.ckInativo.TabIndex = 16;
             this.ckInativo.Text = "Inativo";
             this.ckInativo.UseVisualStyleBackColor = true;
@@ -497,11 +505,11 @@ namespace RuralSimples.View
             this.tabControl.Controls.Add(this.tabPageEndereco);
             this.tabControl.Controls.Add(this.tabPageContatos);
             this.tabControl.Controls.Add(this.tabPageWeb);
-            this.tabControl.Location = new System.Drawing.Point(12, 389);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl.Controls.Add(this.tabPagePropriedades);
+            this.tabControl.Location = new System.Drawing.Point(14, 486);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(772, 214);
+            this.tabControl.Size = new System.Drawing.Size(868, 297);
             this.tabControl.TabIndex = 18;
             // 
             // tabPageEndereco
@@ -533,11 +541,10 @@ namespace RuralSimples.View
             this.tabPageEndereco.Controls.Add(this.eBairro);
             this.tabPageEndereco.Controls.Add(this.eNumero);
             this.tabPageEndereco.Controls.Add(this.eLogradouro);
-            this.tabPageEndereco.Location = new System.Drawing.Point(4, 25);
-            this.tabPageEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageEndereco.Location = new System.Drawing.Point(4, 29);
             this.tabPageEndereco.Name = "tabPageEndereco";
-            this.tabPageEndereco.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageEndereco.Size = new System.Drawing.Size(764, 185);
+            this.tabPageEndereco.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageEndereco.Size = new System.Drawing.Size(860, 264);
             this.tabPageEndereco.TabIndex = 0;
             this.tabPageEndereco.Text = "Endereços";
             this.tabPageEndereco.UseVisualStyleBackColor = true;
@@ -545,9 +552,9 @@ namespace RuralSimples.View
             // lbIdEndereco
             // 
             this.lbIdEndereco.AutoSize = true;
-            this.lbIdEndereco.Location = new System.Drawing.Point(655, 117);
+            this.lbIdEndereco.Location = new System.Drawing.Point(736, 146);
             this.lbIdEndereco.Name = "lbIdEndereco";
-            this.lbIdEndereco.Size = new System.Drawing.Size(78, 16);
+            this.lbIdEndereco.Size = new System.Drawing.Size(93, 20);
             this.lbIdEndereco.TabIndex = 76;
             this.lbIdEndereco.Text = "IdEndereco";
             this.lbIdEndereco.Visible = false;
@@ -555,19 +562,18 @@ namespace RuralSimples.View
             // eIdEndereco
             // 
             this.eIdEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eIdEndereco.Location = new System.Drawing.Point(659, 135);
-            this.eIdEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eIdEndereco.Location = new System.Drawing.Point(741, 169);
             this.eIdEndereco.Name = "eIdEndereco";
-            this.eIdEndereco.Size = new System.Drawing.Size(100, 22);
+            this.eIdEndereco.Size = new System.Drawing.Size(112, 26);
             this.eIdEndereco.TabIndex = 75;
             this.eIdEndereco.Visible = false;
             // 
             // lbDdd
             // 
             this.lbDdd.AutoSize = true;
-            this.lbDdd.Location = new System.Drawing.Point(320, 117);
+            this.lbDdd.Location = new System.Drawing.Point(360, 146);
             this.lbDdd.Name = "lbDdd";
-            this.lbDdd.Size = new System.Drawing.Size(38, 16);
+            this.lbDdd.Size = new System.Drawing.Size(48, 20);
             this.lbDdd.TabIndex = 74;
             this.lbDdd.Text = "DDD";
             this.lbDdd.Visible = false;
@@ -575,9 +581,9 @@ namespace RuralSimples.View
             // lbSiafi
             // 
             this.lbSiafi.AutoSize = true;
-            this.lbSiafi.Location = new System.Drawing.Point(213, 117);
+            this.lbSiafi.Location = new System.Drawing.Point(240, 146);
             this.lbSiafi.Name = "lbSiafi";
-            this.lbSiafi.Size = new System.Drawing.Size(34, 16);
+            this.lbSiafi.Size = new System.Drawing.Size(42, 20);
             this.lbSiafi.TabIndex = 73;
             this.lbSiafi.Text = "Siafi";
             this.lbSiafi.Visible = false;
@@ -585,9 +591,9 @@ namespace RuralSimples.View
             // lbGia
             // 
             this.lbGia.AutoSize = true;
-            this.lbGia.Location = new System.Drawing.Point(109, 117);
+            this.lbGia.Location = new System.Drawing.Point(123, 146);
             this.lbGia.Name = "lbGia";
-            this.lbGia.Size = new System.Drawing.Size(30, 16);
+            this.lbGia.Size = new System.Drawing.Size(37, 20);
             this.lbGia.TabIndex = 72;
             this.lbGia.Text = "GIA";
             this.lbGia.Visible = false;
@@ -595,9 +601,9 @@ namespace RuralSimples.View
             // lbIbge
             // 
             this.lbIbge.AutoSize = true;
-            this.lbIbge.Location = new System.Drawing.Point(3, 117);
+            this.lbIbge.Location = new System.Drawing.Point(3, 146);
             this.lbIbge.Name = "lbIbge";
-            this.lbIbge.Size = new System.Drawing.Size(39, 16);
+            this.lbIbge.Size = new System.Drawing.Size(49, 20);
             this.lbIbge.TabIndex = 71;
             this.lbIbge.Text = "IBGE";
             this.lbIbge.Visible = false;
@@ -605,67 +611,61 @@ namespace RuralSimples.View
             // eDdd
             // 
             this.eDdd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eDdd.Location = new System.Drawing.Point(323, 135);
-            this.eDdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eDdd.Location = new System.Drawing.Point(363, 169);
             this.eDdd.Name = "eDdd";
-            this.eDdd.Size = new System.Drawing.Size(100, 22);
+            this.eDdd.Size = new System.Drawing.Size(112, 26);
             this.eDdd.TabIndex = 69;
             this.eDdd.Visible = false;
             // 
             // eSiafi
             // 
             this.eSiafi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eSiafi.Location = new System.Drawing.Point(217, 135);
-            this.eSiafi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eSiafi.Location = new System.Drawing.Point(244, 169);
             this.eSiafi.Name = "eSiafi";
-            this.eSiafi.Size = new System.Drawing.Size(100, 22);
+            this.eSiafi.Size = new System.Drawing.Size(112, 26);
             this.eSiafi.TabIndex = 68;
             this.eSiafi.Visible = false;
             // 
             // eGia
             // 
             this.eGia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eGia.Location = new System.Drawing.Point(111, 135);
-            this.eGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eGia.Location = new System.Drawing.Point(124, 169);
             this.eGia.Name = "eGia";
-            this.eGia.Size = new System.Drawing.Size(100, 22);
+            this.eGia.Size = new System.Drawing.Size(112, 26);
             this.eGia.TabIndex = 67;
             this.eGia.Visible = false;
             // 
             // eIbge
             // 
             this.eIbge.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eIbge.Location = new System.Drawing.Point(5, 135);
-            this.eIbge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eIbge.Location = new System.Drawing.Point(6, 169);
             this.eIbge.Name = "eIbge";
-            this.eIbge.Size = new System.Drawing.Size(100, 22);
+            this.eIbge.Size = new System.Drawing.Size(112, 26);
             this.eIbge.TabIndex = 66;
             this.eIbge.Visible = false;
             // 
             // lbCep
             // 
             this.lbCep.AutoSize = true;
-            this.lbCep.Location = new System.Drawing.Point(512, 54);
+            this.lbCep.Location = new System.Drawing.Point(576, 68);
             this.lbCep.Name = "lbCep";
-            this.lbCep.Size = new System.Drawing.Size(35, 16);
+            this.lbCep.Size = new System.Drawing.Size(43, 20);
             this.lbCep.TabIndex = 65;
             this.lbCep.Text = "CEP";
             // 
             // eCep
             // 
-            this.eCep.Location = new System.Drawing.Point(515, 73);
-            this.eCep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eCep.Location = new System.Drawing.Point(579, 91);
             this.eCep.Mask = "00,000-999";
             this.eCep.Name = "eCep";
-            this.eCep.Size = new System.Drawing.Size(89, 22);
+            this.eCep.Size = new System.Drawing.Size(100, 26);
             this.eCep.TabIndex = 6;
             // 
             // btLimparEndereco
             // 
-            this.btLimparEndereco.Location = new System.Drawing.Point(621, 80);
-            this.btLimparEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btLimparEndereco.Location = new System.Drawing.Point(699, 100);
             this.btLimparEndereco.Name = "btLimparEndereco";
-            this.btLimparEndereco.Size = new System.Drawing.Size(137, 25);
+            this.btLimparEndereco.Size = new System.Drawing.Size(154, 31);
             this.btLimparEndereco.TabIndex = 9;
             this.btLimparEndereco.Text = "Limpar";
             this.btLimparEndereco.UseVisualStyleBackColor = true;
@@ -673,10 +673,9 @@ namespace RuralSimples.View
             // 
             // btRemoverEndereco
             // 
-            this.btRemoverEndereco.Location = new System.Drawing.Point(621, 50);
-            this.btRemoverEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btRemoverEndereco.Location = new System.Drawing.Point(699, 63);
             this.btRemoverEndereco.Name = "btRemoverEndereco";
-            this.btRemoverEndereco.Size = new System.Drawing.Size(137, 25);
+            this.btRemoverEndereco.Size = new System.Drawing.Size(154, 31);
             this.btRemoverEndereco.TabIndex = 8;
             this.btRemoverEndereco.Text = "Remover";
             this.btRemoverEndereco.UseVisualStyleBackColor = true;
@@ -684,10 +683,9 @@ namespace RuralSimples.View
             // 
             // btSalvarEndereco
             // 
-            this.btSalvarEndereco.Location = new System.Drawing.Point(620, 21);
-            this.btSalvarEndereco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSalvarEndereco.Location = new System.Drawing.Point(698, 26);
             this.btSalvarEndereco.Name = "btSalvarEndereco";
-            this.btSalvarEndereco.Size = new System.Drawing.Size(139, 25);
+            this.btSalvarEndereco.Size = new System.Drawing.Size(156, 31);
             this.btSalvarEndereco.TabIndex = 7;
             this.btSalvarEndereco.Text = "Salvar";
             this.btSalvarEndereco.UseVisualStyleBackColor = true;
@@ -696,109 +694,103 @@ namespace RuralSimples.View
             // lbUF
             // 
             this.lbUF.AutoSize = true;
-            this.lbUF.Location = new System.Drawing.Point(475, 54);
+            this.lbUF.Location = new System.Drawing.Point(534, 68);
             this.lbUF.Name = "lbUF";
-            this.lbUF.Size = new System.Drawing.Size(26, 16);
+            this.lbUF.Size = new System.Drawing.Size(31, 20);
             this.lbUF.TabIndex = 60;
             this.lbUF.Text = "UF";
             // 
             // eUfCidade
             // 
             this.eUfCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eUfCidade.Location = new System.Drawing.Point(477, 73);
-            this.eUfCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eUfCidade.Location = new System.Drawing.Point(537, 91);
             this.eUfCidade.Name = "eUfCidade";
-            this.eUfCidade.Size = new System.Drawing.Size(31, 22);
+            this.eUfCidade.Size = new System.Drawing.Size(34, 26);
             this.eUfCidade.TabIndex = 5;
             // 
             // lbCidade
             // 
             this.lbCidade.AutoSize = true;
-            this.lbCidade.Location = new System.Drawing.Point(301, 54);
+            this.lbCidade.Location = new System.Drawing.Point(339, 68);
             this.lbCidade.Name = "lbCidade";
-            this.lbCidade.Size = new System.Drawing.Size(52, 16);
+            this.lbCidade.Size = new System.Drawing.Size(61, 20);
             this.lbCidade.TabIndex = 58;
             this.lbCidade.Text = "Cidade";
             // 
             // eCidade
             // 
             this.eCidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eCidade.Location = new System.Drawing.Point(304, 73);
-            this.eCidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eCidade.Location = new System.Drawing.Point(342, 91);
             this.eCidade.Name = "eCidade";
-            this.eCidade.Size = new System.Drawing.Size(167, 22);
+            this.eCidade.Size = new System.Drawing.Size(187, 26);
             this.eCidade.TabIndex = 4;
             // 
             // lbBairro
             // 
             this.lbBairro.AutoSize = true;
-            this.lbBairro.Location = new System.Drawing.Point(175, 54);
+            this.lbBairro.Location = new System.Drawing.Point(196, 68);
             this.lbBairro.Name = "lbBairro";
-            this.lbBairro.Size = new System.Drawing.Size(44, 16);
+            this.lbBairro.Size = new System.Drawing.Size(55, 20);
             this.lbBairro.TabIndex = 56;
             this.lbBairro.Text = "Bairro";
             // 
             // lbComplemento
             // 
             this.lbComplemento.AutoSize = true;
-            this.lbComplemento.Location = new System.Drawing.Point(5, 54);
+            this.lbComplemento.Location = new System.Drawing.Point(6, 68);
             this.lbComplemento.Name = "lbComplemento";
-            this.lbComplemento.Size = new System.Drawing.Size(92, 16);
+            this.lbComplemento.Size = new System.Drawing.Size(112, 20);
             this.lbComplemento.TabIndex = 55;
             this.lbComplemento.Text = "Complemento";
             // 
             // lbNumero
             // 
             this.lbNumero.AutoSize = true;
-            this.lbNumero.Location = new System.Drawing.Point(497, 2);
+            this.lbNumero.Location = new System.Drawing.Point(560, 3);
             this.lbNumero.Name = "lbNumero";
-            this.lbNumero.Size = new System.Drawing.Size(56, 16);
+            this.lbNumero.Size = new System.Drawing.Size(68, 20);
             this.lbNumero.TabIndex = 54;
             this.lbNumero.Text = "Número";
             // 
             // lbLogradouro
             // 
             this.lbLogradouro.AutoSize = true;
-            this.lbLogradouro.Location = new System.Drawing.Point(5, 2);
+            this.lbLogradouro.Location = new System.Drawing.Point(6, 3);
             this.lbLogradouro.Name = "lbLogradouro";
-            this.lbLogradouro.Size = new System.Drawing.Size(78, 16);
+            this.lbLogradouro.Size = new System.Drawing.Size(94, 20);
             this.lbLogradouro.TabIndex = 53;
             this.lbLogradouro.Text = "Logradouro";
             // 
             // eComplemento
             // 
             this.eComplemento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eComplemento.Location = new System.Drawing.Point(5, 73);
-            this.eComplemento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eComplemento.Location = new System.Drawing.Point(6, 91);
             this.eComplemento.Name = "eComplemento";
-            this.eComplemento.Size = new System.Drawing.Size(167, 22);
+            this.eComplemento.Size = new System.Drawing.Size(187, 26);
             this.eComplemento.TabIndex = 2;
             // 
             // eBairro
             // 
             this.eBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eBairro.Location = new System.Drawing.Point(179, 73);
-            this.eBairro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eBairro.Location = new System.Drawing.Point(201, 91);
             this.eBairro.Name = "eBairro";
-            this.eBairro.Size = new System.Drawing.Size(120, 22);
+            this.eBairro.Size = new System.Drawing.Size(134, 26);
             this.eBairro.TabIndex = 3;
             // 
             // eNumero
             // 
             this.eNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eNumero.Location = new System.Drawing.Point(500, 22);
-            this.eNumero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eNumero.Location = new System.Drawing.Point(562, 28);
             this.eNumero.Name = "eNumero";
-            this.eNumero.Size = new System.Drawing.Size(104, 22);
+            this.eNumero.Size = new System.Drawing.Size(116, 26);
             this.eNumero.TabIndex = 1;
             // 
             // eLogradouro
             // 
             this.eLogradouro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eLogradouro.Location = new System.Drawing.Point(5, 22);
-            this.eLogradouro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eLogradouro.Location = new System.Drawing.Point(6, 28);
             this.eLogradouro.Name = "eLogradouro";
-            this.eLogradouro.Size = new System.Drawing.Size(488, 22);
+            this.eLogradouro.Size = new System.Drawing.Size(548, 26);
             this.eLogradouro.TabIndex = 0;
             // 
             // tabPageContatos
@@ -816,21 +808,20 @@ namespace RuralSimples.View
             this.tabPageContatos.Controls.Add(this.lbEmail);
             this.tabPageContatos.Controls.Add(this.lbCelular);
             this.tabPageContatos.Controls.Add(this.lbTelefoneFixo);
-            this.tabPageContatos.Location = new System.Drawing.Point(4, 25);
-            this.tabPageContatos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageContatos.Location = new System.Drawing.Point(4, 29);
             this.tabPageContatos.Name = "tabPageContatos";
-            this.tabPageContatos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPageContatos.Size = new System.Drawing.Size(764, 185);
+            this.tabPageContatos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageContatos.Size = new System.Drawing.Size(860, 264);
             this.tabPageContatos.TabIndex = 1;
             this.tabPageContatos.Text = "Contatos";
             this.tabPageContatos.UseVisualStyleBackColor = true;
             // 
             // eIdContato
             // 
-            this.eIdContato.Location = new System.Drawing.Point(617, 28);
-            this.eIdContato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eIdContato.Location = new System.Drawing.Point(694, 35);
+            this.eIdContato.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eIdContato.Name = "eIdContato";
-            this.eIdContato.Size = new System.Drawing.Size(132, 22);
+            this.eIdContato.Size = new System.Drawing.Size(148, 26);
             this.eIdContato.TabIndex = 17;
             this.eIdContato.TabStop = false;
             this.eIdContato.Visible = false;
@@ -838,10 +829,10 @@ namespace RuralSimples.View
             // lbIdContato
             // 
             this.lbIdContato.AutoSize = true;
-            this.lbIdContato.Location = new System.Drawing.Point(613, 9);
+            this.lbIdContato.Location = new System.Drawing.Point(690, 11);
             this.lbIdContato.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbIdContato.Name = "lbIdContato";
-            this.lbIdContato.Size = new System.Drawing.Size(70, 16);
+            this.lbIdContato.Size = new System.Drawing.Size(89, 20);
             this.lbIdContato.TabIndex = 16;
             this.lbIdContato.Text = "ID Contato";
             this.lbIdContato.Visible = false;
@@ -850,8 +841,8 @@ namespace RuralSimples.View
             // 
             this.ckWhatsApp.AutoSize = true;
             this.ckWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckWhatsApp.Location = new System.Drawing.Point(367, 32);
-            this.ckWhatsApp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ckWhatsApp.Location = new System.Drawing.Point(412, 40);
+            this.ckWhatsApp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ckWhatsApp.Name = "ckWhatsApp";
             this.ckWhatsApp.Size = new System.Drawing.Size(74, 17);
             this.ckWhatsApp.TabIndex = 11;
@@ -861,90 +852,87 @@ namespace RuralSimples.View
             // lbNomeRecado
             // 
             this.lbNomeRecado.AutoSize = true;
-            this.lbNomeRecado.Location = new System.Drawing.Point(152, 103);
+            this.lbNomeRecado.Location = new System.Drawing.Point(171, 129);
             this.lbNomeRecado.Name = "lbNomeRecado";
-            this.lbNomeRecado.Size = new System.Drawing.Size(97, 16);
+            this.lbNomeRecado.Size = new System.Drawing.Size(115, 20);
             this.lbNomeRecado.TabIndex = 14;
             this.lbNomeRecado.Text = "Nome Recado";
             // 
             // eNomeRecado
             // 
             this.eNomeRecado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eNomeRecado.Location = new System.Drawing.Point(153, 122);
-            this.eNomeRecado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eNomeRecado.Location = new System.Drawing.Point(172, 152);
+            this.eNomeRecado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eNomeRecado.Name = "eNomeRecado";
-            this.eNomeRecado.Size = new System.Drawing.Size(599, 22);
+            this.eNomeRecado.Size = new System.Drawing.Size(673, 26);
             this.eNomeRecado.TabIndex = 14;
             // 
             // eEmail
             // 
             this.eEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.eEmail.Location = new System.Drawing.Point(12, 75);
-            this.eEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eEmail.Location = new System.Drawing.Point(14, 94);
+            this.eEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eEmail.Name = "eEmail";
-            this.eEmail.Size = new System.Drawing.Size(740, 22);
+            this.eEmail.Size = new System.Drawing.Size(832, 26);
             this.eEmail.TabIndex = 12;
             // 
             // eTelefoneRecado
             // 
-            this.eTelefoneRecado.Location = new System.Drawing.Point(9, 122);
-            this.eTelefoneRecado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eTelefoneRecado.Location = new System.Drawing.Point(10, 152);
             this.eTelefoneRecado.Mask = "(99) 00000-0000";
             this.eTelefoneRecado.Name = "eTelefoneRecado";
-            this.eTelefoneRecado.Size = new System.Drawing.Size(133, 22);
+            this.eTelefoneRecado.Size = new System.Drawing.Size(150, 26);
             this.eTelefoneRecado.TabIndex = 13;
             // 
             // eCelular
             // 
-            this.eCelular.Location = new System.Drawing.Point(189, 28);
-            this.eCelular.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eCelular.Location = new System.Drawing.Point(213, 35);
             this.eCelular.Mask = "(99) 00000-0000";
             this.eCelular.Name = "eCelular";
-            this.eCelular.Size = new System.Drawing.Size(159, 22);
+            this.eCelular.Size = new System.Drawing.Size(178, 26);
             this.eCelular.TabIndex = 10;
             // 
             // eTelefoneFixo
             // 
-            this.eTelefoneFixo.Location = new System.Drawing.Point(11, 28);
-            this.eTelefoneFixo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eTelefoneFixo.Location = new System.Drawing.Point(12, 35);
             this.eTelefoneFixo.Mask = "(99) 0000-0000";
             this.eTelefoneFixo.Name = "eTelefoneFixo";
-            this.eTelefoneFixo.Size = new System.Drawing.Size(159, 22);
+            this.eTelefoneFixo.Size = new System.Drawing.Size(178, 26);
             this.eTelefoneFixo.TabIndex = 9;
             // 
             // lbTelefoneRecado
             // 
             this.lbTelefoneRecado.AutoSize = true;
-            this.lbTelefoneRecado.Location = new System.Drawing.Point(7, 103);
+            this.lbTelefoneRecado.Location = new System.Drawing.Point(8, 129);
             this.lbTelefoneRecado.Name = "lbTelefoneRecado";
-            this.lbTelefoneRecado.Size = new System.Drawing.Size(114, 16);
+            this.lbTelefoneRecado.Size = new System.Drawing.Size(135, 20);
             this.lbTelefoneRecado.TabIndex = 6;
             this.lbTelefoneRecado.Text = "Telefone Recado";
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(8, 57);
+            this.lbEmail.Location = new System.Drawing.Point(9, 71);
             this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(46, 16);
+            this.lbEmail.Size = new System.Drawing.Size(57, 20);
             this.lbEmail.TabIndex = 4;
             this.lbEmail.Text = "E-mail";
             // 
             // lbCelular
             // 
             this.lbCelular.AutoSize = true;
-            this.lbCelular.Location = new System.Drawing.Point(185, 10);
+            this.lbCelular.Location = new System.Drawing.Point(208, 12);
             this.lbCelular.Name = "lbCelular";
-            this.lbCelular.Size = new System.Drawing.Size(50, 16);
+            this.lbCelular.Size = new System.Drawing.Size(62, 20);
             this.lbCelular.TabIndex = 2;
             this.lbCelular.Text = "Celular";
             // 
             // lbTelefoneFixo
             // 
             this.lbTelefoneFixo.AutoSize = true;
-            this.lbTelefoneFixo.Location = new System.Drawing.Point(8, 10);
+            this.lbTelefoneFixo.Location = new System.Drawing.Point(9, 12);
             this.lbTelefoneFixo.Name = "lbTelefoneFixo";
-            this.lbTelefoneFixo.Size = new System.Drawing.Size(90, 16);
+            this.lbTelefoneFixo.Size = new System.Drawing.Size(109, 20);
             this.lbTelefoneFixo.TabIndex = 0;
             this.lbTelefoneFixo.Text = "Telefone Fixo";
             // 
@@ -962,169 +950,302 @@ namespace RuralSimples.View
             this.tabPageWeb.Controls.Add(this.lbInstagran);
             this.tabPageWeb.Controls.Add(this.lbTwiter);
             this.tabPageWeb.Controls.Add(this.lbFacebook);
-            this.tabPageWeb.Location = new System.Drawing.Point(4, 25);
-            this.tabPageWeb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageWeb.Location = new System.Drawing.Point(4, 29);
+            this.tabPageWeb.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabPageWeb.Name = "tabPageWeb";
-            this.tabPageWeb.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageWeb.Size = new System.Drawing.Size(764, 185);
+            this.tabPageWeb.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPageWeb.Size = new System.Drawing.Size(860, 264);
             this.tabPageWeb.TabIndex = 2;
             this.tabPageWeb.Text = "Web";
             this.tabPageWeb.UseVisualStyleBackColor = true;
             // 
             // eYoutube
             // 
-            this.eYoutube.Location = new System.Drawing.Point(381, 119);
-            this.eYoutube.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eYoutube.Location = new System.Drawing.Point(429, 149);
+            this.eYoutube.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eYoutube.Name = "eYoutube";
-            this.eYoutube.Size = new System.Drawing.Size(371, 22);
+            this.eYoutube.Size = new System.Drawing.Size(416, 26);
             this.eYoutube.TabIndex = 13;
             // 
             // eTiktok
             // 
-            this.eTiktok.Location = new System.Drawing.Point(8, 119);
-            this.eTiktok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eTiktok.Location = new System.Drawing.Point(9, 149);
+            this.eTiktok.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eTiktok.Name = "eTiktok";
-            this.eTiktok.Size = new System.Drawing.Size(364, 22);
+            this.eTiktok.Size = new System.Drawing.Size(409, 26);
             this.eTiktok.TabIndex = 12;
             // 
             // eSite
             // 
-            this.eSite.Location = new System.Drawing.Point(381, 71);
-            this.eSite.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eSite.Location = new System.Drawing.Point(429, 89);
+            this.eSite.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eSite.Name = "eSite";
-            this.eSite.Size = new System.Drawing.Size(371, 22);
+            this.eSite.Size = new System.Drawing.Size(416, 26);
             this.eSite.TabIndex = 11;
             // 
             // eInstagram
             // 
-            this.eInstagram.Location = new System.Drawing.Point(8, 71);
-            this.eInstagram.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eInstagram.Location = new System.Drawing.Point(9, 89);
+            this.eInstagram.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eInstagram.Name = "eInstagram";
-            this.eInstagram.Size = new System.Drawing.Size(364, 22);
+            this.eInstagram.Size = new System.Drawing.Size(409, 26);
             this.eInstagram.TabIndex = 10;
             // 
             // eTwiter
             // 
-            this.eTwiter.Location = new System.Drawing.Point(381, 23);
-            this.eTwiter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eTwiter.Location = new System.Drawing.Point(429, 29);
+            this.eTwiter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eTwiter.Name = "eTwiter";
-            this.eTwiter.Size = new System.Drawing.Size(371, 22);
+            this.eTwiter.Size = new System.Drawing.Size(416, 26);
             this.eTwiter.TabIndex = 9;
             // 
             // eFacebook
             // 
-            this.eFacebook.Location = new System.Drawing.Point(8, 23);
-            this.eFacebook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eFacebook.Location = new System.Drawing.Point(9, 29);
+            this.eFacebook.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.eFacebook.Name = "eFacebook";
-            this.eFacebook.Size = new System.Drawing.Size(364, 22);
+            this.eFacebook.Size = new System.Drawing.Size(409, 26);
             this.eFacebook.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(381, 100);
+            this.label6.Location = new System.Drawing.Point(429, 125);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 16);
+            this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "YouTube";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 100);
+            this.label5.Location = new System.Drawing.Point(4, 125);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.Size = new System.Drawing.Size(58, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "TikTok";
             // 
             // lbSite
             // 
             this.lbSite.AutoSize = true;
-            this.lbSite.Location = new System.Drawing.Point(381, 52);
+            this.lbSite.Location = new System.Drawing.Point(429, 65);
             this.lbSite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSite.Name = "lbSite";
-            this.lbSite.Size = new System.Drawing.Size(31, 16);
+            this.lbSite.Size = new System.Drawing.Size(38, 20);
             this.lbSite.TabIndex = 3;
             this.lbSite.Text = "Site";
             // 
             // lbInstagran
             // 
             this.lbInstagran.AutoSize = true;
-            this.lbInstagran.Location = new System.Drawing.Point(4, 52);
+            this.lbInstagran.Location = new System.Drawing.Point(4, 65);
             this.lbInstagran.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbInstagran.Name = "lbInstagran";
-            this.lbInstagran.Size = new System.Drawing.Size(67, 16);
+            this.lbInstagran.Size = new System.Drawing.Size(83, 20);
             this.lbInstagran.TabIndex = 2;
             this.lbInstagran.Text = "Instagram";
             // 
             // lbTwiter
             // 
             this.lbTwiter.AutoSize = true;
-            this.lbTwiter.Location = new System.Drawing.Point(377, 4);
+            this.lbTwiter.Location = new System.Drawing.Point(424, 5);
             this.lbTwiter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTwiter.Name = "lbTwiter";
-            this.lbTwiter.Size = new System.Drawing.Size(44, 16);
+            this.lbTwiter.Size = new System.Drawing.Size(55, 20);
             this.lbTwiter.TabIndex = 1;
             this.lbTwiter.Text = "Twiter";
             // 
             // lbFacebook
             // 
             this.lbFacebook.AutoSize = true;
-            this.lbFacebook.Location = new System.Drawing.Point(4, 4);
+            this.lbFacebook.Location = new System.Drawing.Point(4, 5);
             this.lbFacebook.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFacebook.Name = "lbFacebook";
-            this.lbFacebook.Size = new System.Drawing.Size(70, 16);
+            this.lbFacebook.Size = new System.Drawing.Size(81, 20);
             this.lbFacebook.TabIndex = 0;
             this.lbFacebook.Text = "Facebook";
+            // 
+            // tabPagePropriedades
+            // 
+            this.tabPagePropriedades.Controls.Add(this.btAdicionarPropriedade);
+            this.tabPagePropriedades.Controls.Add(this.lbPropriedade);
+            this.tabPagePropriedades.Controls.Add(this.label1);
+            this.tabPagePropriedades.Controls.Add(this.eIdentificacaoPropriedade);
+            this.tabPagePropriedades.Controls.Add(this.dgPropriedades);
+            this.tabPagePropriedades.Controls.Add(this.btBuscarPropriedade);
+            this.tabPagePropriedades.Location = new System.Drawing.Point(4, 29);
+            this.tabPagePropriedades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPagePropriedades.Name = "tabPagePropriedades";
+            this.tabPagePropriedades.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabPagePropriedades.Size = new System.Drawing.Size(860, 264);
+            this.tabPagePropriedades.TabIndex = 3;
+            this.tabPagePropriedades.Text = "Propriedades";
+            this.tabPagePropriedades.UseVisualStyleBackColor = true;
+            // 
+            // btAdicionarPropriedade
+            // 
+            this.btAdicionarPropriedade.Location = new System.Drawing.Point(702, 22);
+            this.btAdicionarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAdicionarPropriedade.Name = "btAdicionarPropriedade";
+            this.btAdicionarPropriedade.Size = new System.Drawing.Size(150, 38);
+            this.btAdicionarPropriedade.TabIndex = 60;
+            this.btAdicionarPropriedade.Text = "Adicionar";
+            this.btAdicionarPropriedade.UseVisualStyleBackColor = true;
+            this.btAdicionarPropriedade.Click += new System.EventHandler(this.btAdicionarPropriedade_Click);
+            // 
+            // lbPropriedade
+            // 
+            this.lbPropriedade.AutoSize = true;
+            this.lbPropriedade.Location = new System.Drawing.Point(213, 32);
+            this.lbPropriedade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPropriedade.Name = "lbPropriedade";
+            this.lbPropriedade.Size = new System.Drawing.Size(112, 20);
+            this.lbPropriedade.TabIndex = 59;
+            this.lbPropriedade.Text = "lbPropriedade";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 20);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Identificação";
+            // 
+            // eIdentificacaoPropriedade
+            // 
+            this.eIdentificacaoPropriedade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.eIdentificacaoPropriedade.Location = new System.Drawing.Point(8, 29);
+            this.eIdentificacaoPropriedade.Name = "eIdentificacaoPropriedade";
+            this.eIdentificacaoPropriedade.Size = new System.Drawing.Size(152, 26);
+            this.eIdentificacaoPropriedade.TabIndex = 56;
+            this.eIdentificacaoPropriedade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eIdentificacaoPropriedade_KeyPress);
+            // 
+            // dgPropriedades
+            // 
+            this.dgPropriedades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgPropriedades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clCodigo,
+            this.clNomePropriedade,
+            this.clDataCadastro});
+            this.dgPropriedades.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgPropriedades.Location = new System.Drawing.Point(0, 97);
+            this.dgPropriedades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgPropriedades.Name = "dgPropriedades";
+            this.dgPropriedades.RowHeadersVisible = false;
+            this.dgPropriedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgPropriedades.Size = new System.Drawing.Size(855, 160);
+            this.dgPropriedades.TabIndex = 0;
             // 
             // lbUfEmissor
             // 
             this.lbUfEmissor.AutoSize = true;
-            this.lbUfEmissor.Location = new System.Drawing.Point(532, 153);
+            this.lbUfEmissor.Location = new System.Drawing.Point(598, 191);
             this.lbUfEmissor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbUfEmissor.Name = "lbUfEmissor";
-            this.lbUfEmissor.Size = new System.Drawing.Size(78, 16);
+            this.lbUfEmissor.Size = new System.Drawing.Size(98, 20);
             this.lbUfEmissor.TabIndex = 50;
             this.lbUfEmissor.Text = "UF Emissor";
             // 
-            // eUfEmissor
+            // eUfOrgaoEmissor
             // 
-            this.eUfEmissor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eUfEmissor.Location = new System.Drawing.Point(533, 172);
-            this.eUfEmissor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.eUfEmissor.Name = "eUfEmissor";
-            this.eUfEmissor.Size = new System.Drawing.Size(77, 22);
-            this.eUfEmissor.TabIndex = 10;
+            this.eUfOrgaoEmissor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.eUfOrgaoEmissor.Location = new System.Drawing.Point(600, 215);
+            this.eUfOrgaoEmissor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.eUfOrgaoEmissor.Name = "eUfOrgaoEmissor";
+            this.eUfOrgaoEmissor.Size = new System.Drawing.Size(86, 26);
+            this.eUfOrgaoEmissor.TabIndex = 10;
             // 
             // eObservacoes
             // 
             this.eObservacoes.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.eObservacoes.Location = new System.Drawing.Point(12, 281);
-            this.eObservacoes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.eObservacoes.Location = new System.Drawing.Point(14, 351);
             this.eObservacoes.Multiline = true;
             this.eObservacoes.Name = "eObservacoes";
-            this.eObservacoes.Size = new System.Drawing.Size(772, 102);
+            this.eObservacoes.Size = new System.Drawing.Size(868, 127);
             this.eObservacoes.TabIndex = 17;
             // 
             // lbObservacoes
             // 
             this.lbObservacoes.AutoSize = true;
-            this.lbObservacoes.Location = new System.Drawing.Point(8, 262);
+            this.lbObservacoes.Location = new System.Drawing.Point(9, 328);
             this.lbObservacoes.Name = "lbObservacoes";
-            this.lbObservacoes.Size = new System.Drawing.Size(90, 16);
+            this.lbObservacoes.Size = new System.Drawing.Size(108, 20);
             this.lbObservacoes.TabIndex = 52;
             this.lbObservacoes.Text = "Observações";
             // 
+            // eCEI
+            // 
+            this.eCEI.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.eCEI.Location = new System.Drawing.Point(698, 215);
+            this.eCEI.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.eCEI.Name = "eCEI";
+            this.eCEI.Size = new System.Drawing.Size(184, 26);
+            this.eCEI.TabIndex = 53;
+            // 
+            // lbCEI
+            // 
+            this.lbCEI.AutoSize = true;
+            this.lbCEI.Location = new System.Drawing.Point(696, 191);
+            this.lbCEI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbCEI.Name = "lbCEI";
+            this.lbCEI.Size = new System.Drawing.Size(36, 20);
+            this.lbCEI.TabIndex = 54;
+            this.lbCEI.Text = "CEI";
+            // 
+            // btBuscarIdPessoa
+            // 
+            this.btBuscarIdPessoa.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarIdPessoa.Image")));
+            this.btBuscarIdPessoa.Location = new System.Drawing.Point(173, 35);
+            this.btBuscarIdPessoa.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btBuscarIdPessoa.Name = "btBuscarIdPessoa";
+            this.btBuscarIdPessoa.Size = new System.Drawing.Size(26, 26);
+            this.btBuscarIdPessoa.TabIndex = 55;
+            this.btBuscarIdPessoa.UseVisualStyleBackColor = true;
+            this.btBuscarIdPessoa.Click += new System.EventHandler(this.btBuscarIdPessoa_Click);
+            // 
+            // btBuscarPropriedade
+            // 
+            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
+            this.btBuscarPropriedade.Location = new System.Drawing.Point(170, 29);
+            this.btBuscarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
+            this.btBuscarPropriedade.Size = new System.Drawing.Size(26, 26);
+            this.btBuscarPropriedade.TabIndex = 58;
+            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
+            this.btBuscarPropriedade.Click += new System.EventHandler(this.btBuscarPropriedade_Click);
+            // 
+            // clCodigo
+            // 
+            this.clCodigo.HeaderText = "Código";
+            this.clCodigo.Name = "clCodigo";
+            this.clCodigo.Width = 150;
+            // 
+            // clNomePropriedade
+            // 
+            this.clNomePropriedade.HeaderText = "Propriedade";
+            this.clNomePropriedade.Name = "clNomePropriedade";
+            this.clNomePropriedade.Width = 480;
+            // 
+            // clDataCadastro
+            // 
+            this.clDataCadastro.HeaderText = "Data Cadastro";
+            this.clDataCadastro.Name = "clDataCadastro";
+            this.clDataCadastro.Width = 200;
+            // 
             // fCadastroPessoa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 693);
+            this.ClientSize = new System.Drawing.Size(900, 866);
+            this.Controls.Add(this.btBuscarIdPessoa);
+            this.Controls.Add(this.eCEI);
+            this.Controls.Add(this.lbCEI);
             this.Controls.Add(this.lbObservacoes);
             this.Controls.Add(this.eObservacoes);
-            this.Controls.Add(this.eUfEmissor);
+            this.Controls.Add(this.eUfOrgaoEmissor);
             this.Controls.Add(this.lbUfEmissor);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.ckInativo);
@@ -1147,7 +1268,7 @@ namespace RuralSimples.View
             this.Controls.Add(this.lbFazendaFantasia);
             this.Controls.Add(this.lbNomeRazao);
             this.Controls.Add(this.lbCPFCNPJ);
-            this.Controls.Add(this.lbID);
+            this.Controls.Add(this.lbIDPessoa);
             this.Controls.Add(this.eOrgaoEmissor);
             this.Controls.Add(this.eRG_Inscricao);
             this.Controls.Add(this.eNome);
@@ -1156,7 +1277,7 @@ namespace RuralSimples.View
             this.Controls.Add(this.eIdentificacao);
             this.Controls.Add(this.lbTipoPessoa);
             this.Controls.Add(this.cbTipoPessoa);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "fCadastroPessoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro Pessoas";
@@ -1169,6 +1290,9 @@ namespace RuralSimples.View
             this.tabPageContatos.PerformLayout();
             this.tabPageWeb.ResumeLayout(false);
             this.tabPageWeb.PerformLayout();
+            this.tabPagePropriedades.ResumeLayout(false);
+            this.tabPagePropriedades.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropriedades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1184,7 +1308,7 @@ namespace RuralSimples.View
         private System.Windows.Forms.TextBox eNome;
         private System.Windows.Forms.TextBox eRG_Inscricao;
         private System.Windows.Forms.TextBox eOrgaoEmissor;
-        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Label lbIDPessoa;
         private System.Windows.Forms.Label lbCPFCNPJ;
         private System.Windows.Forms.Label lbNomeRazao;
         private System.Windows.Forms.Label lbFazendaFantasia;
@@ -1238,7 +1362,7 @@ namespace RuralSimples.View
         private System.Windows.Forms.Label lbCelular;
         private System.Windows.Forms.Label lbTelefoneFixo;
         private System.Windows.Forms.Label lbUfEmissor;
-        private System.Windows.Forms.TextBox eUfEmissor;
+        private System.Windows.Forms.TextBox eUfOrgaoEmissor;
         private System.Windows.Forms.TextBox eEmail;
         private System.Windows.Forms.TextBox eObservacoes;
         private System.Windows.Forms.Label lbObservacoes;
@@ -1270,5 +1394,18 @@ namespace RuralSimples.View
         private System.Windows.Forms.TextBox eFacebook;
         private System.Windows.Forms.TextBox eIdContato;
         private System.Windows.Forms.Label lbIdContato;
+        private System.Windows.Forms.TextBox eCEI;
+        private System.Windows.Forms.Label lbCEI;
+        private System.Windows.Forms.Button btBuscarIdPessoa;
+        private System.Windows.Forms.TabPage tabPagePropriedades;
+        private System.Windows.Forms.DataGridView dgPropriedades;
+        private System.Windows.Forms.Button btBuscarPropriedade;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox eIdentificacaoPropriedade;
+        private System.Windows.Forms.Label lbPropriedade;
+        private System.Windows.Forms.Button btAdicionarPropriedade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clNomePropriedade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clDataCadastro;
     }
 }

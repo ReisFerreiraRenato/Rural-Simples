@@ -20,8 +20,12 @@ namespace RuralSimples.View
         {
             InitializeComponent();
         }
+        //Colunas da grid gdPropriedades
+        const int cIDPropriedade = 0;
+        const int cNomePropriedade = 1;
+        const int cDataCadastroPropriedade = 2;
         private void ControlaEditsFormulario(Boolean pEnabled)
-        { 
+        {
             eIdentificacao.Enabled = !pEnabled;
             eCPF_CNPJ.Enabled = pEnabled;
             eDataCadastro.Enabled = pEnabled;
@@ -34,6 +38,8 @@ namespace RuralSimples.View
             cbTipoPessoa.Enabled = pEnabled;
             cbClassificacao.Enabled = pEnabled;
             tabControl.Enabled = pEnabled;
+            eUfOrgaoEmissor.Enabled = pEnabled;
+            eCEI.Enabled = pEnabled;
             controlaButtonsFormulario(pEnabled);
         }
         private void controlaButtonsFormulario(bool pEnabled)
@@ -47,7 +53,7 @@ namespace RuralSimples.View
             {
                 ckAcessoSistema.Checked = pEnabled;
                 ckInativo.Checked = pEnabled;
-            }            
+            }
             ckAcessoSistema.Enabled = pEnabled;
             ckInativo.Enabled = pEnabled;
             if (ckAcessoSistema.Checked)
@@ -64,7 +70,7 @@ namespace RuralSimples.View
             }
         }
         private bool verificarCampos()
-        { 
+        {
             if (Funcoes.VerificarTextBoxVazio(eCPF_CNPJ, lbCPFCNPJ))
             {
                 return false;
@@ -130,35 +136,9 @@ namespace RuralSimples.View
             cbTipoPessoa.Focus();
         }
 
-        private void eCodigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacao.Text != ""))
-            {
-                int codigo = Funcoes.stringToInteger(eIdentificacao.Text);
-                ControlePessoas controlePessoa = new ControlePessoas();
-                Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
-                if (pessoa != null)
-                {
-                    ControleEnderecos controleEndereco = new ControleEnderecos();
-                    ControleContatos controleContatos = new ControleContatos();
-                    Endereco endereco = controleEndereco.buscarEnderecoPessoaPorID(codigo);
-                    Contato contato = controleContatos.buscarContatoPessoaID(codigo);
-
-                    ControlaEditsFormulario(true);
-                    preencherPessoa(pessoa);
-                    preencherContato(contato);
-                    preencherEndereco(endereco);
-                }
-                else
-                {
-                    Funcoes.MensagemErro(controlePessoa.mensagem);
-                }
-            }
-        }
-
         private void btLimpar_Click(object sender, EventArgs e)
         {
-            if (Funcoes.MensagemQuestionar("Deseja cancelar?"))
+            if (Funcoes.MensagemQuestionar("Deseja cancelar/limpar?"))
             {
                 limparTela();
             }
@@ -179,6 +159,8 @@ namespace RuralSimples.View
             cbTipoPessoa.SelectedIndex = -1;
             cbClassificacao.SelectedIndex = -1;
             eObservacoes.Clear();
+            eUfOrgaoEmissor.Clear();
+            eCEI.Clear();
             //Endereco
             eIdEndereco.Clear();
             eLogradouro.Clear();
@@ -246,7 +228,8 @@ namespace RuralSimples.View
                     getckAcessoSistemaString(),
                     getckInativoString(),
                     eObservacoes.Text,
-                    eUfEmissor.Text,
+                    eUfOrgaoEmissor.Text,
+                    eCEI.Text,
                     //Endereco
                     eCep.Text,
                     eLogradouro.Text,
@@ -296,7 +279,8 @@ namespace RuralSimples.View
                     getckAcessoSistemaString(),
                     getckInativoString(),
                     eObservacoes.Text,
-                    eUfEmissor.Text,
+                    eUfOrgaoEmissor.Text,
+                    eCEI.Text,
                     //Endereco
                     Funcoes.stringToInteger(eIdEndereco.Text),
                     eCep.Text,
@@ -490,7 +474,7 @@ namespace RuralSimples.View
         {
             if (cbTipoPessoa.SelectedIndex == 0)
             {
-                eCPF_CNPJ.Mask = "000.000.000-00";
+                eCPF_CNPJ.Mask = "000,000,000-00";
                 lbCPFCNPJ.Text = "CPF";
                 lbNomeRazao.Text = "Nome";
                 lbFazendaFantasia.Text = "Fazenda";
@@ -498,11 +482,13 @@ namespace RuralSimples.View
                 lbOrgaoEmissor.Visible = true;
                 eOrgaoEmissor.Visible = true;
                 lbUfEmissor.Visible = true;
-                eUfEmissor.Visible = true;
+                eUfOrgaoEmissor.Visible = true;
+                lbCEI.Visible = true;
+                eCEI.Visible = true;
             }
             else if (cbTipoPessoa.SelectedIndex == 1)
             {
-                eCPF_CNPJ.Mask = "00.000.000/0000-00";
+                eCPF_CNPJ.Mask = "00,000,000/0000-00";
                 lbCPFCNPJ.Text = "CNPJ";
                 lbNomeRazao.Text = "Razão Social";
                 lbFazendaFantasia.Text = "Fantasia";
@@ -510,7 +496,9 @@ namespace RuralSimples.View
                 lbOrgaoEmissor.Visible = false;
                 eOrgaoEmissor.Visible = false;
                 lbUfEmissor.Visible = false;
-                eUfEmissor.Visible = false;
+                eUfOrgaoEmissor.Visible = false;
+                lbCEI.Visible = false;
+                eCEI.Visible = false;
             }
         }
         private void preencherPessoa(Pessoa pessoa)
@@ -529,13 +517,13 @@ namespace RuralSimples.View
             eDataCadastro.Text = pessoa.DataCadastro.ToString();
             eNomeFazendaNomeFantasia.Text = pessoa.NomeFantasia;
             eIdentificacao.Text = pessoa.IDPessoa.ToString();
-            //eInscricaoEstadual.Text = pessoa.InscricaoEstadual;
             eInscricaoMunicipal.Text = pessoa.InscricaoMunicipal;
             eNascimento.Text = pessoa.DataNascimentoFundacao.ToString();
             eNome.Text = pessoa.NomeRazaoSocial;
             eOrgaoEmissor.Text = pessoa.OrgaoExpedidor;
-            //eRG_Inscricao.Text = pessoa.RG;
             eObservacoes.Text = pessoa.Observacoes;
+            eCEI.Text = pessoa.CEI;
+            eUfOrgaoEmissor.Text = pessoa.UfOrgaoExpedidor;
             setTipoPessoa(pessoa.TipoPessoa);
             setcbClassificacao(pessoa.Classificacao);
             setckInativo(pessoa.Inativo);
@@ -583,7 +571,86 @@ namespace RuralSimples.View
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-             btLimpar_Click(sender, e);
+            btLimpar_Click(sender, e);
+        }
+
+        private void btBuscarIdPessoa_Click(object sender, EventArgs e)
+        {
+            String codigo;
+            fBuscarPessoa buscarPessoa = new fBuscarPessoa();
+            buscarPessoa.ShowDialog();
+            codigo = buscarPessoa.codigo;
+            if (codigo != "")
+            {
+                KeyPressEventArgs press = new KeyPressEventArgs((char)Keys.Enter);
+                eIdentificacao.Text = codigo;
+                eIdentificacao_KeyPress(eIdentificacao, press);
+            }
+        }
+
+        private void eIdentificacao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacao.Text != ""))
+            {
+                int codigo = Funcoes.stringToInteger(eIdentificacao.Text);
+                ControlePessoas controlePessoa = new ControlePessoas();
+                Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
+                if (pessoa != null)
+                {
+                    ControleEnderecos controleEndereco = new ControleEnderecos();
+                    ControleContatos controleContatos = new ControleContatos();
+                    Endereco endereco = controleEndereco.buscarEnderecoPessoaPorID(codigo);
+                    Contato contato = controleContatos.buscarContatoPessoaID(codigo);
+
+                    ControlaEditsFormulario(true);
+                    preencherPessoa(pessoa);
+                    preencherContato(contato);
+                    preencherEndereco(endereco);
+                }
+                else
+                {
+                    Funcoes.MensagemErro(controlePessoa.mensagem);
+                }
+            }
+        }
+
+        private void btBuscarPropriedade_Click(object sender, EventArgs e)
+        {
+            String codigo;
+            fBuscarPessoa buscarPessoa = new fBuscarPessoa();
+            buscarPessoa.ShowDialog();
+            codigo = buscarPessoa.codigo;
+            if (codigo != "")
+            {
+                KeyPressEventArgs press = new KeyPressEventArgs((char)Keys.Enter);
+                eIdentificacaoPropriedade.Text = codigo;
+                eIdentificacaoPropriedade_KeyPress(eIdentificacaoPropriedade, press);
+            }
+        }
+        private void eIdentificacaoPropriedade_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacaoPropriedade.Text != ""))
+            {
+                int codigo = Funcoes.stringToInteger(eIdentificacaoPropriedade.Text);
+                ControlePessoas controlePessoa = new ControlePessoas();
+                Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
+                if (pessoa != null)
+                {
+                    lbPropriedade.Text = pessoa.NomeRazaoSocial;
+                }
+                else
+                {
+                    Funcoes.MensagemErro(controlePessoa.mensagem);
+                }
+            }
+        }
+
+        private void btAdicionarPropriedade_Click(object sender, EventArgs e)
+        {
+            if(eIdentificacao.Text.Trim() != "")
+            {
+                //
+            }
         }
     }
 }

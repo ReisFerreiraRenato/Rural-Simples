@@ -42,7 +42,8 @@ namespace RuralSimples.Dal
             "inativo, " +
             "tipo_pessoa, " +
             "uf_orgao_expedidor, " +
-            "observacoes " +
+            "observacoes, " +
+            "cei " +
         "from " +
         "   public.pessoas ";
         public const string sqlInserirPessoa =
@@ -65,7 +66,8 @@ namespace RuralSimples.Dal
                 "inativo, " +
                 "tipo_pessoa, " +
                 "uf_orgao_expedidor, " +
-                "observacoes " +
+                "observacoes, " +
+                "cei " +
             " ) " +
                 " values (" +
                 "@acesso_sistema, " +
@@ -86,7 +88,8 @@ namespace RuralSimples.Dal
                 "@inativo, " +
                 "@tipo_pessoa, " +
                 "@uf_orgao_expedidor, " +
-                "@observacoes " +
+                "@observacoes, " +
+                "@cei " +
         ")";
         public const string sqlAtualizarPessoa =
             "UPDATE public.pessoas SET " +
@@ -108,7 +111,8 @@ namespace RuralSimples.Dal
                 "inativo = @inativo, " +
                 "tipo_pessoa = @tipo_pessoa, " +
                 "uf_orgao_expedidor = @uf_orgao_expedidor, " +
-                "observacoes = @observacoes " +
+                "observacoes = @observacoes, " +
+                "cei = @cei " +
             "WHERE  id_pessoa = @id_pessoa ";
 
         public Pessoa buscarPessoa(int idPessoa, String inativo)
@@ -149,6 +153,7 @@ namespace RuralSimples.Dal
                         dr["inativo"].ToString(),
                         dr["observacoes"].ToString(),
                         dr["uf_orgao_expedidor"].ToString(),
+                        dr["cei"].ToString(),
                         false
                     );
 
@@ -193,11 +198,11 @@ namespace RuralSimples.Dal
                     while (dr.Read())
                     {
                         Pessoa pessoa = new Pessoa(
-                            Convert.ToInt32(dr["id_pessoa"].ToString()),
+                            dr.GetInt32(dr.GetOrdinal("id_pessoa")), //dr.GetDateTime(dr.GetOrdinal("data_nascimento"))
                             dr["nome_razao_social"].ToString(),
                             dr["classificacao"].ToString(),
-                            Convert.ToDateTime(dr["data_nascimento_fundacao"].ToString(), CultureInfo.InvariantCulture),
-                            Convert.ToDateTime(dr["data_cadastro"].ToString(), CultureInfo.InvariantCulture),
+                            dr.GetDateTime(dr.GetOrdinal("data_nascimento_fundacao")),
+                            dr.GetDateTime(dr.GetOrdinal("data_cadastro")),
                             dr["tipo_pessoa"].ToString(),
                             dr["cpf"].ToString(),
                             dr["cnpj"].ToString(),
@@ -212,7 +217,8 @@ namespace RuralSimples.Dal
                             dr["acesso_sistema"].ToString(),
                             dr["inativo"].ToString(),
                             dr["observacoes"].ToString(),
-                            dr["uf_orgao_expedidor"].ToString()
+                            dr["uf_orgao_expedidor"].ToString(),
+                            dr["cei"].ToString()
                         );
                         pessoas.Add(pessoa);
                     }
@@ -305,6 +311,7 @@ namespace RuralSimples.Dal
             cmd.Parameters.AddWithValue("@tipo_pessoa", pessoa.TipoPessoa);
             cmd.Parameters.AddWithValue("@uf_orgao_expedidor", pessoa.UfOrgaoExpedidor);            
             cmd.Parameters.AddWithValue("@observacoes", pessoa.Observacoes);
+            cmd.Parameters.AddWithValue("@cei", pessoa.CEI);
         }
         public bool inserirPessoaEnderecoContato(Pessoa pessoa, Endereco endereco, Contato contato)
         {

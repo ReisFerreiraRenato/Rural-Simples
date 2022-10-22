@@ -11,6 +11,7 @@ namespace RuralSimples.Classes
 
         private int FIDPessoa;
         private string FAcessoSistema; //S - Sim; N - Não
+        private string FCei;
         private string FCpf;
         private string FCnpj;
         private string FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
@@ -36,30 +37,31 @@ namespace RuralSimples.Classes
         {
             PeencherClasse(0, "", "", new DateTime(1900, 1, 1, 1, 0, 0), DateTime.Today, "",
                 "", "", "", "", "", "", "", "",
-                "", "", "", "", "", "", true);
+                "", "", "", "", "", "", "", true);
         }
         public Pessoa(int idPessoa, String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo, 
                 string cpf, string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, string orgaoExpedidor,
-                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
+                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor, String cei)
         {
             PeencherClasse(idPessoa, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
-                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
+                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, cei, false);
         }
         public Pessoa(String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo,
                 string cpf, string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, string orgaoExpedidor,
-                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
+                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor, String cei)
         {
             PeencherClasse(0, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
-                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
+                nomeFantasia, nomeFazenda, orgaoExpedidor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, cei, false);
         }
 
         public void PeencherClasse(int idPessoa, String nomerazaosocial, String classificacao, DateTime datanascimentofundacao, DateTime datacadastro, String tipoPessoa, 
                 String cpf, String cnpj, String rg, String inscricaoestadual, String inscricaomunicipal, String nomeFantasia, String nomeFazenda, String orgaoExpedidor, 
-                String login, String senha, String acessosistema, String inativo, String observacoes, String ufOrgaoExpedidor, bool estaVazio)
+                String login, String senha, String acessosistema, String inativo, String observacoes, String ufOrgaoExpedidor, String cei, bool estaVazio)
         {
             this.IDPessoa = idPessoa;
             this.AcessoSistema = acessosistema;
             this.Inativo = inativo;
+            this.CEI = cei;
             this.CPF = cpf;
             this.CNPJ = cnpj;
             this.Classificacao = classificacao;
@@ -72,30 +74,32 @@ namespace RuralSimples.Classes
             this.InscricaoMunicipal = inscricaomunicipal;
             this.Login = login;
             this.NomeRazaoSocial = nomerazaosocial;
+            this.Observacoes = observacoes;
             this.OrgaoExpedidor = orgaoExpedidor;
             this.RG = rg;
             this.UfOrgaoExpedidor = ufOrgaoExpedidor;
             this.Senha = senha;
             this.TipoPessoa = tipoPessoa;
-            this.Observacoes = observacoes;
             this.EstaVazio = estaVazio;
         }
         public Boolean Salvar()
         {
             ControlePessoas controlePessoa = new ControlePessoas();
-
+            bool retorno;
             //retorno OK
             if (this.IDPessoa != 0)
-                return controlePessoa.salvar(this);
+                retorno = controlePessoa.salvar(this);                
             else
-                return controlePessoa.inserir(this);
+                retorno = controlePessoa.inserir(this);
+            MensagemSalvarAtualizar = controlePessoa.mensagem;
+            return retorno;
         }
         public Boolean Salvar(int idPessoa, String nomerazaosocial, string classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, string tipo, string cpf,
                 string cnpj, string rg, String inscricaoestadual, String inscricaomunicipal, string fantasia, String fazenda, string orgaoemissor,
-                string login, string senha, string acessosistema, string inativo, string observacoes, String ufOrgaoExpedidor)
+                string login, string senha, string acessosistema, string inativo, string observacoes, String cei, String ufOrgaoExpedidor)
         {
             PeencherClasse(idPessoa, nomerazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoestadual, inscricaomunicipal,
-                fantasia, fazenda, orgaoemissor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, false);
+                fantasia, fazenda, orgaoemissor, login, senha, acessosistema, inativo, observacoes, ufOrgaoExpedidor, cei, false);
             return Salvar();
         }
         public int IDPessoa
@@ -112,6 +116,11 @@ namespace RuralSimples.Classes
         {
             get { return FInativo; }
             set { FInativo = value; }
+        }
+        public string CEI
+        {
+            get { return FCei; }
+            set { FCei = value; }
         }
         public string CPF
         {
@@ -198,7 +207,6 @@ namespace RuralSimples.Classes
             get { return FUfOrgaoExpedidor; }
             set { FUfOrgaoExpedidor = value; }
         }
-        //Endereco
         public String Observacoes
         {
             get { return FObservacoes; }

@@ -78,3 +78,5 @@ D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fCadastreSe.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fPesagem.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fVermifugacao.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fVacina.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.ViewsBases.fBuscar.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fBuscarPessoa.resources

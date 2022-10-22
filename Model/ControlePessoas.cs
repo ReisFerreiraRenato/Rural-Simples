@@ -22,10 +22,10 @@ namespace RuralSimples.Model
         }
         public bool salvar(int codigoPessoa, String nomeRazaosocial, String classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, String tipo, 
             String cpf, String cnpj, string rg, String inscricaoEstadual, String inscricaoMunicipal, String nomeFantasia, String nomeFazenda, String orgaoEmissor, 
-            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor)
+            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor, String cei)
         {
             Pessoa pessoa = new Pessoa(codigoPessoa, nomeRazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoEstadual, 
-                inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor);
+                inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor, cei);
             return salvar(pessoa);
         }
         public bool inserir(Pessoa pessoa)
@@ -37,10 +37,10 @@ namespace RuralSimples.Model
         }
         public bool inserir(String nomeRazaosocial, String classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, String tipo,
             String cpf, String cnpj, string rg, String inscricaoEstadual, String inscricaoMunicipal, String nomeFantasia, String nomeFazenda, String orgaoEmissor, 
-            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor)
+            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor, String cei)
         {
-            Pessoa pessoa = new Pessoa(0, nomeRazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, 
-                inscricaoEstadual, inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor);
+            Pessoa pessoa = new Pessoa(0, nomeRazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoEstadual,
+                inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor, cei);
             return this.inserir(pessoa);
         }
         public Pessoa buscarPessoaIdentificacao(int idPessoa)
@@ -50,7 +50,7 @@ namespace RuralSimples.Model
             this.mensagem = pessoaDao.mensagem;
             return pessoa;
         }
-        public List<Pessoa> buscarPessoaPorNome(String nome)
+        public List<Pessoa> buscarPessoasPorNome(String nome)
         {
             PessoasDaoComandos pessoaDao = new PessoasDaoComandos();
             List <Pessoa> pessoas = pessoaDao.buscarPessoaPorNome(nome);
@@ -66,7 +66,7 @@ namespace RuralSimples.Model
         }
         public bool inserirPessoaEnderecoContato(String nomeRazaosocial, String classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, String tipo,
             String cpf, String cnpj, string rg, String inscricaoEstadual, String inscricaoMunicipal, String nomeFantasia, String nomeFazenda, String orgaoEmissor,
-            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor,
+            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor, String cei,
             //Endereco
             string cep, string logradouro, string numero, string complemento, string bairro,
             string cidade, string uf, int ibge, int gia, int siafi, int ddd,
@@ -77,7 +77,7 @@ namespace RuralSimples.Model
             int idPessoa = 0;
 
             Pessoa pessoa = new Pessoa(nomeRazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg,
-                inscricaoEstadual, inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor);
+                inscricaoEstadual, inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor, cei);
             Contato contato = new Contato(idPessoa, telefoneFixo, celular, facebook, twiter, nomePessoaRecado, instagram, telefoneRecado, site, email, tiktok,
                 celularWhats, youtube);
             Endereco endereco = new Endereco(idPessoa, cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, ddd);
@@ -93,7 +93,7 @@ namespace RuralSimples.Model
         }
         public bool salvarPessoaEnderecoContato(int codigoPessoa, String nomeRazaosocial, String classificacao, DateTime dataNascimentoFundacao, DateTime dataCadastro, String tipo,
             String cpf, String cnpj, string rg, String inscricaoEstadual, String inscricaoMunicipal, String nomeFantasia, String nomeFazenda, String orgaoEmissor,
-            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor,
+            String login, String senha, String acessoSistema, String inativo, String observacoes, String ufOrgaoExpedidor, String cei,
             //Endereco
             int idEndereco, string cep, string logradouro, string numero, string complemento, string bairro,
             string cidade, string uf, int ibge, int gia, int siafi, int ddd,
@@ -102,7 +102,7 @@ namespace RuralSimples.Model
             String telefoneRecado, String site, String email, String tiktok, String celularWhats, String youtube)
         {
             Pessoa pessoa = new Pessoa(codigoPessoa, nomeRazaosocial, classificacao, dataNascimentoFundacao, dataCadastro, tipo, cpf, cnpj, rg, inscricaoEstadual,
-                inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor);
+                inscricaoMunicipal, nomeFantasia, nomeFazenda, orgaoEmissor, login, senha, acessoSistema, inativo, observacoes, ufOrgaoExpedidor, cei);
             Contato contato = new Contato(idContato, codigoPessoa, telefoneFixo, celular, facebook, twiter, nomePessoaRecado, instagram, telefoneRecado, site, email, tiktok,
                 celularWhats, youtube);
             Endereco endereco = new Endereco(idEndereco, codigoPessoa, cep, logradouro, numero, complemento, bairro, cidade, uf, ibge, gia, siafi, ddd);

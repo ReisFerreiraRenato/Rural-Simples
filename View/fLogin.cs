@@ -50,6 +50,7 @@ namespace RuralSimples.View
             {
                 Funcoes.MensagemErro("Usuário não encontrado, verifique login e senha!");
                 tbUsuario.Focus();
+                return;
             }
             
             this.Close();
