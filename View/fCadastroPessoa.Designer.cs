@@ -126,6 +126,10 @@ namespace RuralSimples.View
             this.label1 = new System.Windows.Forms.Label();
             this.eIdentificacaoPropriedade = new System.Windows.Forms.TextBox();
             this.dgPropriedades = new System.Windows.Forms.DataGridView();
+            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNomePropriedade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btBuscarPropriedade = new System.Windows.Forms.Button();
             this.lbUfEmissor = new System.Windows.Forms.Label();
             this.eUfOrgaoEmissor = new System.Windows.Forms.TextBox();
             this.eObservacoes = new System.Windows.Forms.TextBox();
@@ -133,10 +137,6 @@ namespace RuralSimples.View
             this.eCEI = new System.Windows.Forms.TextBox();
             this.lbCEI = new System.Windows.Forms.Label();
             this.btBuscarIdPessoa = new System.Windows.Forms.Button();
-            this.btBuscarPropriedade = new System.Windows.Forms.Button();
-            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNomePropriedade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageEndereco.SuspendLayout();
@@ -356,7 +356,7 @@ namespace RuralSimples.View
             "Funcionario",
             "Outro",
             "Parceiro",
-            "Propriedade",
+            "Proprietário",
             "Sócio"});
             this.cbClassificacao.Location = new System.Drawing.Point(536, 35);
             this.cbClassificacao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -1139,6 +1139,35 @@ namespace RuralSimples.View
             this.dgPropriedades.Size = new System.Drawing.Size(855, 160);
             this.dgPropriedades.TabIndex = 0;
             // 
+            // clCodigo
+            // 
+            this.clCodigo.HeaderText = "Código";
+            this.clCodigo.Name = "clCodigo";
+            this.clCodigo.Width = 150;
+            // 
+            // clNomePropriedade
+            // 
+            this.clNomePropriedade.HeaderText = "Propriedade";
+            this.clNomePropriedade.Name = "clNomePropriedade";
+            this.clNomePropriedade.Width = 480;
+            // 
+            // clDataCadastro
+            // 
+            this.clDataCadastro.HeaderText = "Data Cadastro";
+            this.clDataCadastro.Name = "clDataCadastro";
+            this.clDataCadastro.Width = 200;
+            // 
+            // btBuscarPropriedade
+            // 
+            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
+            this.btBuscarPropriedade.Location = new System.Drawing.Point(170, 29);
+            this.btBuscarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
+            this.btBuscarPropriedade.Size = new System.Drawing.Size(26, 26);
+            this.btBuscarPropriedade.TabIndex = 58;
+            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
+            this.btBuscarPropriedade.Click += new System.EventHandler(this.btBuscarPropriedade_Click);
+            // 
             // lbUfEmissor
             // 
             this.lbUfEmissor.AutoSize = true;
@@ -1205,35 +1234,6 @@ namespace RuralSimples.View
             this.btBuscarIdPessoa.TabIndex = 55;
             this.btBuscarIdPessoa.UseVisualStyleBackColor = true;
             this.btBuscarIdPessoa.Click += new System.EventHandler(this.btBuscarIdPessoa_Click);
-            // 
-            // btBuscarPropriedade
-            // 
-            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
-            this.btBuscarPropriedade.Location = new System.Drawing.Point(170, 29);
-            this.btBuscarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
-            this.btBuscarPropriedade.Size = new System.Drawing.Size(26, 26);
-            this.btBuscarPropriedade.TabIndex = 58;
-            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
-            this.btBuscarPropriedade.Click += new System.EventHandler(this.btBuscarPropriedade_Click);
-            // 
-            // clCodigo
-            // 
-            this.clCodigo.HeaderText = "Código";
-            this.clCodigo.Name = "clCodigo";
-            this.clCodigo.Width = 150;
-            // 
-            // clNomePropriedade
-            // 
-            this.clNomePropriedade.HeaderText = "Propriedade";
-            this.clNomePropriedade.Name = "clNomePropriedade";
-            this.clNomePropriedade.Width = 480;
-            // 
-            // clDataCadastro
-            // 
-            this.clDataCadastro.HeaderText = "Data Cadastro";
-            this.clDataCadastro.Name = "clDataCadastro";
-            this.clDataCadastro.Width = 200;
             // 
             // fCadastroPessoa
             // 

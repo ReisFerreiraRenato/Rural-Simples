@@ -62,6 +62,7 @@
     <Compile Include="Classes\Medicamento.cs" />
     <Compile Include="Classes\Pessoa.cs" />
     <Compile Include="Classes\Propriedade.cs" />
+    <Compile Include="Classes\PropriedadePessoa.cs" />
     <Compile Include="Classes\Vacinacao.cs" />
     <Compile Include="Dal\BosTaurusDaoComandos.cs" />
     <Compile Include="Dal\ContatosDaoComandos.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Dal\LoginDaoComandos.cs" />
     <Compile Include="Dal\PessoasDaoComandos.cs" />
     <Compile Include="Dal\PropriedadeDaoComandos.cs" />
+    <Compile Include="Dal\PropriedadePessoaDaoComandos.cs" />
     <Compile Include="Dal\ReproducaoDaoComandos.cs" />
     <Compile Include="Dal\VacinacaoDaoComandos.cs" />
     <Compile Include="FontesComuns\Constantes.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Model\ControleLogin.cs" />
     <Compile Include="Model\ControlePessoas.cs" />
     <Compile Include="Model\ControlePropriedade.cs" />
+    <Compile Include="Model\ControlePropriedadePessoa.cs" />
     <Compile Include="Model\ControleReproducao.cs" />
     <Compile Include="Model\ControleVacinacao.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

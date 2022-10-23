@@ -14,7 +14,7 @@ namespace RuralSimples.Classes
         private string FCei;
         private string FCpf;
         private string FCnpj;
-        private string FClassificacao; //A - Propriedade - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
+        private string FClassificacao; //A - Proprietário - C - CLiente;  F - Fornecedor; P - Parceiro; O - Outro; S - Sócio; Z - Funcionario
         private DateTime FDataNascimentoFundacao;
         private DateTime FDataCadastro;
         private string FInscricaoEstadual;

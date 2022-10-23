@@ -2,107 +2,136 @@
 
 namespace RuralSimples.Classes
 {
-    class Propriedade : Pessoa
+    class Propriedade
     {
-        private string FAptidao;
-        private double FArea;
+        private int FIDPropriedade;
+        private String FAptidao;
         private double FAreaProdutiva;
-        private string FCAR;
-        private string[] FIDProprietarios;
-        private string FITR;
-        private double FLatitude;
-        private double FLongitude;
+        private double FAreaReserva;
+        private double FAreaTotal;
+        private String FCAR;
+        private DateTime FDataAquisicao;
+        private DateTime FDataVenda;
+        private String FEscritura;
+        private String FInativa;
+        private String FITR;
+        private String FLatitude;
+        private String FLongitude;
+        private String FMotivoVenda;
 
-        public Propriedade()
+        public int IDPropriedade
         {
-            //Atributos Propriedades
-            this.IDPessoa = 0;
-            this.Aptidao = "";
-            this.Area = 0;
-            this.Areaprodutiva = 0;
-            this.CAR = "";
-            this.ITR = "";
-            this.Latitude = 0;
-            this.Longitude = 0;
-            //Atributos Pessoas
-            this.CPF = "";
-            this.CNPJ = "";
-            this.Classificacao = "A"; //Propriedade
-            this.DataNascimentoFundacao = new DateTime(1900, 1, 1, 1, 0, 0);
-            this.DataCadastro = DateTime.Today;
-            this.InscricaoEstadual = "";
-            this.InscricaoMunicipal = "";
-            this.NomeRazaoSocial = "";
-            this.RG = "";
-            this.TipoPessoa = "F"; //Pessoa Física ou Jurídica (F ou J)
+            get { return FIDPropriedade; }
+            set { FIDPropriedade = value; }
         }
-        public Propriedade(string Aptidao, double Area, double AreaProdutiva, string CAR, string ITR,
-                           double Latitude, double Longitude, string Nome, DateTime DataNascimentoFundacao,
-                           string tipo, string cpf, String cnpj, string RG, string InscricaoEstadual, string InscricaoMunicipal,
-                           string ativo)
-        {
-            //Atributos Propriedades
-            IDPessoa = 0;
-            this.Aptidao = Aptidao;
-            this.Area = Area;
-            this.Areaprodutiva = AreaProdutiva;
-            this.CAR = CAR;
-            this.ITR = ITR;
-            this.Latitude = Latitude;
-            this.Longitude = Longitude;
-            //Atributos Pessoas
-            this.Classificacao = "A"; //Propriedade
-            this.NomeRazaoSocial = Nome;
-            this.DataNascimentoFundacao = DataNascimentoFundacao;
-            this.DataCadastro = DateTime.Today;
-            this.TipoPessoa = "F"; //Pessoa Física ou Jurídica (F ou J)
-            this.CPF = cpf;
-            this.CNPJ = cnpj;
-            this.RG = RG;
-            this.InscricaoEstadual = InscricaoEstadual;
-            this.InscricaoMunicipal = InscricaoMunicipal;
-            this.Inativo = ativo;
-        }
-
-        public double Area
-        {
-            get { return FArea; }
-            set { FArea = value; }
-        }
-        public double Areaprodutiva
+        public double AreaProdutiva
         {
             get { return FAreaProdutiva; }
             set { FAreaProdutiva = value; }
         }
-        public string[] IDProprietarios
+        public double AreaReserva
         {
-            get { return FIDProprietarios; }
-            set { FIDProprietarios = value; }
+            get { return FAreaReserva; }
+            set { FAreaReserva = value; }
         }
-        public double Latitude
+        public double AreaTotal
         {
-            get { return FLatitude; }
-            set { FLatitude = value; }
+            get { return FAreaTotal; }
+            set { FAreaTotal = value; }
         }
-        public double Longitude
-        {
-            get { return FLongitude; }
-            set { FLongitude = value; }
-        }
-        public string Aptidao
+        public String Aptidao
         {
             get { return FAptidao; }
             set { FAptidao = value; }
         }
-        public string CAR
+        public String CAR
         {
             get { return FCAR; }
             set { FCAR = value; }
         }
-        public string ITR
+        public DateTime DataAquisicao
+        {
+            get { return FDataAquisicao; }
+            set { FDataAquisicao = value; }
+        }
+        public DateTime DataVenda
+        {
+            get { return FDataVenda; }
+            set { FDataVenda = value; }
+        }
+        public String Escritura
+        {
+            get { return FEscritura; }
+            set { FEscritura = value; }
+        }
+        public String Inativa
+        {
+            get { return FInativa; }
+            set { FInativa = value; }
+        }
+        public String ITR
         {
             get { return FITR; }
             set { FITR = value; }
+        }
+        public String Latitude
+        {
+            get { return FLatitude; }
+            set { FLatitude = value; }
+        }
+        public String Longitude
+        {
+            get { return FLongitude; }
+            set { FLongitude = value; }
+        }
+        public String MotivoVenda
+        {
+            get { return FMotivoVenda; }
+            set { FMotivoVenda = value; }
+        }
+        //Construtores
+        public Propriedade()
+        {
+            PreencherClasse(0, "", 0, 0, 0,
+                "", new DateTime(1900, 1, 1, 1, 0, 0), new DateTime(1900, 1, 1, 1, 0, 0), "", "", "N", "", "",
+                ""
+            );
+        }
+        public Propriedade(String aptidao, double area_produtiva, double area_reserva, double area_total, String car, 
+            DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
+            String motivo_venda)
+        {
+            PreencherClasse(0, aptidao, area_produtiva, area_reserva, area_total, car,
+             data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
+             motivo_venda);
+        }
+        public Propriedade(int id_propriedade, String aptidao, double area_produtiva, double area_reserva, double area_total, String car,
+            DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
+            String motivo_venda)
+        {
+            PreencherClasse(id_propriedade, aptidao, area_produtiva, area_reserva, area_total, car,
+             data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
+             motivo_venda);
+        }
+        //Métodos
+        public void PreencherClasse(int id_propriedade, String aptidao, double area_produtiva, double area_reserva, double area_total, 
+            String car, DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
+            String motivo_venda)
+        {
+            this.IDPropriedade = id_propriedade;
+            this.Aptidao = aptidao;
+            this.AreaProdutiva = area_produtiva;
+            this.AreaReserva = area_reserva;
+            this.AreaTotal = area_total;
+            this.CAR = car;
+            this.DataAquisicao = data_aquisicao;
+            this.DataVenda = data_venda;
+            this.Escritura = escritura;
+            this.ITR = itr;
+            this.Inativa = inativa;
+            this.Latitude = latitude;
+            this.Longitude = longitude;
+            this.MotivoVenda = motivo_venda;
         }
     }
 }
