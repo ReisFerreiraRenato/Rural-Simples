@@ -23,7 +23,8 @@ namespace RuralSimples.View
         //Colunas da grid gdPropriedades
         const int cIDPropriedade = 0;
         const int cNomePropriedade = 1;
-        const int cDataCadastroPropriedade = 2;
+        const int cParticipacaoSocietaria = 2;
+        const int cDataCadastroPropriedade = 3;
         private void ControlaEditsFormulario(Boolean pEnabled)
         {
             eIdentificacao.Enabled = !pEnabled;
@@ -109,12 +110,10 @@ namespace RuralSimples.View
 
             return true;
         }
-
         private void cbTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             telaCPFCNPJ();
         }
-
         private void btSair_Click(object sender, EventArgs e)
         {
             if (inserindoEditando)
@@ -135,7 +134,6 @@ namespace RuralSimples.View
             cbClassificacao.SelectedIndex = 0;
             cbTipoPessoa.Focus();
         }
-
         private void btLimpar_Click(object sender, EventArgs e)
         {
             if (Funcoes.MensagemQuestionar("Deseja cancelar/limpar?"))
@@ -178,7 +176,6 @@ namespace RuralSimples.View
             //Contato
             ControlaEditsFormulario(false);
         }
-
         private void btSalvar_Click(object sender, EventArgs e)
         {
             bool retorno;
@@ -316,12 +313,10 @@ namespace RuralSimples.View
                 limparTela();
             }
         }
-
         private void fCadastroPessoa_Shown(object sender, EventArgs e)
         {
             ControlaEditsFormulario(false);
         }
-
         private void ckAcessoSistema_CheckedChanged(object sender, EventArgs e)
         {
             if (ckAcessoSistema.Checked)
@@ -599,13 +594,16 @@ namespace RuralSimples.View
                 {
                     ControleEnderecos controleEndereco = new ControleEnderecos();
                     ControleContatos controleContatos = new ControleContatos();
+                    ControlePropriedadePessoa controlePropriedade = new ControlePropriedadePessoa();
                     Endereco endereco = controleEndereco.buscarEnderecoPessoaPorID(codigo);
                     Contato contato = controleContatos.buscarContatoPessoaID(codigo);
+                    List<PropriedadePessoa> propriedadesPessoas = controlePropriedade.BuscarPropriedadesPessoa(codigo);
 
                     ControlaEditsFormulario(true);
                     preencherPessoa(pessoa);
                     preencherContato(contato);
                     preencherEndereco(endereco);
+                    AdicionarPropriedadesGrid(propriedadesPessoas);
                 }
                 else
                 {
@@ -623,15 +621,15 @@ namespace RuralSimples.View
             if (codigo != "")
             {
                 KeyPressEventArgs press = new KeyPressEventArgs((char)Keys.Enter);
-                eIdentificacaoPropriedade.Text = codigo;
-                eIdentificacaoPropriedade_KeyPress(eIdentificacaoPropriedade, press);
+                eCodigoPropriedade.Text = codigo;
+                eCodigoPropriedade_KeyPress(eCodigoPropriedade, press);
             }
         }
-        private void eIdentificacaoPropriedade_KeyPress(object sender, KeyPressEventArgs e)
+        private void eCodigoPropriedade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eIdentificacaoPropriedade.Text != ""))
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigoPropriedade.Text != ""))
             {
-                int codigo = Funcoes.stringToInteger(eIdentificacaoPropriedade.Text);
+                int codigo = Funcoes.stringToInteger(eCodigoPropriedade.Text);
                 ControlePessoas controlePessoa = new ControlePessoas();
                 Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
                 if (pessoa != null)
@@ -644,12 +642,49 @@ namespace RuralSimples.View
                 }
             }
         }
-
         private void btAdicionarPropriedade_Click(object sender, EventArgs e)
         {
-            if(eIdentificacao.Text.Trim() != "")
+            if(eCodigoPropriedade.Text.Trim() != "")
             {
-                //
+                PropriedadePessoa propriedadePessoa = new PropriedadePessoa();
+
+            }
+        }
+        private void AdicionarPropriedadesGrid(List<PropriedadePessoa> propriedadesPessoas)
+        {
+            LimpaGridPropriedades();
+            int cont = 0;
+            if (propriedadesPessoas != null)
+            {
+                foreach (PropriedadePessoa propriedadePessoa in propriedadesPessoas)
+                {
+                    InserirLinhaGridPropriedade(cont, propriedadePessoa);
+                    cont++;
+                }
+            }
+        }
+        private void LimpaGridPropriedades()
+        {
+            dgPropriedades.Rows.Clear();
+            dgPropriedades.Refresh();
+        }
+        private void InserirLinhaGridPropriedade(int cont, PropriedadePessoa propriedadePessoa)
+        {
+            if (cont == 0)
+            {
+                dgPropriedades.Rows[cont].Cells[cIDPropriedade].Value = Funcoes.NumeroPadrao(propriedadePessoa.IDPropriedade);
+                dgPropriedades.Rows[cont].Cells[cNomePropriedade].Value = propriedadePessoa.NomePropriedade;
+                dgPropriedades.Rows[cont].Cells[cParticipacaoSocietaria].Value = Funcoes.NumeroPadrao(propriedadePessoa.ParticipacaoSocietaria, 2) + "%";
+                dgPropriedades.Rows[cont].Cells[cDataCadastroPropriedade].Value = Funcoes.DateTimeToStringDate(propriedadePessoa.DataAquisicao);
+            }
+            else
+            {
+                dgPropriedades.Rows.Add(
+                    Funcoes.NumeroPadrao(propriedadePessoa.IDPropriedade),
+                    propriedadePessoa.NomePropriedade,
+                    Funcoes.NumeroPadrao(propriedadePessoa.ParticipacaoSocietaria, 2) + "%",
+                    Funcoes.DateTimeToStringDate(propriedadePessoa.DataAquisicao)
+                );
             }
         }
     }

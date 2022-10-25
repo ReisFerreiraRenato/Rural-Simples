@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS public.propriedades
 	latitude character varying(50) COLLATE pg_catalog."default",
 	longitude character varying(50) COLLATE pg_catalog."default",
 	motivo_venda character varying(255) COLLATE pg_catalog."default",
+	nome_propriedade character varying(255) COLLATE pg_catalog."default" NOT NULL,
 	
   CONSTRAINT propriedades_pkey PRIMARY KEY (id_propriedade),
   CONSTRAINT propriedades_inativo_check CHECK (inativa = ANY (ARRAY['S'::bpchar, 'N'::bpchar])),

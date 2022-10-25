@@ -4,8 +4,8 @@
 
 CREATE TABLE IF NOT EXISTS public.propriedades_pessoas
 (
-  	id_propriedade_pessoa SERIAL,
-    id_pessoa INTEGER NOT NULL,
+  id_propriedade_pessoa SERIAL,
+  id_pessoa INTEGER NOT NULL,
 	id_propriedade INTEGER NOT NULL,
 	participacao_societaria INTEGER,
     CONSTRAINT vacinas_pkey PRIMARY KEY (id_propriedade_pessoa),
