@@ -198,24 +198,36 @@ namespace RuralSimples.Fontes_Comuns
                 return 0;
             }
         }
-        public static String NumeroPadrao(String valor, int casasDecimais = 0)
+        public static String NumeroPadrao(String valor)
+        {
+            return NumeroPadrao(valor, 0);
+        }
+        public static String NumeroPadrao(String valor, int casasDecimais)
         {
             try
             {
                 Double val = Convert.ToDouble(valor);
-                return String.Format("{0}", Math.Round(val, casasDecimais));
+                String casas = "N" + casasDecimais.ToString();
+                return val.ToString(casas);
             }
             catch (Exception)
             {
                 return null;
             }
         }
-        public static String NumeroPadrao(Double valor, int casasDecimais = 0)
+        public static String NumeroPadrao(Double valor)
         {
-            return String.Format("{0}", Math.Round(valor, casasDecimais));
+            return NumeroPadrao(valor, 0);
+        }
+        public static String NumeroPadrao(Double valor, int casasDecimais)
+        {
+            String casas = "N" + casasDecimais.ToString();
+            return valor.ToString(casas); //String.Format("{0}", Math.Round(valor, casasDecimais));
         }
         public static DateTime StringToDateTime(String data)
         {
+            if ((data == null) || (data == ""))
+                return new DateTime(1900, 1, 1, 0, 0, 0);
             try
             {
                 return Convert.ToDateTime(data);

@@ -159,7 +159,8 @@ namespace RuralSimples.Dal
                 "   public.propriedades_pessoas as ppe " +
                 "inner join propriedades as pro " +
                 "on ppe.id_propriedade = pro.id_propriedade " +
-                "where id_pessoa = @id_pessoa ";
+                "where id_pessoa = @id_pessoa " +
+                "order by ppe.id_propriedade";
 
             cmd.CommandText = sqlBuscarPropriedades;
 

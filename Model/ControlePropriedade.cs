@@ -21,11 +21,11 @@ namespace RuralSimples.Model
         }
         public bool SalvarPropriedade(int id_propriedade, String aptidao, double area_produtiva, double area_reserva, double area_total, String car,
             DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
-            String motivo_venda)
+            String motivo_venda, String nome_propriedade)
         {
             Propriedade propriedade = new Propriedade(id_propriedade, aptidao, area_produtiva, area_reserva, area_total, car,
                  data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
-                 motivo_venda);
+                 motivo_venda, nome_propriedade);
             return SalvarPropriedade(propriedade);
         }
         public bool InserirPropriedade(Propriedade propriedade)
@@ -37,11 +37,11 @@ namespace RuralSimples.Model
         }
         public bool InserirPropriedade(String aptidao, double area_produtiva, double area_reserva, double area_total, String car,
             DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
-            String motivo_venda)
+            String motivo_venda, String nome_propriedade)
         {
             Propriedade propriedade = new Propriedade(aptidao, area_produtiva, area_reserva, area_total, car,
                  data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
-                 motivo_venda);
+                 motivo_venda, nome_propriedade);
             return InserirPropriedade(propriedade);
         }
         public Propriedade BuscarPropriedade(int id_propriedade)
@@ -55,6 +55,13 @@ namespace RuralSimples.Model
         {
             PropriedadeDaoComandos propriedadeDao = new PropriedadeDaoComandos();
             List<Propriedade> propriedades = propriedadeDao.BuscarPropriedades(id_pessoa);
+            this.mensagem = propriedadeDao.mensagem;
+            return propriedades;
+        }
+        public List<Propriedade> BuscarPropriedades(String nome_propriedade)
+        {
+            PropriedadeDaoComandos propriedadeDao = new PropriedadeDaoComandos();
+            List<Propriedade> propriedades = propriedadeDao.BuscarPropriedades(nome_propriedade);
             this.mensagem = propriedadeDao.mensagem;
             return propriedades;
         }

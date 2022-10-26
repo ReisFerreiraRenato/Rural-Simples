@@ -65,6 +65,7 @@ namespace RuralSimples.View
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(218, 26);
             this.tbSenha.TabIndex = 1;
+            this.tbSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSenha_KeyPress);
             // 
             // btEntrar
             // 

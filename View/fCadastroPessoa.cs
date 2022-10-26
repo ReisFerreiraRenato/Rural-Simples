@@ -615,31 +615,34 @@ namespace RuralSimples.View
         private void btBuscarPropriedade_Click(object sender, EventArgs e)
         {
             String codigo;
-            fBuscarPessoa buscarPessoa = new fBuscarPessoa();
-            buscarPessoa.ShowDialog();
-            codigo = buscarPessoa.codigo;
+            fBuscarPropriedades buscarPropriedade = new fBuscarPropriedades();
+            buscarPropriedade.ShowDialog();
+            codigo = buscarPropriedade.codigo;
             if (codigo != "")
             {
                 KeyPressEventArgs press = new KeyPressEventArgs((char)Keys.Enter);
                 eCodigoPropriedade.Text = codigo;
                 eCodigoPropriedade_KeyPress(eCodigoPropriedade, press);
+                eParticipacaoSocietaria.Focus();
             }
         }
         private void eCodigoPropriedade_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigoPropriedade.Text != ""))
             {
                 int codigo = Funcoes.stringToInteger(eCodigoPropriedade.Text);
-                ControlePessoas controlePessoa = new ControlePessoas();
-                Pessoa pessoa = controlePessoa.buscarPessoaIdentificacao(codigo);
-                if (pessoa != null)
+                ControlePropriedade controlePropriedade = new ControlePropriedade();
+                Propriedade propriedade = controlePropriedade.BuscarPropriedade(codigo);
+                if (propriedade == null)
                 {
-                    lbPropriedade.Text = pessoa.NomeRazaoSocial;
+                    Funcoes.MensagemErro(controlePropriedade.mensagem);
+                    return;
                 }
-                else
-                {
-                    Funcoes.MensagemErro(controlePessoa.mensagem);
-                }
+                lbPropriedade.Text = propriedade.NomePropriedade;
             }
         }
         private void btAdicionarPropriedade_Click(object sender, EventArgs e)
@@ -647,7 +650,7 @@ namespace RuralSimples.View
             if(eCodigoPropriedade.Text.Trim() != "")
             {
                 PropriedadePessoa propriedadePessoa = new PropriedadePessoa();
-
+                
             }
         }
         private void AdicionarPropriedadesGrid(List<PropriedadePessoa> propriedadesPessoas)
@@ -670,7 +673,7 @@ namespace RuralSimples.View
         }
         private void InserirLinhaGridPropriedade(int cont, PropriedadePessoa propriedadePessoa)
         {
-            if (cont == 0)
+            /*if (cont == 0)
             {
                 dgPropriedades.Rows[cont].Cells[cIDPropriedade].Value = Funcoes.NumeroPadrao(propriedadePessoa.IDPropriedade);
                 dgPropriedades.Rows[cont].Cells[cNomePropriedade].Value = propriedadePessoa.NomePropriedade;
@@ -678,13 +681,22 @@ namespace RuralSimples.View
                 dgPropriedades.Rows[cont].Cells[cDataCadastroPropriedade].Value = Funcoes.DateTimeToStringDate(propriedadePessoa.DataAquisicao);
             }
             else
-            {
+            {*/
                 dgPropriedades.Rows.Add(
                     Funcoes.NumeroPadrao(propriedadePessoa.IDPropriedade),
                     propriedadePessoa.NomePropriedade,
                     Funcoes.NumeroPadrao(propriedadePessoa.ParticipacaoSocietaria, 2) + "%",
                     Funcoes.DateTimeToStringDate(propriedadePessoa.DataAquisicao)
                 );
+            //}
+        }
+
+        private void eParticipacaoSocietaria_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                MessageBox.Show("este campo aceita somente numero e virgula");
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RuralSimples.Fontes_Comuns;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,10 +32,13 @@ namespace RuralSimples.ViewsBases
 
         private void btSelecionar_Click(object sender, EventArgs e)
         {
-            if (gdDados.CurrentRow.Cells[cId].Value.ToString() != "")
+            if (gdDados.CurrentRow.Cells[cId].Value == null)
             {
-                codigo = gdDados.CurrentRow.Cells[cId].Value.ToString();
+                Funcoes.MensagemErro("Favor selecionar um registro válido!");
+                gdDados.Focus();
+                return;
             }
+            codigo = gdDados.CurrentRow.Cells[cId].Value.ToString();
             Close();
         }
 

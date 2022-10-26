@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using RuralSimples.Classes;
+using RuralSimples.Fontes_Comuns;
 using RuralSimples.Model;
 using System;
 using System.Collections.Generic;
@@ -33,11 +34,12 @@ namespace RuralSimples.Dal
                 "itr, " +
                 "latitude, " +
                 "longitude, " +
-                "motivo_venda  " +
+                "motivo_venda,  " +
+                "nome_propriedade  " +
             "from " +
-            "   public.prorpiedades ";
+            "   public.propriedades ";
         public string sqlInserirPropriedade =
-            "insert into bostaurus (" +
+            "insert into propriedades (" +
                 "id_propriedade, " +
                 "aptidao, " +
                 "area_produtiva, " +
@@ -51,7 +53,8 @@ namespace RuralSimples.Dal
                 "itr, " +
                 "latitude, " +
                 "longitude, " +
-                "motivo_venda  " +
+                "motivo_venda,  " +
+                "nome_propriedade  " +
             ") " +
             " values (" +
                 "@id_propriedade, " +
@@ -67,10 +70,11 @@ namespace RuralSimples.Dal
                 "@itr, " +
                 "@latitude, " +
                 "@longitude, " +
-                "@motivo_venda  " +
+                "@motivo_venda, " +
+                "@nome_propriedade  " +
         ")";
         public string sqlSalvarPropriedade =
-            "UPDATE public.bostaurus SET " +
+            "UPDATE public.propriedades SET " +
                 "aptidao = @aptidao, " +
                 "area_produtiva = @area_produtiva, " +
                 "area_reserva = @area_reserva, " +
@@ -83,7 +87,8 @@ namespace RuralSimples.Dal
                 "itr = @itr, " +
                 "latitude = @latitude, " +
                 "longitude = @longitude, " +
-                "motivo_venda = @motivo_venda " +
+                "motivo_venda = @motivo_venda, " +
+                "nome_propriedade = @nome_propriedade  " +
             "WHERE  id_propriedade = @id_propriedade "
         ;
         public void parametrosInserirAtualizar(Propriedade propriedade, NpgsqlCommand comando)
@@ -180,13 +185,14 @@ namespace RuralSimples.Dal
                         dr.GetDouble(dr.GetOrdinal("area_total")),
                         dr["car"].ToString(),
                         dr.GetDateTime(dr.GetOrdinal("data_aquisicao")),
-                        dr.GetDateTime(dr.GetOrdinal("data_venda")),
+                        Funcoes.StringToDateTime(dr["data_venda"].ToString()),
                         dr["escritura"].ToString(),
                         dr["itr"].ToString(),
                         dr["inativa"].ToString(),
                         dr["latitude"].ToString(),
                         dr["longitude"].ToString(),
-                        dr["motivo_venda"].ToString()
+                        dr["motivo_venda"].ToString(),
+                        dr["nome_propriedade"].ToString()
                     );
 
                     this.mensagem = "Animal encontrada no BD.";
@@ -229,13 +235,67 @@ namespace RuralSimples.Dal
                             dr.GetDouble(dr.GetOrdinal("area_total")),
                             dr["car"].ToString(),
                             dr.GetDateTime(dr.GetOrdinal("data_aquisicao")),
-                            dr.GetDateTime(dr.GetOrdinal("data_venda")),
+                            Funcoes.StringToDateTime(dr["data_venda"].ToString()),
                             dr["escritura"].ToString(),
                             dr["itr"].ToString(),
                             dr["inativa"].ToString(),
                             dr["latitude"].ToString(),
                             dr["longitude"].ToString(),
-                            dr["motivo_venda"].ToString()
+                            dr["motivo_venda"].ToString(),
+                            dr["nome_propriedade"].ToString()
+                        );
+                        propriedades.Add(propriedade);
+                    }
+                    this.mensagem = "Vacinas encontrada no BD.";
+                }
+                else
+                {
+                    propriedades = null;
+                    this.mensagem = "Endereço não encontrada no BD.";
+                }
+            }
+            catch (NpgsqlException e)
+            {
+                propriedades = null;
+                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+            }
+            return propriedades;
+        }
+        public List<Propriedade> BuscarPropriedades(String nome_propriedade)
+        {
+            List<Propriedade> propriedades = new List<Propriedade>();
+
+            String where = " where nome_propriedade like @nome_propriedade";
+
+            cmd.CommandText = sqlBuscarPropriedade + where;
+
+            nome_propriedade += "%";
+
+            cmd.Parameters.AddWithValue("@nome_propriedade", nome_propriedade);
+            try
+            {
+                cmd.Connection = con.Conectar();
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        Propriedade propriedade = new Propriedade(
+                            dr.GetInt32(dr.GetOrdinal("id_propriedade")),
+                            dr["aptidao"].ToString(),
+                            dr.GetDouble(dr.GetOrdinal("area_produtiva")),
+                            dr.GetDouble(dr.GetOrdinal("area_reserva")),
+                            dr.GetDouble(dr.GetOrdinal("area_total")),
+                            dr["car"].ToString(),
+                            dr.GetDateTime(dr.GetOrdinal("data_aquisicao")),
+                            Funcoes.StringToDateTime(dr["data_venda"].ToString()),//  dr.GetDateTime(dr.GetOrdinal("data_venda")),
+                            dr["escritura"].ToString(),
+                            dr["itr"].ToString(),
+                            dr["inativa"].ToString(),
+                            dr["latitude"].ToString(),
+                            dr["longitude"].ToString(),
+                            dr["motivo_venda"].ToString(),
+                            dr["nome_propriedade"].ToString()
                         );
                         propriedades.Add(propriedade);
                     }

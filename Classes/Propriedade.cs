@@ -18,7 +18,7 @@ namespace RuralSimples.Classes
         private String FLatitude;
         private String FLongitude;
         private String FMotivoVenda;
-
+        private String FNomePropriedade;
         public int IDPropriedade
         {
             get { return FIDPropriedade; }
@@ -89,34 +89,39 @@ namespace RuralSimples.Classes
             get { return FMotivoVenda; }
             set { FMotivoVenda = value; }
         }
+        public String NomePropriedade
+        {
+            get { return FNomePropriedade; }
+            set { FNomePropriedade = value; }
+        }
         //Construtores
         public Propriedade()
         {
             PreencherClasse(0, "", 0, 0, 0,
                 "", new DateTime(1900, 1, 1, 1, 0, 0), new DateTime(1900, 1, 1, 1, 0, 0), "", "", "N", "", "",
-                ""
+                "", ""
             );
         }
         public Propriedade(String aptidao, double area_produtiva, double area_reserva, double area_total, String car, 
             DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
-            String motivo_venda)
+            String motivo_venda, String nome_propriedade)
         {
             PreencherClasse(0, aptidao, area_produtiva, area_reserva, area_total, car,
              data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
-             motivo_venda);
+             motivo_venda, nome_propriedade);
         }
         public Propriedade(int id_propriedade, String aptidao, double area_produtiva, double area_reserva, double area_total, String car,
             DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
-            String motivo_venda)
+            String motivo_venda, String nome_propriedade)
         {
             PreencherClasse(id_propriedade, aptidao, area_produtiva, area_reserva, area_total, car,
              data_aquisicao, data_venda, escritura, itr, inativa, latitude, longitude,
-             motivo_venda);
+             motivo_venda, nome_propriedade);
         }
         //Métodos
         public void PreencherClasse(int id_propriedade, String aptidao, double area_produtiva, double area_reserva, double area_total, 
             String car, DateTime data_aquisicao, DateTime data_venda, String escritura, String itr, String inativa, String latitude, String longitude,
-            String motivo_venda)
+            String motivo_venda, String nome_propriedade)
         {
             this.IDPropriedade = id_propriedade;
             this.Aptidao = aptidao;
@@ -132,6 +137,7 @@ namespace RuralSimples.Classes
             this.Latitude = latitude;
             this.Longitude = longitude;
             this.MotivoVenda = motivo_venda;
+            this.NomePropriedade = nome_propriedade;
         }
     }
 }

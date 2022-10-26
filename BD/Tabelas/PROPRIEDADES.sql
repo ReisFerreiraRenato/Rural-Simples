@@ -33,5 +33,5 @@ ALTER TABLE IF EXISTS public.propriedades
     OWNER to postgres;
 	
 INSERT INTO public.propriedades(
-	aptidao, area_produtiva, area_reserva, area_total, car, data_aquisicao, data_venda, escritura, inativa, itr, latitude, longitude, motivo_venda)
-	VALUES ('PECUÁRIA', 60, 40, 100, 'CAR TESTE', '2022-10-23', null, 'ESCRITURA TESTE', 'N', 'ITR TESTE', 'LATITUDE TESTE', 'LONGITUDE TESTE', NULL);
+	aptidao, area_produtiva, area_reserva, area_total, car, data_aquisicao, data_venda, escritura, inativa, itr, latitude, longitude, motivo_venda, nome_propriedade)
+	VALUES ('MISTA', 60, 40, 100, 'CAR TESTE', '2022-10-23', null, 'ESCRITURA TESTE', 'N', 'ITR TESTE', 'LATITUDE TESTE', 'LONGITUDE TESTE', NULL, 'FAZENDA PINOIA TESTE');

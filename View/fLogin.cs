@@ -90,5 +90,13 @@ namespace RuralSimples.View
                 this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
             }
         }
+
+        private void tbSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (tbSenha.Text != ""))
+            {
+                btEntrar_Click(sender, null);
+            }
+        }
     }
 }

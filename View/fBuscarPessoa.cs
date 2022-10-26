@@ -30,6 +30,8 @@ namespace RuralSimples.View
 
                 if (pessoas != null)
                 {
+                    gdDados.Rows.Clear();
+                    gdDados.Refresh();
                     foreach (Pessoa item in pessoas)
                     {
                         gdDados.Rows[cont].Cells[cId].Value = Funcoes.NumeroPadrao(item.IDPessoa);
