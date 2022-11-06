@@ -8,17 +8,19 @@ CREATE TABLE IF NOT EXISTS public.propriedades_pessoas
   id_pessoa INTEGER NOT NULL,
 	id_propriedade INTEGER NOT NULL,
 	participacao_societaria INTEGER,
-    CONSTRAINT vacinas_pkey PRIMARY KEY (id_propriedade_pessoa),
-    CONSTRAINT fk_id_pessoa FOREIGN KEY (id_pessoa)
-        REFERENCES public.pessoas (id_pessoa) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-				NOT VALID,
-		CONSTRAINT fk_id_propriedade FOREIGN KEY (id_propriedade)
-        REFERENCES public.propriedades (id_propriedade) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-				NOT VALID	
+	inativa character varying(1) COLLATE pg_catalog."default", 
+  CONSTRAINT vacinas_pkey PRIMARY KEY (id_propriedade_pessoa),
+	CONSTRAINT propriedades_inativo_check CHECK (inativa = ANY (ARRAY['S'::bpchar, 'N'::bpchar])),
+  CONSTRAINT fk_id_pessoa FOREIGN KEY (id_pessoa)
+    REFERENCES public.pessoas (id_pessoa) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+	  NOT VALID,
+	CONSTRAINT fk_id_propriedade FOREIGN KEY (id_propriedade)
+    REFERENCES public.propriedades (id_propriedade) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+	  NOT VALID	
 )
 
 TABLESPACE pg_default;

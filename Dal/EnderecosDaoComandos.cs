@@ -17,6 +17,13 @@ namespace RuralSimples.Dal
         private NpgsqlCommand cmd = new NpgsqlCommand();
         private Conexao con = new Conexao();
         private NpgsqlDataReader dr;
+
+        private const string erro_salvar_endereco = "Erro ao salvar/inserir endereço! ";
+        private const string endereco_salvo = "Endereço salvo/inserido com sucesso!";
+        private const string endereco_encontrado = "Endereço encontrado no BD.";
+        private const string endereco_nao_encontrado = "Endereço não encontrado no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
+
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarEndereco =
             "select " + 
@@ -96,8 +103,8 @@ namespace RuralSimples.Dal
                 if (dr.HasRows)
                 {
                     endereco.prencherClasse(
-                        Funcoes.stringToInteger(dr["id_endereco"].ToString()),
-                        Funcoes.stringToInteger(dr["id_pessoa"].ToString()),
+                        Funcoes.StringToInteger(dr["id_endereco"].ToString()),
+                        Funcoes.StringToInteger(dr["id_pessoa"].ToString()),
                         dr["cep"].ToString(),
                         dr["logradouro"].ToString(),
                         dr["numero"].ToString(),
@@ -105,24 +112,24 @@ namespace RuralSimples.Dal
                         dr["bairro"].ToString(),
                         dr["cidade"].ToString(),
                         dr["uf"].ToString(),
-                        Funcoes.stringToInteger(dr["ibge"].ToString()),
-                        Funcoes.stringToInteger(dr["gia"].ToString()),
-                        Funcoes.stringToInteger(dr["siafi"].ToString()),
-                        Funcoes.stringToInteger(dr["ddd"].ToString()),
+                        Funcoes.StringToInteger(dr["ibge"].ToString()),
+                        Funcoes.StringToInteger(dr["gia"].ToString()),
+                        Funcoes.StringToInteger(dr["siafi"].ToString()),
+                        Funcoes.StringToInteger(dr["ddd"].ToString()),
                         false
                     );
-                    this.mensagem = "Endereço encontrada no BD.";
+                    this.mensagem = endereco_encontrado;
                 }
                 else
                 {
                     endereco = null;
-                    this.mensagem = "Endereço não encontrada no BD.";
+                    this.mensagem = endereco_nao_encontrado;
                 }
             }
             catch (NpgsqlException e)
             {
                 endereco = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = endereco_encontrado + erro_ao_acessar_bd + e.Message;
             }
             return endereco;
         }
@@ -141,12 +148,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Endereço atualizado com sucesso!";
+                this.mensagem = endereco_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao atualizar endereço! " + e.Message;
+                this.mensagem = erro_salvar_endereco + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -165,12 +172,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Endereco atualizado com sucesso!";
+                this.mensagem = endereco_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao atualizar endereco! " + e.Message;
+                this.mensagem = erro_salvar_endereco + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }

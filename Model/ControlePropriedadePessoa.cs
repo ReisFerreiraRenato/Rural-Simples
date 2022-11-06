@@ -19,10 +19,24 @@ namespace RuralSimples.Model
             this.mensagem = propriedadePessoaDaoComandos.mensagem;
             return propriedadePessoa;
         }
-        public List<PropriedadePessoa> BuscarPropriedadesPessoa(int id_pessoa)
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaTodas(int id_pessoa)
         {
             PropriedadePessoaDaoComandos propriedadePessoaDaoComandos = new PropriedadePessoaDaoComandos();
-            List<PropriedadePessoa> propriedadesPessoa = propriedadePessoaDaoComandos.BuscarPropriedadesPessoa(id_pessoa);
+            List<PropriedadePessoa> propriedadesPessoa = propriedadePessoaDaoComandos.BuscarPropriedadesPessoaTodas(id_pessoa);
+            this.mensagem = propriedadePessoaDaoComandos.mensagem;
+            return propriedadesPessoa;
+        }
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaAtivas(int id_pessoa)
+        {
+            PropriedadePessoaDaoComandos propriedadePessoaDaoComandos = new PropriedadePessoaDaoComandos();
+            List<PropriedadePessoa> propriedadesPessoa = propriedadePessoaDaoComandos.BuscarPropriedadesPessoaAtivas(id_pessoa);
+            this.mensagem = propriedadePessoaDaoComandos.mensagem;
+            return propriedadesPessoa;
+        }
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaInativas(int id_pessoa)
+        {
+            PropriedadePessoaDaoComandos propriedadePessoaDaoComandos = new PropriedadePessoaDaoComandos();
+            List<PropriedadePessoa> propriedadesPessoa = propriedadePessoaDaoComandos.BuscarPropriedadesPessoaInativas(id_pessoa);
             this.mensagem = propriedadePessoaDaoComandos.mensagem;
             return propriedadesPessoa;
         }

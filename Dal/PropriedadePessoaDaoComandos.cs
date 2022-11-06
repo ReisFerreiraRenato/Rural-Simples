@@ -16,33 +16,41 @@ namespace RuralSimples.Dal
         NpgsqlCommand cmd = new NpgsqlCommand();
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
+
+        private const string erro_salvar_propriedade_pessoa = "Erro ao salvar/inserir propriedade(s) da pessoa! ";
+        private const string propriedade_pessoa_salvas = "Propriedade(s) da pessoa atualizada(s)/inserida(s) com sucesso!";
+        private const string propriedade_pessoa_encontradas = "Propriedade(s) da pessoa encontrada(s) no BD.";
+        private const string propriedade_pessoa_nao_encontradas = "Propriedade(s) da pessoa não encontrada(s) no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarPropriedadePessoa =
             "select " +
                 "id_propriedade_pessoa, " +
                 "id_pessoa, " +
                 "id_propriedade, " +
-                "participacao_societaria " +
+                "participacao_societaria, " +
+                "inativa " +
             "from " +
             "   public.propriedades_pessoas ";
         public string sqlInserirPropriedadePessoa =
             "insert into propriedades_pessoas (" +
-                "id_propriedade_pessoa, " +
                 "id_pessoa, " +
                 "id_propriedade, " +
-                "participacao_societaria " +
+                "participacao_societaria, " +
+                "inativa " +
             ") " +
             " values (" +
-                "@id_propriedade_pessoa, " +
                 "@id_pessoa, " +
                 "@id_propriedade, " +
-                "@participacao_societaria " +
+                "@participacao_societaria, " +
+                "@inativa " +
         ")";
         public string sqlSalvarPropriedadePessoa =
             "UPDATE public.propriedades_pessoas SET " +
                 "id_pessoa = @id_pessoa, " +
                 "id_propriedade = @id_propriedade, " +
-                "participacao_societaria = @participacao_societaria " +
+                "participacao_societaria = @participacao_societaria, " +
+                "inativa = @inativa " +
             "WHERE  id_propriedade_pessoa = @id_propriedade_pessoa "
         ;
         
@@ -66,21 +74,22 @@ namespace RuralSimples.Dal
                         dr.GetInt32(dr.GetOrdinal("id_pessoa")),
                         dr.GetInt32(dr.GetOrdinal("id_propriedade")),
                         dr.GetInt32(dr.GetOrdinal("participacao_societaria")),
-                        "",
-                        new DateTime(1900, 1, 1, 1, 0, 0)
+                        dr["nome_propriedade"].ToString(),
+                        dr.GetDateTime(dr.GetOrdinal("data_aquisicao")),
+                        dr["inativo"].ToString()
                     );
-                    this.mensagem = "Propriedade Pessoa encontrada no BD.";
+                    this.mensagem = propriedade_pessoa_encontradas;
                 }
                 else
                 {
                     propriedadePessoa = null;
-                    this.mensagem = "Propriedade Pessoa não encontrada no BD.";
+                    this.mensagem = propriedade_pessoa_nao_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 propriedadePessoa = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return propriedadePessoa;
         }
@@ -99,12 +108,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Propriedade pessoa salvo com sucesso!";
+                this.mensagem = propriedade_pessoa_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar propriedade pessoa! " + e.Message;
+                this.mensagem = erro_salvar_propriedade_pessoa + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -124,12 +133,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Propriedade pessoa atualizado com sucesso!";
+                this.mensagem = propriedade_pessoa_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao atualizar cadastro! " + e.Message;
+                this.mensagem = erro_salvar_propriedade_pessoa + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -143,8 +152,21 @@ namespace RuralSimples.Dal
             comando.Parameters.AddWithValue("@id_pessoa", propriedadePessoa.IDPessoa);
             comando.Parameters.AddWithValue("@id_propriedade", propriedadePessoa.IDPropriedade);
             comando.Parameters.AddWithValue("@participacao_societaria", propriedadePessoa.ParticipacaoSocietaria);
+            comando.Parameters.AddWithValue("@inativa", propriedadePessoa.Inativo);
         }
-        public List<PropriedadePessoa> BuscarPropriedadesPessoa(int id_pessoa)
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaAtivas(int id_pessoa)
+        {
+            return BuscarPropriedadesPessoa(id_pessoa, "N");
+        }
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaInativas(int id_pessoa)
+        {
+            return BuscarPropriedadesPessoa(id_pessoa, "S");
+        }
+        public List<PropriedadePessoa> BuscarPropriedadesPessoaTodas(int id_pessoa)
+        {
+            return BuscarPropriedadesPessoa(id_pessoa, "");
+        }
+        public List<PropriedadePessoa> BuscarPropriedadesPessoa(int id_pessoa, String inativa)
         {
             List<PropriedadePessoa> propriedadesPessoa = new List<PropriedadePessoa>();
             String sqlBuscarPropriedades =
@@ -154,17 +176,21 @@ namespace RuralSimples.Dal
                 "   ppe.id_propriedade, " +
                 "   ppe.participacao_societaria, " +
                 "   pro.nome_propriedade, " +
-                "   pro.data_aquisicao " +
+                "   pro.data_aquisicao, " +
+                "   ppe.inativa " +
                 "from " +
                 "   public.propriedades_pessoas as ppe " +
                 "inner join propriedades as pro " +
                 "on ppe.id_propriedade = pro.id_propriedade " +
-                "where id_pessoa = @id_pessoa " +
+                "where ppe.id_pessoa = @id_pessoa " +
+                (inativa != "" ? "and ppe.inativa = @inativa " : "") +
                 "order by ppe.id_propriedade";
 
             cmd.CommandText = sqlBuscarPropriedades;
 
             cmd.Parameters.AddWithValue("@id_pessoa", id_pessoa);
+            if (inativa != "")
+                cmd.Parameters.AddWithValue("@inativa", inativa);
             try
             {
                 cmd.Connection = con.Conectar();
@@ -179,22 +205,23 @@ namespace RuralSimples.Dal
                             dr.GetInt32(dr.GetOrdinal("id_propriedade")),
                             dr.GetInt32(dr.GetOrdinal("participacao_societaria")),
                             dr["nome_propriedade"].ToString(),
-                            dr.GetDateTime(dr.GetOrdinal("data_aquisicao"))
+                            dr.GetDateTime(dr.GetOrdinal("data_aquisicao")),
+                            dr["inativa"].ToString()
                         );
                         propriedadesPessoa.Add(propriedadePessoa);
                     }
-                    this.mensagem = "Propriedade Pessoa encontrada no BD.";
+                    this.mensagem = propriedade_pessoa_encontradas;
                 }
                 else
                 {
                     propriedadesPessoa = null;
-                    this.mensagem = "Propriedade Pessoa não encontrada no BD.";
+                    this.mensagem = propriedade_pessoa_nao_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 propriedadesPessoa = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return propriedadesPessoa;
         }

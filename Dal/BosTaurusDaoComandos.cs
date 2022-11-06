@@ -16,6 +16,13 @@ namespace RuralSimples.Dal
         NpgsqlCommand cmd = new NpgsqlCommand();
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
+
+        private const string erro_salvar_animal = "Erro ao salvar/inserir animal! ";
+        private const string animal_salvo = "Animal salvo/inserido com sucesso!";
+        private const string animal_encontrado = "Animal encontrado no BD.";
+        private const string animal_nao_encontrado = "Animal não encontrado no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
+
         private const string sqlRetornarIdentity = "; select max(id_pessoa) from bostaurus";
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarBosTaurus =
@@ -139,12 +146,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Animal salvo com sucesso!";
+                this.mensagem = animal_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar animal! " + e.Message;
+                this.mensagem = erro_salvar_animal + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -163,12 +170,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Animal salvo com sucesso!";
+                this.mensagem = animal_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar animal! " + e.Message;
+                this.mensagem = erro_salvar_animal + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -191,18 +198,18 @@ namespace RuralSimples.Dal
                 {
                     preencherClasse(dr, ref bostaurus);
  
-                    this.mensagem = "Animal encontrada no BD.";
+                    this.mensagem = animal_encontrado;
                 }
                 else
                 {
                     bostaurus = null;
-                    this.mensagem = "Animal não encontrada no BD.";
+                    this.mensagem = animal_nao_encontrado;
                 }
             }
             catch (NpgsqlException e)
             {
                 bostaurus = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = animal_nao_encontrado + erro_ao_acessar_bd + e.Message;
             }
             return bostaurus;
         }
@@ -225,18 +232,18 @@ namespace RuralSimples.Dal
                 {
                     preencherClasse(dr, ref bostaurus);
 
-                    this.mensagem = "Animal encontrada no BD.";
+                    this.mensagem = animal_encontrado;
                 }
                 else
                 {
                     bostaurus = null;
-                    this.mensagem = "Animal não encontrada no BD.";
+                    this.mensagem = animal_nao_encontrado;
                 }
             }
             catch (NpgsqlException e)
             {
                 bostaurus = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = animal_nao_encontrado + erro_ao_acessar_bd + e.Message;
             }
             return bostaurus;
         }

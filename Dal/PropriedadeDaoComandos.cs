@@ -18,6 +18,12 @@ namespace RuralSimples.Dal
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
         private const string sqlRetornarIdentity = "; select max(id_propriedade) from propriedades";
+        
+        private const string erro_salvar_propriedades = "Erro ao salvar propriedade(s)! ";
+        private const string propriedades_salvas = "Propriedade(s) salva(s) com sucesso!";
+        private const string propriedades_encontradas = "Propriedade(s) encontrada(s) no BD.";
+        private const string propriedades_não_encontradas = "Propriedade(s) não encontrada(s) no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarPropriedade =
             "select " +
@@ -127,12 +133,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Propriedade salva com sucesso!";
+                this.mensagem = propriedades_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar prorpiedade! " + e.Message;
+                this.mensagem = erro_salvar_propriedades + " " + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -140,7 +146,7 @@ namespace RuralSimples.Dal
         {
             try
             {
-                cmd.CommandText = sqlInserirPropriedade;
+                cmd.CommandText = sqlInserirPropriedade + sqlRetornarIdentity;
 
                 parametrosInserirAtualizar(propriedade, cmd);
 
@@ -151,12 +157,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Propriedade salva com sucesso!";
+                this.mensagem = propriedades_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar propriedade! " + e.Message;
+                this.mensagem = erro_salvar_propriedades + " " + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -195,18 +201,18 @@ namespace RuralSimples.Dal
                         dr["nome_propriedade"].ToString()
                     );
 
-                    this.mensagem = "Animal encontrada no BD.";
+                    this.mensagem = propriedades_encontradas;
                 }
                 else
                 {
                     propriedade = null;
-                    this.mensagem = "Animal não encontrada no BD.";
+                    this.mensagem = propriedades_não_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 propriedade = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return propriedade;
         }
@@ -246,18 +252,18 @@ namespace RuralSimples.Dal
                         );
                         propriedades.Add(propriedade);
                     }
-                    this.mensagem = "Vacinas encontrada no BD.";
+                    this.mensagem = propriedades_encontradas;
                 }
                 else
                 {
                     propriedades = null;
-                    this.mensagem = "Endereço não encontrada no BD.";
+                    this.mensagem = propriedades_não_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 propriedades = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return propriedades;
         }
@@ -299,18 +305,18 @@ namespace RuralSimples.Dal
                         );
                         propriedades.Add(propriedade);
                     }
-                    this.mensagem = "Vacinas encontrada no BD.";
+                    this.mensagem = propriedades_encontradas;
                 }
                 else
                 {
                     propriedades = null;
-                    this.mensagem = "Endereço não encontrada no BD.";
+                    this.mensagem = propriedades_não_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 propriedades = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return propriedades;
         }

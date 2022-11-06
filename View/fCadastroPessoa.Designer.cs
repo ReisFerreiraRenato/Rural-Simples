@@ -121,6 +121,8 @@ namespace RuralSimples.View
             this.lbTwiter = new System.Windows.Forms.Label();
             this.lbFacebook = new System.Windows.Forms.Label();
             this.tabPagePropriedades = new System.Windows.Forms.TabPage();
+            this.btInativarPropriedade = new System.Windows.Forms.Button();
+            this.btCancelarEdicaoPropriedade = new System.Windows.Forms.Button();
             this.eCodigoPropriedade = new System.Windows.Forms.MaskedTextBox();
             this.eParticipacaoSocietaria = new System.Windows.Forms.MaskedTextBox();
             this.lbParticipacao = new System.Windows.Forms.Label();
@@ -128,10 +130,7 @@ namespace RuralSimples.View
             this.lbPropriedade = new System.Windows.Forms.Label();
             this.lbCodigoPropriedade = new System.Windows.Forms.Label();
             this.dgPropriedades = new System.Windows.Forms.DataGridView();
-            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clNomePropriedade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clParticipacaoSocietaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btBuscarPropriedade = new System.Windows.Forms.Button();
             this.lbUfEmissor = new System.Windows.Forms.Label();
             this.eUfOrgaoEmissor = new System.Windows.Forms.TextBox();
             this.eObservacoes = new System.Windows.Forms.TextBox();
@@ -139,7 +138,12 @@ namespace RuralSimples.View
             this.eCEI = new System.Windows.Forms.TextBox();
             this.lbCEI = new System.Windows.Forms.Label();
             this.btBuscarIdPessoa = new System.Windows.Forms.Button();
-            this.btBuscarPropriedade = new System.Windows.Forms.Button();
+            this.clCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clNomePropriedade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clParticipacaoSocietaria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clInativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clIDPropriedadePessoa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageEndereco.SuspendLayout();
@@ -1072,6 +1076,8 @@ namespace RuralSimples.View
             // 
             // tabPagePropriedades
             // 
+            this.tabPagePropriedades.Controls.Add(this.btInativarPropriedade);
+            this.tabPagePropriedades.Controls.Add(this.btCancelarEdicaoPropriedade);
             this.tabPagePropriedades.Controls.Add(this.eCodigoPropriedade);
             this.tabPagePropriedades.Controls.Add(this.eParticipacaoSocietaria);
             this.tabPagePropriedades.Controls.Add(this.lbParticipacao);
@@ -1089,19 +1095,43 @@ namespace RuralSimples.View
             this.tabPagePropriedades.Text = "Propriedades";
             this.tabPagePropriedades.UseVisualStyleBackColor = true;
             // 
+            // btInativarPropriedade
+            // 
+            this.btInativarPropriedade.Location = new System.Drawing.Point(758, 40);
+            this.btInativarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btInativarPropriedade.Name = "btInativarPropriedade";
+            this.btInativarPropriedade.Size = new System.Drawing.Size(94, 29);
+            this.btInativarPropriedade.TabIndex = 4;
+            this.btInativarPropriedade.Text = "Inativar";
+            this.btInativarPropriedade.UseVisualStyleBackColor = true;
+            this.btInativarPropriedade.Visible = false;
+            this.btInativarPropriedade.Click += new System.EventHandler(this.btInativarPropriedade_Click);
+            // 
+            // btCancelarEdicaoPropriedade
+            // 
+            this.btCancelarEdicaoPropriedade.Location = new System.Drawing.Point(758, 72);
+            this.btCancelarEdicaoPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btCancelarEdicaoPropriedade.Name = "btCancelarEdicaoPropriedade";
+            this.btCancelarEdicaoPropriedade.Size = new System.Drawing.Size(94, 29);
+            this.btCancelarEdicaoPropriedade.TabIndex = 5;
+            this.btCancelarEdicaoPropriedade.Text = "Cancelar";
+            this.btCancelarEdicaoPropriedade.UseVisualStyleBackColor = true;
+            this.btCancelarEdicaoPropriedade.Visible = false;
+            this.btCancelarEdicaoPropriedade.Click += new System.EventHandler(this.btCancelarEdicaoPropriedade_Click);
+            // 
             // eCodigoPropriedade
             // 
-            this.eCodigoPropriedade.Location = new System.Drawing.Point(8, 32);
+            this.eCodigoPropriedade.Location = new System.Drawing.Point(8, 28);
             this.eCodigoPropriedade.Name = "eCodigoPropriedade";
-            this.eCodigoPropriedade.Size = new System.Drawing.Size(152, 26);
+            this.eCodigoPropriedade.Size = new System.Drawing.Size(134, 26);
             this.eCodigoPropriedade.TabIndex = 0;
             this.eCodigoPropriedade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eCodigoPropriedade_KeyPress);
             // 
             // eParticipacaoSocietaria
             // 
-            this.eParticipacaoSocietaria.Location = new System.Drawing.Point(580, 32);
+            this.eParticipacaoSocietaria.Location = new System.Drawing.Point(668, 28);
             this.eParticipacaoSocietaria.Name = "eParticipacaoSocietaria";
-            this.eParticipacaoSocietaria.Size = new System.Drawing.Size(116, 26);
+            this.eParticipacaoSocietaria.Size = new System.Drawing.Size(73, 26);
             this.eParticipacaoSocietaria.TabIndex = 2;
             this.eParticipacaoSocietaria.ValidatingType = typeof(int);
             this.eParticipacaoSocietaria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.eParticipacaoSocietaria_KeyPress);
@@ -1109,18 +1139,18 @@ namespace RuralSimples.View
             // lbParticipacao
             // 
             this.lbParticipacao.AutoSize = true;
-            this.lbParticipacao.Location = new System.Drawing.Point(576, 8);
+            this.lbParticipacao.Location = new System.Drawing.Point(664, 4);
             this.lbParticipacao.Name = "lbParticipacao";
-            this.lbParticipacao.Size = new System.Drawing.Size(122, 20);
+            this.lbParticipacao.Size = new System.Drawing.Size(77, 20);
             this.lbParticipacao.TabIndex = 62;
-            this.lbParticipacao.Text = "Participação %";
+            this.lbParticipacao.Text = "Partic. %";
             // 
             // btAdicionarPropriedade
             // 
-            this.btAdicionarPropriedade.Location = new System.Drawing.Point(702, 22);
+            this.btAdicionarPropriedade.Location = new System.Drawing.Point(758, 8);
             this.btAdicionarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btAdicionarPropriedade.Name = "btAdicionarPropriedade";
-            this.btAdicionarPropriedade.Size = new System.Drawing.Size(150, 38);
+            this.btAdicionarPropriedade.Size = new System.Drawing.Size(94, 29);
             this.btAdicionarPropriedade.TabIndex = 3;
             this.btAdicionarPropriedade.Text = "Adicionar";
             this.btAdicionarPropriedade.UseVisualStyleBackColor = true;
@@ -1129,7 +1159,7 @@ namespace RuralSimples.View
             // lbPropriedade
             // 
             this.lbPropriedade.AutoSize = true;
-            this.lbPropriedade.Location = new System.Drawing.Point(200, 35);
+            this.lbPropriedade.Location = new System.Drawing.Point(183, 31);
             this.lbPropriedade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPropriedade.Name = "lbPropriedade";
             this.lbPropriedade.Size = new System.Drawing.Size(99, 20);
@@ -1141,9 +1171,9 @@ namespace RuralSimples.View
             this.lbCodigoPropriedade.AutoSize = true;
             this.lbCodigoPropriedade.Location = new System.Drawing.Point(4, 8);
             this.lbCodigoPropriedade.Name = "lbCodigoPropriedade";
-            this.lbCodigoPropriedade.Size = new System.Drawing.Size(156, 20);
+            this.lbCodigoPropriedade.Size = new System.Drawing.Size(138, 20);
             this.lbCodigoPropriedade.TabIndex = 57;
-            this.lbCodigoPropriedade.Text = "Código Propriedade";
+            this.lbCodigoPropriedade.Text = "Cód. Propriedade";
             // 
             // dgPropriedades
             // 
@@ -1153,39 +1183,29 @@ namespace RuralSimples.View
             this.clCodigo,
             this.clNomePropriedade,
             this.clParticipacaoSocietaria,
-            this.clDataCadastro});
+            this.clDataCadastro,
+            this.clInativa,
+            this.clIDPropriedadePessoa});
             this.dgPropriedades.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgPropriedades.Location = new System.Drawing.Point(0, 97);
+            this.dgPropriedades.Location = new System.Drawing.Point(0, 111);
             this.dgPropriedades.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgPropriedades.Name = "dgPropriedades";
             this.dgPropriedades.RowHeadersVisible = false;
             this.dgPropriedades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPropriedades.Size = new System.Drawing.Size(855, 160);
-            this.dgPropriedades.TabIndex = 4;
+            this.dgPropriedades.Size = new System.Drawing.Size(855, 146);
+            this.dgPropriedades.TabIndex = 6;
+            this.dgPropriedades.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPropriedades_CellDoubleClick);
             // 
-            // clCodigo
+            // btBuscarPropriedade
             // 
-            this.clCodigo.HeaderText = "Código";
-            this.clCodigo.Name = "clCodigo";
-            this.clCodigo.Width = 110;
-            // 
-            // clNomePropriedade
-            // 
-            this.clNomePropriedade.HeaderText = "Propriedade";
-            this.clNomePropriedade.Name = "clNomePropriedade";
-            this.clNomePropriedade.Width = 410;
-            // 
-            // clParticipacaoSocietaria
-            // 
-            this.clParticipacaoSocietaria.HeaderText = "Participação %";
-            this.clParticipacaoSocietaria.Name = "clParticipacaoSocietaria";
-            this.clParticipacaoSocietaria.Width = 150;
-            // 
-            // clDataCadastro
-            // 
-            this.clDataCadastro.HeaderText = "Data Cadastro";
-            this.clDataCadastro.Name = "clDataCadastro";
-            this.clDataCadastro.Width = 160;
+            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
+            this.btBuscarPropriedade.Location = new System.Drawing.Point(149, 28);
+            this.btBuscarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
+            this.btBuscarPropriedade.Size = new System.Drawing.Size(26, 26);
+            this.btBuscarPropriedade.TabIndex = 1;
+            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
+            this.btBuscarPropriedade.Click += new System.EventHandler(this.btBuscarPropriedade_Click);
             // 
             // lbUfEmissor
             // 
@@ -1254,16 +1274,41 @@ namespace RuralSimples.View
             this.btBuscarIdPessoa.UseVisualStyleBackColor = true;
             this.btBuscarIdPessoa.Click += new System.EventHandler(this.btBuscarIdPessoa_Click);
             // 
-            // btBuscarPropriedade
+            // clCodigo
             // 
-            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
-            this.btBuscarPropriedade.Location = new System.Drawing.Point(166, 32);
-            this.btBuscarPropriedade.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
-            this.btBuscarPropriedade.Size = new System.Drawing.Size(26, 26);
-            this.btBuscarPropriedade.TabIndex = 1;
-            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
-            this.btBuscarPropriedade.Click += new System.EventHandler(this.btBuscarPropriedade_Click);
+            this.clCodigo.HeaderText = "Código";
+            this.clCodigo.Name = "clCodigo";
+            this.clCodigo.Width = 90;
+            // 
+            // clNomePropriedade
+            // 
+            this.clNomePropriedade.HeaderText = "Propriedade";
+            this.clNomePropriedade.Name = "clNomePropriedade";
+            this.clNomePropriedade.Width = 370;
+            // 
+            // clParticipacaoSocietaria
+            // 
+            this.clParticipacaoSocietaria.HeaderText = "Participação %";
+            this.clParticipacaoSocietaria.Name = "clParticipacaoSocietaria";
+            this.clParticipacaoSocietaria.Width = 150;
+            // 
+            // clDataCadastro
+            // 
+            this.clDataCadastro.HeaderText = "Data Cadastro";
+            this.clDataCadastro.Name = "clDataCadastro";
+            this.clDataCadastro.Width = 160;
+            // 
+            // clInativa
+            // 
+            this.clInativa.HeaderText = "Inativa";
+            this.clInativa.Name = "clInativa";
+            this.clInativa.Width = 60;
+            // 
+            // clIDPropriedadePessoa
+            // 
+            this.clIDPropriedadePessoa.HeaderText = "IDPropriedadePessoa";
+            this.clIDPropriedadePessoa.Name = "clIDPropriedadePessoa";
+            this.clIDPropriedadePessoa.Width = 10;
             // 
             // fCadastroPessoa
             // 
@@ -1434,12 +1479,16 @@ namespace RuralSimples.View
         private System.Windows.Forms.Label lbPropriedade;
         private System.Windows.Forms.Button btAdicionarPropriedade;
         private System.Windows.Forms.DataGridView dgPropriedades;
+        private System.Windows.Forms.MaskedTextBox eCodigoPropriedade;
+        private System.Windows.Forms.MaskedTextBox eParticipacaoSocietaria;
+        private System.Windows.Forms.Label lbParticipacao;
+        private System.Windows.Forms.Button btCancelarEdicaoPropriedade;
+        private System.Windows.Forms.Button btInativarPropriedade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clNomePropriedade;
         private System.Windows.Forms.DataGridViewTextBoxColumn clParticipacaoSocietaria;
         private System.Windows.Forms.DataGridViewTextBoxColumn clDataCadastro;
-        private System.Windows.Forms.MaskedTextBox eCodigoPropriedade;
-        private System.Windows.Forms.MaskedTextBox eParticipacaoSocietaria;
-        private System.Windows.Forms.Label lbParticipacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clInativa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clIDPropriedadePessoa;
     }
 }

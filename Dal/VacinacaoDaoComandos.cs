@@ -17,6 +17,13 @@ namespace RuralSimples.Dal
         private NpgsqlCommand cmd = new NpgsqlCommand();
         private Conexao con = new Conexao();
         private NpgsqlDataReader dr;
+
+        private const string erro_salvar_vacianacao = "Erro ao salvar/inserir vacianação(ões)! ";
+        private const string vacianacao_salvas = "Vacianação(ões) salva(s)/inserida(s) com sucesso!";
+        private const string vacianacao_encontradas = "Vacianação(ões) encontrada(s) no BD.";
+        private const string vacianacao_nao_encontradas = "Vacianação(ões) não encontrada(s) no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
+
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarVacina =
             "select " +
@@ -67,12 +74,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Vacinação salva com sucesso!";
+                this.mensagem = vacianacao_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar vacinação! " + e.Message;
+                this.mensagem = erro_salvar_vacianacao + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -91,12 +98,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Vacinação inserida com sucesso!";
+                this.mensagem = vacianacao_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao inserir vacinacao! " + e.Message;
+                this.mensagem = erro_salvar_vacianacao + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -126,18 +133,18 @@ namespace RuralSimples.Dal
                         );
                         vacinacoes.Add(vacinacao);
                     }
-                    this.mensagem = "Vacinas encontrada no BD.";
+                    this.mensagem = vacianacao_encontradas;
                 }
                 else
                 {
                     vacinacoes = null;
-                    this.mensagem = "Endereço não encontrada no BD.";
+                    this.mensagem = vacianacao_nao_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 vacinacoes = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return vacinacoes;
         }
@@ -164,18 +171,18 @@ namespace RuralSimples.Dal
                         dr.GetDateTime(dr.GetOrdinal("data_cadastro")),
                         dr.GetDouble(dr.GetOrdinal("dosagem"))
                     );
-                    this.mensagem = "Vacinas encontrada no BD.";
+                    this.mensagem = vacianacao_encontradas;
                 }
                 else
                 {
                     vacinacao = null;
-                    this.mensagem = "Vacinas não encontrada no BD.";
+                    this.mensagem = vacianacao_nao_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 vacinacao = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return vacinacao;
         }

@@ -56,7 +56,7 @@ namespace RuralSimples.View
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
-                int codigo = Funcoes.stringToInteger(eCodigo.Text);
+                int codigo = Funcoes.StringToInteger(eCodigo.Text);
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
                 BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
                 if (bostaurus != null)
@@ -116,7 +116,7 @@ namespace RuralSimples.View
             if (idAnimal == 0)
                 return;
 
-            if (Funcoes.stringToInteger(eCodigo.Text) != idAnimal)
+            if (Funcoes.StringToInteger(eCodigo.Text) != idAnimal)
             {
                 if (Funcoes.MensagemQuestionar(String.Format("Você alterou o código do animal e não buscou o cadastro, " +
                         "a vacinação será feita no animal anterior (código {0}) que foi buscado no cadastro!" + "Deseja continuar?", idAnimal)) == false)
@@ -151,7 +151,7 @@ namespace RuralSimples.View
                     eNomeVacina.Text,
                     Funcoes.StringToDateTime(eDataVacina.Text),
                     DateTime.Now,
-                    Funcoes.stringToDouble(Funcoes.StringApenasNumeros(eDosagem.Text))
+                    Funcoes.StringToDouble(Funcoes.StringApenasNumeros(eDosagem.Text))
                 );
                 retorno = controleVacinacao.InserirVacinacao(vacinacao);
                 if (!retorno)
@@ -260,11 +260,11 @@ namespace RuralSimples.View
         private void dgVacina_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             vacinaEditando = new Vacinacao(
-                Funcoes.stringToInteger(dgVacina.CurrentRow.Cells[cIDAnimal].Value.ToString()),
+                Funcoes.StringToInteger(dgVacina.CurrentRow.Cells[cIDAnimal].Value.ToString()),
                 dgVacina.CurrentRow.Cells[cNomeVacina].Value.ToString(),
                 Funcoes.StringToDateTime(dgVacina.CurrentRow.Cells[cDataVacina].Value.ToString()),
                 Funcoes.StringToDateTime(dgVacina.CurrentRow.Cells[cDataCadastro].Value.ToString()),
-                Funcoes.stringToDouble(Funcoes.StringApenasNumeros(dgVacina.CurrentRow.Cells[cDosagem].Value.ToString()))
+                Funcoes.StringToDouble(Funcoes.StringApenasNumeros(dgVacina.CurrentRow.Cells[cDosagem].Value.ToString()))
             );
             eDataVacina.Text = Funcoes.DateTimeToStringDate(vacinaEditando.DataVacinacao);
             eNomeVacina.Text = vacinaEditando.NomeVacina;

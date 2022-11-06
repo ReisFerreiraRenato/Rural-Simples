@@ -60,7 +60,7 @@ namespace RuralSimples.View
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
-                int codigo = Funcoes.stringToInteger(eCodigo.Text);
+                int codigo = Funcoes.StringToInteger(eCodigo.Text);
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
                 BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
                 if (bostaurus != null)
@@ -295,15 +295,15 @@ namespace RuralSimples.View
             if (eCodigo.Text == "")
             {
                 retorno = controleBostaurus.InserirBosTaurus(
-                    Funcoes.stringToInteger(eCodigoPropriedade.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigoPropriedade.Text.Trim()),
                     eRaca.Text.Trim(), 
                     eNomeAnimal.Text.Trim(),
                     eIdentificacao.Text.Trim(),
                     Funcoes.StringToDateTime(eDataNascimento.Text.Trim()), 
                     GetSexo(),
                     eAptidao.Text.Trim(),
-                    Funcoes.stringToInteger(eCodigoBosTaurusPai.Text.Trim()),
-                    Funcoes.stringToInteger(eCodigoBosTaurusMae.Text.Trim()), 
+                    Funcoes.StringToInteger(eCodigoBosTaurusPai.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigoBosTaurusMae.Text.Trim()), 
                     eNumeroRegistro.Text.Trim(),
                     eClassificacaoOssea.Text.Trim(), 
                     eClassificacaoPatas.Text.Trim(),
@@ -323,16 +323,16 @@ namespace RuralSimples.View
             else
             {
                 retorno = controleBostaurus.SalvarBosTaurus(
-                    Funcoes.stringToInteger(eCodigo.Text.Trim()),
-                    Funcoes.stringToInteger(eCodigoPropriedade.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigo.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigoPropriedade.Text.Trim()),
                     eRaca.Text.Trim(),
                     eNomeAnimal.Text.Trim(),
                     eIdentificacao.Text.Trim(),
                     Funcoes.StringToDateTime(eDataNascimento.Text.Trim()),
                     GetSexo(),
                     eAptidao.Text.Trim(),
-                    Funcoes.stringToInteger(eCodigoBosTaurusPai.Text.Trim()),
-                    Funcoes.stringToInteger(eCodigoBosTaurusMae.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigoBosTaurusPai.Text.Trim()),
+                    Funcoes.StringToInteger(eCodigoBosTaurusMae.Text.Trim()),
                     eNumeroRegistro.Text.Trim(),
                     eClassificacaoOssea.Text.Trim(),
                     eClassificacaoPatas.Text.Trim(),

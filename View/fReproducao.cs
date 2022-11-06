@@ -70,7 +70,7 @@ namespace RuralSimples.View
         {
             if (((Keys)e.KeyChar == Keys.Enter || (Keys)e.KeyChar == Keys.Return) && (eCodigo.Text != ""))
             {
-                int codigo = Funcoes.stringToInteger(eCodigo.Text);
+                int codigo = Funcoes.StringToInteger(eCodigo.Text);
                 ControleBosTaurus controleBostaurus = new ControleBosTaurus();
                 BosTaurus bostaurus = controleBostaurus.buscarBosTaurusIdBostaurus(codigo);
                 if (bostaurus != null)

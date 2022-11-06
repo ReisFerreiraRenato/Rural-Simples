@@ -17,6 +17,13 @@ namespace RuralSimples.Dal
         NpgsqlCommand cmd = new NpgsqlCommand();
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
+
+        private const string erro_salvar_contato = "Erro ao salvar/inserir contato! ";
+        private const string contato_salvo = "Contato salvo/inserido com sucesso!";
+        private const string contato_encontrado = "Contato encontrado no BD.";
+        private const string contato_nao_encontrado = "Contato não encontrado no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
+
         //comandos SQL padrão para buuscar pessoa
         public string sqlBuscarContato =
             "select " +
@@ -100,8 +107,8 @@ namespace RuralSimples.Dal
                 if (dr.HasRows)
                 {
                     contato.preencherClasse(
-                        Funcoes.stringToInteger(dr["id_contato"].ToString()),
-                        Funcoes.stringToInteger(dr["id_pessoa"].ToString()),
+                        Funcoes.StringToInteger(dr["id_contato"].ToString()),
+                        Funcoes.StringToInteger(dr["id_pessoa"].ToString()),
                         dr["telefone_fixo"].ToString(),
                         dr["celular"].ToString(),
                         dr["facebook"].ToString(),
@@ -116,18 +123,18 @@ namespace RuralSimples.Dal
                         dr["youtube"].ToString(),
                         false
                     );
-                    this.mensagem = "Pessoa encontrada no BD.";
+                    this.mensagem = contato_encontrado;
                 }
                 else
                 {
                     contato = null;
-                    this.mensagem = "Pessoa não encontrada no BD.";
+                    this.mensagem = contato_nao_encontrado;
                 }
             }
             catch (NpgsqlException e)
             {
                 contato = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return contato;
         }
@@ -146,12 +153,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Contato salvo com sucesso!";
+                this.mensagem = contato_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao salvar contato! " + e.Message;
+                this.mensagem = erro_salvar_contato + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -170,12 +177,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Cadastro atualizado com sucesso!";
+                this.mensagem = contato_salvo;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao atualizar cadastro! " + e.Message;
+                this.mensagem = erro_salvar_contato + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }

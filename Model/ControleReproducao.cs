@@ -8,7 +8,7 @@ namespace RuralSimples.Model
 {
     class ControleReproducao
     {
-        public bool tem;
+        //public bool tem;
         public String mensagem = "";
 
         /*public List<> BuscarVacinacoes(int idBosTaurus)

@@ -19,6 +19,12 @@ namespace RuralSimples.Dal
         Conexao con = new Conexao();
         NpgsqlDataReader dr;
 
+        private const string erro_salvar_pessoa = "Erro ao salvar/inserir Pessoa! ";
+        private const string pessoa_salvas = "Pessoa salva/inserida com sucesso!";
+        private const string pessoa_encontradas = "Pessoa(s) encontrada(s) no BD.";
+        private const string pessoa_nao_encontradas = "Pessoa(s) não encontrada(s) no BD.";
+        private const string erro_ao_acessar_bd = "Erro ao acessar o banco de dados! ";
+
         private const string sqlRetornarIdentity = "; select max(id_pessoa) from pessoas"; 
         //comandos SQL padrão para buuscar pessoa
         public const string sqlBuscarPessoa = 
@@ -157,17 +163,17 @@ namespace RuralSimples.Dal
                         false
                     );
 
-                    this.mensagem = "Pessoa encontrada no BD.";
+                    this.mensagem = pessoa_encontradas;
                 }
                 else
                 {
-                    this.mensagem = "Pessoa não encontrada no BD.";
+                    this.mensagem = pessoa_nao_encontradas;
                 }
             }
             catch (NpgsqlException e)
             {
                 pessoa = null;
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
             }
             return pessoa;
         }
@@ -222,17 +228,17 @@ namespace RuralSimples.Dal
                         );
                         pessoas.Add(pessoa);
                     }
-                    this.mensagem = "Cadastro de pessoa encontrada no BD.";
+                    this.mensagem = pessoa_encontradas;
                 }
                 else
                 {
-                    this.mensagem = "Cadastro de pessoas não encontrado!";
+                    this.mensagem = pessoa_nao_encontradas;
                     pessoas = null;
                 }
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao acessar o banco de dados! " + e.Message;
+                this.mensagem = erro_ao_acessar_bd + e.Message;
                 pessoas = null;
             }
             return pessoas;
@@ -252,12 +258,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Cadastro de pessoa atualizado com sucesso!";
+                this.mensagem = pessoa_salvas;
                 return true;
             }
             catch (NpgsqlException e)
             {
-                this.mensagem = "Erro ao atualizar cadastro! " + e.Message;
+                this.mensagem = erro_salvar_pessoa + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -276,12 +282,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Cadastro de pessoa inserido com sucesso!";
+                this.mensagem = pessoa_salvas;
                 return true;
             }
             catch(NpgsqlException e)
             {
-                this.mensagem = "Erro ao inserir cadastro! " + e.Message;
+                this.mensagem = erro_salvar_pessoa + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -345,13 +351,13 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Cadastro de pessoa inserido com sucesso!";
+                this.mensagem = pessoa_salvas;
                 return true;
             }
             catch (Exception e)
             {
                 con.CancelarTransacao();
-                this.mensagem = "Erro ao salvar contato! " + e.Message;
+                this.mensagem = erro_salvar_pessoa + erro_ao_acessar_bd + e.Message;
                 return false;
             }
         }
@@ -386,12 +392,12 @@ namespace RuralSimples.Dal
                 //desconectar
                 con.Desconectar();
 
-                this.mensagem = "Pessoa atualizada com sucesso!";
+                this.mensagem = pessoa_salvas;
                 return true;
             }
             catch (Exception e)
             {
-                this.mensagem = "Erro ao atualizar Pessoa completo! " + e.Message;
+                this.mensagem = erro_salvar_pessoa + erro_ao_acessar_bd + e.Message;
                 con.CancelarTransacao();
                 return false;
             }
