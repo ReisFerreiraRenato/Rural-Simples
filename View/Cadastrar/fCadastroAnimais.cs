@@ -108,7 +108,11 @@ namespace RuralSimples.View
             eNomePai.Text = bostaurus.NomePai;
             eCodigoBosTaurusMae.Text = Funcoes.NumeroPadrao(bostaurus.IDBosTaurusMae);
             eNomeMae.Text = bostaurus.NomeMae;
+            
             SetInativo(bostaurus.Inativo);
+            SetCiclo(bostaurus.Ciclo);
+            SetCicloRepeodutivo(bostaurus.CicloReprodutivo);
+
             if (bostaurus.DataDescarte != new DateTime(1900, 1, 1, 0, 0, 0))
                 eDataDescarte.Text = bostaurus.DataDescarte.ToString();
             eMotivoDescarte.Text = bostaurus.MotivoDescarte;
@@ -121,7 +125,56 @@ namespace RuralSimples.View
             eTipoReproducao.Text = bostaurus.TipoReproducao;
             eNomeCientifico.Text = bostaurus.NomeCientifico;
             eFamilia.Text = bostaurus.Familia;
+        }
+        private void SetCiclo(String ciclo)
+        {
+            switch (ciclo)
+            {
+                case "A": cbCiclo.SelectedIndex = 0; break;
+                case "B": cbCiclo.SelectedIndex = 1; break;
+                case "C": cbCiclo.SelectedIndex = 2; break;
+                case "E": cbCiclo.SelectedIndex = 3; break;
+                case "R": cbCiclo.SelectedIndex = 4; break;
 
+                default: cbCiclo.SelectedIndex = 2; break;
+            }
+        }
+        private String GetCiclo()
+        {
+            switch (cbCiclo.SelectedItem)
+            {
+                case 0: return "A";
+                case 1: return "B";
+                case 2: return "C";
+                case 3: return "E";
+                case 4: return "R";
+
+                default: return "C";
+            } 
+        }
+        private void SetCicloRepeodutivo(String cicloReprodutivo)
+        {
+            switch (cicloReprodutivo)
+            {
+                case "M": cbCiclo.SelectedIndex = 0; break;
+                case "N": cbCiclo.SelectedIndex = 1; break;
+                case "P": cbCiclo.SelectedIndex = 2; break;
+                case "S": cbCiclo.SelectedIndex = 3; break;
+
+                default: cbCiclo.SelectedIndex = -1; break;
+            }
+        }
+        private String GetCicloReprodutivo()
+        {
+            switch (cbCiclo.SelectedItem)
+            {
+                case 0: return "M";
+                case 1: return "N";
+                case 2: return "P";
+                case 3: return "S";
+
+                default: return "N";
+            }
         }
         private void SetSexo(String sexo)
         {
@@ -192,10 +245,14 @@ namespace RuralSimples.View
             eObservacoes.Enabled = enabled;
             eRaca.Enabled = enabled;
             ckInativo.Enabled = enabled;
-            cbSexo.Enabled = enabled;
+            
             btBuscarPropriedade.Enabled = enabled;
             btBuscarIdBostaurusPai.Enabled = enabled;
             btBuscarIdBostaurusMae.Enabled = enabled;
+
+            cbCiclo.Enabled = enabled;
+            cbCicloReprodutivo.Enabled = enabled;
+            cbSexo.Enabled = enabled;
         }
         private void LimparTela()
         {
@@ -218,7 +275,11 @@ namespace RuralSimples.View
             eObservacoes.Clear();
             eRaca.Clear();
             ckInativo.Checked = false;
-            cbSexo.SelectedIndex = - 1;
+            
+            cbCiclo.SelectedIndex = -1;
+            cbCicloReprodutivo.SelectedIndex = -1;
+            cbSexo.SelectedIndex = -1;
+
             ControlaBotoes(false);
             ControlaEditsFormularios(false);
         }
@@ -317,7 +378,9 @@ namespace RuralSimples.View
                     GetInativo(), 
                     dataDescarte,
                     eMotivoDescarte.Text.Trim(), 
-                    eObservacoes.Text.Trim()
+                    eObservacoes.Text.Trim(),
+                    GetCiclo(),
+                    GetCicloReprodutivo()
                 );
             }
             else
@@ -346,7 +409,9 @@ namespace RuralSimples.View
                     GetInativo(),
                     dataDescarte,
                     eMotivoDescarte.Text.Trim(),
-                    eObservacoes.Text.Trim()
+                    eObservacoes.Text.Trim(),
+                    GetCiclo(),
+                    GetCicloReprodutivo()
                 );
             }
             Funcoes.Mensagem(controleBostaurus.mensagem);
@@ -372,5 +437,20 @@ namespace RuralSimples.View
                 }
             }
         }
+
+        private void cbSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSexo.SelectedIndex == 0)
+            {
+                lbCicloReprodutivo.Visible = true;
+                cbCicloReprodutivo.Visible = true;
+            }
+            else
+            {
+                lbCicloReprodutivo.Visible = false;
+                cbCicloReprodutivo.Visible = false;
+            }
+        }
+
     }
 }

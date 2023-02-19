@@ -81,3 +81,5 @@ D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fVacina.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.ViewsBases.fBuscar.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fBuscarPessoa.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fBuscarPropriedades.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fServicos.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fServicosSelecionar.resources

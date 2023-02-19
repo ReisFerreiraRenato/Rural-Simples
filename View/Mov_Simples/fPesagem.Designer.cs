@@ -57,18 +57,19 @@ namespace RuralSimples.View
             this.pnPesagens.Controls.Add(this.ePeso);
             this.pnPesagens.Controls.Add(this.dgPesagens);
             this.pnPesagens.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnPesagens.Location = new System.Drawing.Point(142, 151);
-            this.pnPesagens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnPesagens.Location = new System.Drawing.Point(1, 0);
+            this.pnPesagens.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pnPesagens.Name = "pnPesagens";
-            this.pnPesagens.Size = new System.Drawing.Size(457, 285);
+            this.pnPesagens.Size = new System.Drawing.Size(609, 350);
             this.pnPesagens.TabIndex = 13;
             // 
             // eDataPesagem
             // 
-            this.eDataPesagem.Location = new System.Drawing.Point(4, 61);
+            this.eDataPesagem.Location = new System.Drawing.Point(5, 75);
+            this.eDataPesagem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.eDataPesagem.Mask = "00/00/0000";
             this.eDataPesagem.Name = "eDataPesagem";
-            this.eDataPesagem.Size = new System.Drawing.Size(118, 26);
+            this.eDataPesagem.Size = new System.Drawing.Size(156, 30);
             this.eDataPesagem.TabIndex = 32;
             this.eDataPesagem.ValidatingType = typeof(System.DateTime);
             // 
@@ -77,57 +78,57 @@ namespace RuralSimples.View
             this.pnTituloPesagens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnTituloPesagens.Controls.Add(this.lbPesagens);
             this.pnTituloPesagens.Location = new System.Drawing.Point(-1, -1);
-            this.pnTituloPesagens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pnTituloPesagens.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.pnTituloPesagens.Name = "pnTituloPesagens";
-            this.pnTituloPesagens.Size = new System.Drawing.Size(457, 31);
+            this.pnTituloPesagens.Size = new System.Drawing.Size(609, 38);
             this.pnTituloPesagens.TabIndex = 31;
             // 
             // lbPesagens
             // 
             this.lbPesagens.AutoSize = true;
-            this.lbPesagens.Location = new System.Drawing.Point(177, 3);
-            this.lbPesagens.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPesagens.Location = new System.Drawing.Point(236, 4);
+            this.lbPesagens.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbPesagens.Name = "lbPesagens";
-            this.lbPesagens.Size = new System.Drawing.Size(80, 20);
+            this.lbPesagens.Size = new System.Drawing.Size(100, 25);
             this.lbPesagens.TabIndex = 23;
             this.lbPesagens.Text = "Pesagens";
             // 
             // lbPeso
             // 
             this.lbPeso.AutoSize = true;
-            this.lbPeso.Location = new System.Drawing.Point(124, 30);
-            this.lbPeso.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPeso.Location = new System.Drawing.Point(165, 37);
+            this.lbPeso.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbPeso.Name = "lbPeso";
-            this.lbPeso.Size = new System.Drawing.Size(45, 20);
+            this.lbPeso.Size = new System.Drawing.Size(57, 25);
             this.lbPeso.TabIndex = 30;
             this.lbPeso.Text = "Peso";
             // 
             // lbDataPesagem
             // 
             this.lbDataPesagem.AutoSize = true;
-            this.lbDataPesagem.Location = new System.Drawing.Point(-1, 30);
-            this.lbDataPesagem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDataPesagem.Location = new System.Drawing.Point(-1, 37);
+            this.lbDataPesagem.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lbDataPesagem.Name = "lbDataPesagem";
-            this.lbDataPesagem.Size = new System.Drawing.Size(44, 20);
+            this.lbDataPesagem.Size = new System.Drawing.Size(53, 25);
             this.lbDataPesagem.TabIndex = 29;
             this.lbDataPesagem.Text = "Data";
             // 
             // btAdicionarPesagem
             // 
-            this.btAdicionarPesagem.Location = new System.Drawing.Point(334, 60);
-            this.btAdicionarPesagem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btAdicionarPesagem.Location = new System.Drawing.Point(445, 74);
+            this.btAdicionarPesagem.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btAdicionarPesagem.Name = "btAdicionarPesagem";
-            this.btAdicionarPesagem.Size = new System.Drawing.Size(120, 31);
+            this.btAdicionarPesagem.Size = new System.Drawing.Size(160, 38);
             this.btAdicionarPesagem.TabIndex = 8;
             this.btAdicionarPesagem.Text = "Adicionar";
             this.btAdicionarPesagem.UseVisualStyleBackColor = true;
             // 
             // ePeso
             // 
-            this.ePeso.Location = new System.Drawing.Point(129, 61);
-            this.ePeso.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ePeso.Location = new System.Drawing.Point(172, 75);
+            this.ePeso.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.ePeso.Name = "ePeso";
-            this.ePeso.Size = new System.Drawing.Size(197, 26);
+            this.ePeso.Size = new System.Drawing.Size(261, 30);
             this.ePeso.TabIndex = 7;
             // 
             // dgPesagens
@@ -141,14 +142,14 @@ namespace RuralSimples.View
             this.clPeso,
             this.clPesoMedio});
             this.dgPesagens.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgPesagens.Location = new System.Drawing.Point(2, 101);
-            this.dgPesagens.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgPesagens.Location = new System.Drawing.Point(3, 124);
+            this.dgPesagens.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dgPesagens.MultiSelect = false;
             this.dgPesagens.Name = "dgPesagens";
             this.dgPesagens.RowHeadersVisible = false;
             this.dgPesagens.RowHeadersWidth = 51;
             this.dgPesagens.RowTemplate.Height = 24;
-            this.dgPesagens.Size = new System.Drawing.Size(452, 180);
+            this.dgPesagens.Size = new System.Drawing.Size(603, 222);
             this.dgPesagens.TabIndex = 23;
             // 
             // clDataPesagem
@@ -174,10 +175,11 @@ namespace RuralSimples.View
             // 
             // fPesagem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(612, 352);
             this.Controls.Add(this.pnPesagens);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fPesagem";
             this.Text = "Pesagem";
             this.pnPesagens.ResumeLayout(false);

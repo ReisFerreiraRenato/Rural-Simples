@@ -96,58 +96,64 @@
     <Compile Include="ViewsBases\fBuscar.Designer.cs">
       <DependentUpon>fBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fBuscarPessoa.cs">
+    <Compile Include="View\Buscar\fBuscarPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fBuscarPessoa.Designer.cs">
+    <Compile Include="View\Buscar\fBuscarPessoa.Designer.cs">
       <DependentUpon>fBuscarPessoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fCadastroAnimais.cs">
+    <Compile Include="View\Cadastrar\fCadastroAnimais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fCadastroAnimais.Designer.cs">
+    <Compile Include="View\Cadastrar\fCadastroAnimais.Designer.cs">
       <DependentUpon>fCadastroAnimais.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fCadastroPessoa.cs">
+    <Compile Include="View\Cadastrar\fCadastroPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fCadastroPessoa.Designer.cs">
+    <Compile Include="View\Cadastrar\fCadastroPessoa.Designer.cs">
       <DependentUpon>fCadastroPessoa.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fCadastreSe.cs">
+    <Compile Include="View\Mov_Servicos\fServicosSelecionar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fCadastreSe.Designer.cs">
+    <Compile Include="View\Mov_Servicos\fServicosSelecionar.Designer.cs">
+      <DependentUpon>fServicosSelecionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login\fCadastreSe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\fCadastreSe.Designer.cs">
       <DependentUpon>fCadastreSe.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fBuscarPropriedades.cs">
+    <Compile Include="View\Buscar\fBuscarPropriedades.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fBuscarPropriedades.Designer.cs">
+    <Compile Include="View\Buscar\fBuscarPropriedades.Designer.cs">
       <DependentUpon>fBuscarPropriedades.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fPesagem.cs">
+    <Compile Include="View\Mov_Simples\fPesagem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fPesagem.Designer.cs">
+    <Compile Include="View\Mov_Simples\fPesagem.Designer.cs">
       <DependentUpon>fPesagem.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fVermifugacao.cs">
+    <Compile Include="View\Mov_Simples\fVermifugacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fVermifugacao.Designer.cs">
+    <Compile Include="View\Mov_Simples\fVermifugacao.Designer.cs">
       <DependentUpon>fVermifugacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fReproducao.cs">
+    <Compile Include="View\Mov_Simples\fReproducao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fReproducao.Designer.cs">
+    <Compile Include="View\Mov_Simples\fReproducao.Designer.cs">
       <DependentUpon>fReproducao.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\fLogin.cs">
+    <Compile Include="View\Login\fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fLogin.Designer.cs">
+    <Compile Include="View\Login\fLogin.Designer.cs">
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="View\fPrincipal.cs">
@@ -158,34 +164,46 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\fVacina.cs">
+    <Compile Include="View\Mov_Simples\fVacina.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\fVacina.Designer.cs">
+    <Compile Include="View\Mov_Simples\fVacina.Designer.cs">
       <DependentUpon>fVacina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mov_Servicos\fServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mov_Servicos\fServicos.Designer.cs">
+      <DependentUpon>fServicos.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ViewsBases\fBuscar.resx">
       <DependentUpon>fBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fBuscarPessoa.resx">
+    <EmbeddedResource Include="View\Buscar\fBuscarPessoa.resx">
       <DependentUpon>fBuscarPessoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fBuscarPropriedades.resx">
+    <EmbeddedResource Include="View\Buscar\fBuscarPropriedades.resx">
       <DependentUpon>fBuscarPropriedades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fCadastroAnimais.resx">
+    <EmbeddedResource Include="View\Cadastrar\fCadastroAnimais.resx">
       <DependentUpon>fCadastroAnimais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fCadastroPessoa.resx">
+    <EmbeddedResource Include="View\Cadastrar\fCadastroPessoa.resx">
       <DependentUpon>fCadastroPessoa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fLogin.resx">
+    <EmbeddedResource Include="View\Login\fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fCadastreSe.resx">
+    <EmbeddedResource Include="View\Login\fCadastreSe.resx">
       <DependentUpon>fCadastreSe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fPesagem.resx">
+    <EmbeddedResource Include="View\Mov_Servicos\fServicos.resx">
+      <DependentUpon>fServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mov_Servicos\fServicosSelecionar.resx">
+      <DependentUpon>fServicosSelecionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Mov_Simples\fPesagem.resx">
       <DependentUpon>fPesagem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\fPrincipal.resx">
@@ -196,13 +214,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fReproducao.resx">
+    <EmbeddedResource Include="View\Mov_Simples\fReproducao.resx">
       <DependentUpon>fReproducao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fVacina.resx">
+    <EmbeddedResource Include="View\Mov_Simples\fVacina.resx">
       <DependentUpon>fVacina.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\fVermifugacao.resx">
+    <EmbeddedResource Include="View\Mov_Simples\fVermifugacao.resx">
       <DependentUpon>fVermifugacao.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

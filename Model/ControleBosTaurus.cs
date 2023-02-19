@@ -52,11 +52,12 @@ namespace RuralSimples.Model
         public bool SalvarBosTaurus(int idBosTaurus, int idPessoa, string raca, string nomeAnimal, String identificacao, DateTime datanascimento, String sexo,
             string aptidao, int idBostaurusPai, int idBosTaurusMae, string registro, string classificacao, string classificacaoPatas, DateTime dataCadastro,
             string grupo, string tipoReproducao, String nomeCientifico, String nomePai, String nomeMae, String familia, String inativo, DateTime dataDescarte,
-            String motivoDescarte, String observacoes)
+            String motivoDescarte, String observacoes, String ciclo, String cicloReprodutivo)
         {
             BosTaurus bostaurus = new BosTaurus(idBosTaurus, idPessoa, raca, nomeAnimal, identificacao, datanascimento, sexo,
                 aptidao, idBostaurusPai, idBosTaurusMae, registro, classificacao, classificacaoPatas, dataCadastro,
-                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes);
+                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes,
+                ciclo, cicloReprodutivo);
             return SalvarBosTaurus(bostaurus);
         }
         public bool InserirBosTaurus(
@@ -82,12 +83,15 @@ namespace RuralSimples.Model
             String inativo,
             DateTime dataDescarte,
             String motivoDescarte,
-            String observacoes //23
+            String observacoes,
+            String ciclo,
+            String cicloReprodutico//25
         )
         {
             BosTaurus bostaurus = new BosTaurus(idPessoa, raca, nomeAnimal, identificacao, datanascimento, sexo,
                 aptidao, idBostaurusPai, idBosTaurusMae, registro, classificacao, classificacaoPatas, dataCadastro,
-                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, motivoDescarte, observacoes);
+                grupo, tipoReproducao, nomeCientifico, nomePai, nomeMae, familia, inativo, dataDescarte, 
+                motivoDescarte, observacoes, ciclo, cicloReprodutico);
 
             return InserirBostaurus(bostaurus);
         }

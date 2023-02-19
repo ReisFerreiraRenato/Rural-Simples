@@ -50,7 +50,8 @@ namespace RuralSimples.Dal
                 "data_descarte,  " +
                 "motivo_descarte,  " +
                 "observacoes_bostaurus,  " +
-                "identificacao  " +
+                "identificacao,  " +
+                "ciclo  " +
             "from " +
             "   public.bostaurus ";
         public string sqlInserirBosTaurus =
@@ -77,7 +78,8 @@ namespace RuralSimples.Dal
                 "inativo,  " +
                 "data_descarte,  " +
                 "motivo_descarte,  " +
-                "observacoes_bostaurus  " +
+                "observacoes_bostaurus,  " +
+                "ciclo  " +
             ") " +
             " values (" +
                 "@id_pessoa, " +
@@ -102,7 +104,8 @@ namespace RuralSimples.Dal
                 "@inativo,  " +
                 "@data_descarte,  " +
                 "@motivo_descarte,  " +
-                "@observacoes_bostaurus  " +
+                "@observacoes_bostaurus,  " +
+                "@ciclo" +
         ")";
         public string sqlSalvarBosTaurus =
             "UPDATE public.bostaurus SET " +
@@ -128,7 +131,8 @@ namespace RuralSimples.Dal
                 "inativo = @inativo,  " +
                 "data_descarte = @data_descarte,  " +
                 "motivo_descarte = @motivo_descarte,  " +
-                "observacoes_bostaurus = @observacoes_bostaurus " +
+                "observacoes_bostaurus = @observacoes_bostaurus, " +
+                "ciclo = @ciclo" +
             "WHERE  id_bostaurus = @id_bostaurus "
         ;
         public bool SalvarBostaurus(BosTaurus bostaurus)
@@ -301,7 +305,9 @@ namespace RuralSimples.Dal
                 dr["inativo"].ToString(),
                 datadescarte,
                 dr["motivo_descarte"].ToString(),
-                dr["observacoes_bostaurus"].ToString()
+                dr["observacoes_bostaurus"].ToString(),
+                dr["ciclo"].ToString(),
+                dr["ciclo_reprodutivo"].ToString()
             );
         }
         public void parametrosInserirAtualizar(BosTaurus bostaurus, NpgsqlCommand comando)
@@ -334,6 +340,7 @@ namespace RuralSimples.Dal
             comando.Parameters.AddWithValue("@data_descarte", bostaurus.DataDescarte);
             comando.Parameters.AddWithValue("@motivo_descarte", bostaurus.MotivoDescarte);
             comando.Parameters.AddWithValue("@observacoes_bostaurus", bostaurus.Observacoes);
+            comando.Parameters.AddWithValue("@ciclo", bostaurus.Ciclo);
         }
     }
 }
