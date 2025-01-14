@@ -251,7 +251,14 @@ namespace RuralSimples.View
             btBuscarIdBostaurusMae.Enabled = enabled;
 
             cbCiclo.Enabled = enabled;
-            cbCicloReprodutivo.Enabled = enabled;
+            if (!cbCicloReprodutivo.Visible)
+            {
+                cbCicloReprodutivo.Visible = true;
+                lbCicloReprodutivo.Visible = true;
+            }
+            //cbCicloReprodutivo.Enabled = enabled;
+            if (!cbCicloReprodutivo.Visible)
+                cbCicloReprodutivo.Visible = true;
             cbSexo.Enabled = enabled;
         }
         private void LimparTela()
@@ -442,6 +449,7 @@ namespace RuralSimples.View
         {
             if (cbSexo.SelectedIndex == 0)
             {
+                cbCicloReprodutivo.Enabled = true;
                 lbCicloReprodutivo.Visible = true;
                 cbCicloReprodutivo.Visible = true;
             }

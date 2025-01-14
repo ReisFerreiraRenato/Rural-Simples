@@ -31,11 +31,14 @@ namespace RuralSimples.View
         {
             this.lbLogin = new System.Windows.Forms.Label();
             this.lbSenha = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbConfirmarSenha = new System.Windows.Forms.Label();
             this.btCadastrar = new System.Windows.Forms.Button();
             this.eLogin = new System.Windows.Forms.TextBox();
             this.eSenha = new System.Windows.Forms.TextBox();
             this.eConfirmarSenha = new System.Windows.Forms.TextBox();
+            this.eEmail = new System.Windows.Forms.TextBox();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.btSair = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbLogin
@@ -58,22 +61,22 @@ namespace RuralSimples.View
             this.lbSenha.TabIndex = 1;
             this.lbSenha.Text = "Senha";
             // 
-            // label3
+            // lbConfirmarSenha
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 199);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Confirmar senha";
+            this.lbConfirmarSenha.AutoSize = true;
+            this.lbConfirmarSenha.Location = new System.Drawing.Point(51, 199);
+            this.lbConfirmarSenha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbConfirmarSenha.Name = "lbConfirmarSenha";
+            this.lbConfirmarSenha.Size = new System.Drawing.Size(126, 19);
+            this.lbConfirmarSenha.TabIndex = 2;
+            this.lbConfirmarSenha.Text = "Confirmar senha";
             // 
             // btCadastrar
             // 
-            this.btCadastrar.Location = new System.Drawing.Point(118, 278);
+            this.btCadastrar.Location = new System.Drawing.Point(55, 352);
             this.btCadastrar.Name = "btCadastrar";
-            this.btCadastrar.Size = new System.Drawing.Size(168, 48);
-            this.btCadastrar.TabIndex = 3;
+            this.btCadastrar.Size = new System.Drawing.Size(140, 48);
+            this.btCadastrar.TabIndex = 4;
             this.btCadastrar.Text = "Cadastrar";
             this.btCadastrar.UseVisualStyleBackColor = false;
             this.btCadastrar.Click += new System.EventHandler(this.btCadastrar_Click);
@@ -101,16 +104,47 @@ namespace RuralSimples.View
             this.eConfirmarSenha.Size = new System.Drawing.Size(272, 26);
             this.eConfirmarSenha.TabIndex = 2;
             // 
+            // eEmail
+            // 
+            this.eEmail.Location = new System.Drawing.Point(55, 295);
+            this.eEmail.Name = "eEmail";
+            this.eEmail.PasswordChar = '*';
+            this.eEmail.Size = new System.Drawing.Size(272, 26);
+            this.eEmail.TabIndex = 3;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(52, 273);
+            this.lbEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(56, 19);
+            this.lbEmail.TabIndex = 5;
+            this.lbEmail.Text = "E-mail";
+            // 
+            // btSair
+            // 
+            this.btSair.Location = new System.Drawing.Point(201, 352);
+            this.btSair.Name = "btSair";
+            this.btSair.Size = new System.Drawing.Size(127, 48);
+            this.btSair.TabIndex = 6;
+            this.btSair.Text = "Sair";
+            this.btSair.UseVisualStyleBackColor = false;
+            this.btSair.Click += new System.EventHandler(this.btSair_Click);
+            // 
             // fCadastreSe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(395, 358);
+            this.ClientSize = new System.Drawing.Size(395, 412);
+            this.Controls.Add(this.btSair);
+            this.Controls.Add(this.eEmail);
+            this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.eConfirmarSenha);
             this.Controls.Add(this.eSenha);
             this.Controls.Add(this.eLogin);
             this.Controls.Add(this.btCadastrar);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lbConfirmarSenha);
             this.Controls.Add(this.lbSenha);
             this.Controls.Add(this.lbLogin);
             this.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -118,7 +152,7 @@ namespace RuralSimples.View
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "fCadastreSe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Rural Simples - Cadastre-se";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,10 +162,13 @@ namespace RuralSimples.View
 
         private System.Windows.Forms.Label lbLogin;
         private System.Windows.Forms.Label lbSenha;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbConfirmarSenha;
         private System.Windows.Forms.Button btCadastrar;
         private System.Windows.Forms.TextBox eLogin;
         private System.Windows.Forms.TextBox eSenha;
         private System.Windows.Forms.TextBox eConfirmarSenha;
+        private System.Windows.Forms.TextBox eEmail;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Button btSair;
     }
 }

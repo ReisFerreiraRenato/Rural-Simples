@@ -581,7 +581,7 @@ namespace RuralSimples.View
             fBuscarPessoa buscarPessoa = new fBuscarPessoa();
             buscarPessoa.ShowDialog();
             codigo = buscarPessoa.codigo;
-            if (codigo != "")
+            if (codigo != "0")
             {
                 KeyPressEventArgs press = new KeyPressEventArgs((char)Keys.Enter);
                 eIdentificacao.Text = codigo;

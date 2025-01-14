@@ -32,6 +32,10 @@ namespace RuralSimples.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCadastroAnimais));
             this.label9 = new System.Windows.Forms.Label();
             this.pnIdentificacao = new System.Windows.Forms.Panel();
+            this.cbCicloReprodutivo = new System.Windows.Forms.ComboBox();
+            this.lbCicloReprodutivo = new System.Windows.Forms.Label();
+            this.cbCiclo = new System.Windows.Forms.ComboBox();
+            this.lbCiclo = new System.Windows.Forms.Label();
             this.tabControlDiversos = new System.Windows.Forms.TabControl();
             this.tabPageObservacoes = new System.Windows.Forms.TabPage();
             this.eObservacoes = new System.Windows.Forms.TextBox();
@@ -40,6 +44,7 @@ namespace RuralSimples.View
             this.lbPropriedade = new System.Windows.Forms.Label();
             this.lbCodigoPropriedade = new System.Windows.Forms.Label();
             this.eCodigoPropriedade = new System.Windows.Forms.TextBox();
+            this.btBuscarPropriedade = new System.Windows.Forms.Button();
             this.tabPageDescarte = new System.Windows.Forms.TabPage();
             this.ckInativo = new System.Windows.Forms.CheckBox();
             this.eDataDescarte = new System.Windows.Forms.MaskedTextBox();
@@ -57,8 +62,10 @@ namespace RuralSimples.View
             this.lbDataCadastro = new System.Windows.Forms.Label();
             this.lbNumeroRegistro = new System.Windows.Forms.Label();
             this.eNumeroRegistro = new System.Windows.Forms.TextBox();
+            this.btBuscarIdBostaurusMae = new System.Windows.Forms.Button();
             this.lbCodigoBostaurusMae = new System.Windows.Forms.Label();
             this.eCodigoBosTaurusMae = new System.Windows.Forms.TextBox();
+            this.btBuscarIdBostaurusPai = new System.Windows.Forms.Button();
             this.lbCodigoBostaurusPai = new System.Windows.Forms.Label();
             this.eCodigoBosTaurusPai = new System.Windows.Forms.TextBox();
             this.lbCodigo = new System.Windows.Forms.Label();
@@ -91,13 +98,6 @@ namespace RuralSimples.View
             this.lbGrupo = new System.Windows.Forms.Label();
             this.eClassificacaoOssea = new System.Windows.Forms.TextBox();
             this.lbClassificacaoOssea = new System.Windows.Forms.Label();
-            this.cbCiclo = new System.Windows.Forms.ComboBox();
-            this.lbCiclo = new System.Windows.Forms.Label();
-            this.btBuscarPropriedade = new System.Windows.Forms.Button();
-            this.btBuscarIdBostaurusMae = new System.Windows.Forms.Button();
-            this.btBuscarIdBostaurusPai = new System.Windows.Forms.Button();
-            this.cbCicloReprodutivo = new System.Windows.Forms.ComboBox();
-            this.lbCicloReprodutivo = new System.Windows.Forms.Label();
             this.pnIdentificacao.SuspendLayout();
             this.tabControlDiversos.SuspendLayout();
             this.tabPageObservacoes.SuspendLayout();
@@ -163,6 +163,56 @@ namespace RuralSimples.View
             this.pnIdentificacao.Name = "pnIdentificacao";
             this.pnIdentificacao.Size = new System.Drawing.Size(650, 632);
             this.pnIdentificacao.TabIndex = 28;
+            // 
+            // cbCicloReprodutivo
+            // 
+            this.cbCicloReprodutivo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbCicloReprodutivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCicloReprodutivo.Enabled = false;
+            this.cbCicloReprodutivo.FormattingEnabled = true;
+            this.cbCicloReprodutivo.Items.AddRange(new object[] {
+            "Multípara",
+            "Nulípara",
+            "Primípara",
+            "Segundípara"});
+            this.cbCicloReprodutivo.Location = new System.Drawing.Point(171, 389);
+            this.cbCicloReprodutivo.Name = "cbCicloReprodutivo";
+            this.cbCicloReprodutivo.Size = new System.Drawing.Size(161, 33);
+            this.cbCicloReprodutivo.TabIndex = 71;
+            // 
+            // lbCicloReprodutivo
+            // 
+            this.lbCicloReprodutivo.AutoSize = true;
+            this.lbCicloReprodutivo.Location = new System.Drawing.Point(167, 366);
+            this.lbCicloReprodutivo.Name = "lbCicloReprodutivo";
+            this.lbCicloReprodutivo.Size = new System.Drawing.Size(165, 25);
+            this.lbCicloReprodutivo.TabIndex = 72;
+            this.lbCicloReprodutivo.Text = "Ciclo Reprodutivo";
+            // 
+            // cbCiclo
+            // 
+            this.cbCiclo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbCiclo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCiclo.FormattingEnabled = true;
+            this.cbCiclo.Items.AddRange(new object[] {
+            "Acabamento",
+            "Bezerro",
+            "Cria",
+            "Engorda",
+            "Recria"});
+            this.cbCiclo.Location = new System.Drawing.Point(6, 389);
+            this.cbCiclo.Name = "cbCiclo";
+            this.cbCiclo.Size = new System.Drawing.Size(145, 33);
+            this.cbCiclo.TabIndex = 69;
+            // 
+            // lbCiclo
+            // 
+            this.lbCiclo.AutoSize = true;
+            this.lbCiclo.Location = new System.Drawing.Point(2, 366);
+            this.lbCiclo.Name = "lbCiclo";
+            this.lbCiclo.Size = new System.Drawing.Size(56, 25);
+            this.lbCiclo.TabIndex = 70;
+            this.lbCiclo.Text = "Ciclo";
             // 
             // tabControlDiversos
             // 
@@ -253,6 +303,15 @@ namespace RuralSimples.View
             this.eCodigoPropriedade.Name = "eCodigoPropriedade";
             this.eCodigoPropriedade.Size = new System.Drawing.Size(143, 30);
             this.eCodigoPropriedade.TabIndex = 53;
+            // 
+            // btBuscarPropriedade
+            // 
+            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
+            this.btBuscarPropriedade.Location = new System.Drawing.Point(154, 27);
+            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
+            this.btBuscarPropriedade.Size = new System.Drawing.Size(29, 26);
+            this.btBuscarPropriedade.TabIndex = 54;
+            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
             // 
             // tabPageDescarte
             // 
@@ -437,6 +496,15 @@ namespace RuralSimples.View
             this.eNumeroRegistro.Size = new System.Drawing.Size(150, 30);
             this.eNumeroRegistro.TabIndex = 5;
             // 
+            // btBuscarIdBostaurusMae
+            // 
+            this.btBuscarIdBostaurusMae.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarIdBostaurusMae.Image")));
+            this.btBuscarIdBostaurusMae.Location = new System.Drawing.Point(160, 331);
+            this.btBuscarIdBostaurusMae.Name = "btBuscarIdBostaurusMae";
+            this.btBuscarIdBostaurusMae.Size = new System.Drawing.Size(29, 26);
+            this.btBuscarIdBostaurusMae.TabIndex = 17;
+            this.btBuscarIdBostaurusMae.UseVisualStyleBackColor = true;
+            // 
             // lbCodigoBostaurusMae
             // 
             this.lbCodigoBostaurusMae.AutoSize = true;
@@ -457,6 +525,15 @@ namespace RuralSimples.View
             this.eCodigoBosTaurusMae.Name = "eCodigoBosTaurusMae";
             this.eCodigoBosTaurusMae.Size = new System.Drawing.Size(145, 30);
             this.eCodigoBosTaurusMae.TabIndex = 16;
+            // 
+            // btBuscarIdBostaurusPai
+            // 
+            this.btBuscarIdBostaurusPai.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarIdBostaurusPai.Image")));
+            this.btBuscarIdBostaurusPai.Location = new System.Drawing.Point(160, 275);
+            this.btBuscarIdBostaurusPai.Name = "btBuscarIdBostaurusPai";
+            this.btBuscarIdBostaurusPai.Size = new System.Drawing.Size(29, 26);
+            this.btBuscarIdBostaurusPai.TabIndex = 14;
+            this.btBuscarIdBostaurusPai.UseVisualStyleBackColor = true;
             // 
             // lbCodigoBostaurusPai
             // 
@@ -777,82 +854,6 @@ namespace RuralSimples.View
             this.lbClassificacaoOssea.Size = new System.Drawing.Size(191, 25);
             this.lbClassificacaoOssea.TabIndex = 0;
             this.lbClassificacaoOssea.Text = "Classificação Ossea";
-            // 
-            // cbCiclo
-            // 
-            this.cbCiclo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCiclo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCiclo.FormattingEnabled = true;
-            this.cbCiclo.Items.AddRange(new object[] {
-            "Acabamento",
-            "Bezerro",
-            "Cria",
-            "Engorda",
-            "Recria"});
-            this.cbCiclo.Location = new System.Drawing.Point(6, 389);
-            this.cbCiclo.Name = "cbCiclo";
-            this.cbCiclo.Size = new System.Drawing.Size(145, 33);
-            this.cbCiclo.TabIndex = 69;
-            // 
-            // lbCiclo
-            // 
-            this.lbCiclo.AutoSize = true;
-            this.lbCiclo.Location = new System.Drawing.Point(2, 366);
-            this.lbCiclo.Name = "lbCiclo";
-            this.lbCiclo.Size = new System.Drawing.Size(56, 25);
-            this.lbCiclo.TabIndex = 70;
-            this.lbCiclo.Text = "Ciclo";
-            // 
-            // btBuscarPropriedade
-            // 
-            this.btBuscarPropriedade.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarPropriedade.Image")));
-            this.btBuscarPropriedade.Location = new System.Drawing.Point(154, 27);
-            this.btBuscarPropriedade.Name = "btBuscarPropriedade";
-            this.btBuscarPropriedade.Size = new System.Drawing.Size(29, 26);
-            this.btBuscarPropriedade.TabIndex = 54;
-            this.btBuscarPropriedade.UseVisualStyleBackColor = true;
-            // 
-            // btBuscarIdBostaurusMae
-            // 
-            this.btBuscarIdBostaurusMae.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarIdBostaurusMae.Image")));
-            this.btBuscarIdBostaurusMae.Location = new System.Drawing.Point(160, 331);
-            this.btBuscarIdBostaurusMae.Name = "btBuscarIdBostaurusMae";
-            this.btBuscarIdBostaurusMae.Size = new System.Drawing.Size(29, 26);
-            this.btBuscarIdBostaurusMae.TabIndex = 17;
-            this.btBuscarIdBostaurusMae.UseVisualStyleBackColor = true;
-            // 
-            // btBuscarIdBostaurusPai
-            // 
-            this.btBuscarIdBostaurusPai.Image = ((System.Drawing.Image)(resources.GetObject("btBuscarIdBostaurusPai.Image")));
-            this.btBuscarIdBostaurusPai.Location = new System.Drawing.Point(160, 275);
-            this.btBuscarIdBostaurusPai.Name = "btBuscarIdBostaurusPai";
-            this.btBuscarIdBostaurusPai.Size = new System.Drawing.Size(29, 26);
-            this.btBuscarIdBostaurusPai.TabIndex = 14;
-            this.btBuscarIdBostaurusPai.UseVisualStyleBackColor = true;
-            // 
-            // cbCicloReprodutivo
-            // 
-            this.cbCicloReprodutivo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbCicloReprodutivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCicloReprodutivo.FormattingEnabled = true;
-            this.cbCicloReprodutivo.Items.AddRange(new object[] {
-            "Multípara",
-            "Nulípara",
-            "Primípara",
-            "Segundípara"});
-            this.cbCicloReprodutivo.Location = new System.Drawing.Point(171, 389);
-            this.cbCicloReprodutivo.Name = "cbCicloReprodutivo";
-            this.cbCicloReprodutivo.Size = new System.Drawing.Size(161, 33);
-            this.cbCicloReprodutivo.TabIndex = 71;
-            // 
-            // lbCicloReprodutivo
-            // 
-            this.lbCicloReprodutivo.AutoSize = true;
-            this.lbCicloReprodutivo.Location = new System.Drawing.Point(167, 366);
-            this.lbCicloReprodutivo.Name = "lbCicloReprodutivo";
-            this.lbCicloReprodutivo.Size = new System.Drawing.Size(165, 25);
-            this.lbCicloReprodutivo.TabIndex = 72;
-            this.lbCicloReprodutivo.Text = "Ciclo Reprodutivo";
             // 
             // fCadastroAnimais
             // 

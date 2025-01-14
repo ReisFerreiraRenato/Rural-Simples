@@ -44,6 +44,7 @@ namespace RuralSimples.View
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.ClientSize = new System.Drawing.Size(810, 565);
             this.Name = "fBuscarPessoa";
+            this.Text = "Buscar Pessoas";
             this.Scroll += new System.Windows.Forms.ScrollEventHandler(this.fBuscarPessoa_Scroll);
             this.ResumeLayout(false);
             this.PerformLayout();

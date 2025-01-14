@@ -33,13 +33,16 @@ namespace RuralSimples.View
             // 
             // eNome
             // 
+            this.eNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.eNome.TextChanged += new System.EventHandler(this.eNome_TextChanged);
             // 
             // fBuscarPropriedades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.ClientSize = new System.Drawing.Size(810, 565);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.ClientSize = new System.Drawing.Size(1080, 706);
+            this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "fBuscarPropriedades";
+            this.Text = "Buscar Propriedades";
             this.Shown += new System.EventHandler(this.fBuscarPropriedades_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();

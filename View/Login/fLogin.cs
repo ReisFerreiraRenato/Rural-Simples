@@ -24,15 +24,11 @@ namespace RuralSimples.View
             InitializeComponent();
         }
 
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void btLimpar_Click(object sender, EventArgs e)
         {
             tbSenha.Clear();
             tbUsuario.Clear();
+            tbUsuario.Focus();
         }
 
         private void btEntrar_Click(object sender, EventArgs e)

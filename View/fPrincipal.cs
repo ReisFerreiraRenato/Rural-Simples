@@ -25,7 +25,7 @@ namespace RuralSimples
         {
             fCadastroPessoa cadastropessoa = new fCadastroPessoa();
             cadastropessoa.Text = Constantes.cTituloCadastroPessoas;
-            cadastropessoa.Show();
+            cadastropessoa.ShowDialog();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,28 +37,28 @@ namespace RuralSimples
         {
             fCadastroAnimais cadastroanimais = new fCadastroAnimais();
             cadastroanimais.Text = Constantes.cTituloCadastroAnimais;
-            cadastroanimais.Show();
+            cadastroanimais.ShowDialog();
         }
 
         private void pbReproducao_Click(object sender, EventArgs e)
         {
             fReproducao reproducao = new fReproducao();
             reproducao.Text = Constantes.cTituloReproducao;
-            reproducao.Show();
+            reproducao.ShowDialog();
         }
 
         private void vacinacaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fVacina vacina = new fVacina();
             vacina.Text = Constantes.cTituloReproducao;
-            vacina.Show();
+            vacina.ShowDialog();
         }
 
         private void vermifugacaoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             fVermifugacao vermifugacao = new fVermifugacao();
             vermifugacao.Text = Constantes.cTituloReproducao;
-            vermifugacao.Show();
+            vermifugacao.ShowDialog();
         }
     }
 }

@@ -83,3 +83,7 @@ D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fBuscarPessoa.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fBuscarPropriedades.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fServicos.resources
 D:\RS\RuralSimples\obj\Debug\RuralSimples.View.fServicosSelecionar.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.ViewsBases.fCadastro.resources
+D:\RS\RuralSimples\obj\Debug\RuralSimples.csproj.SuggestedBindingRedirects.cache
+D:\RS\RuralSimples\bin\Debug\EntityFramework.Functions.dll
+D:\RS\RuralSimples\obj\Debug\RuralSimples.csproj.CopyComplete

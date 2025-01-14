@@ -23,7 +23,9 @@ namespace RuralSimples.ViewsBases
         protected const int cNome = 2;
         protected const int cDataCadastro = 3;
 
-        public String codigo = "";
+        protected string erro = "";
+
+        public String codigo = "0";
 
         private void gdDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -32,14 +34,26 @@ namespace RuralSimples.ViewsBases
 
         private void btSelecionar_Click(object sender, EventArgs e)
         {
-            if (gdDados.CurrentRow.Cells[cId].Value == null)
+            bool verificarLinhaSelecionada = false;
+
+            try
             {
-                Funcoes.MensagemErro("Favor selecionar um registro válido!");
-                gdDados.Focus();
+                verificarLinhaSelecionada = (gdDados.CurrentRow.Cells[cId].Value != null);
+            }
+            catch (Exception ex)
+            {
+
+            }
+                
+            if (!verificarLinhaSelecionada)
+            {
+                erro = "Cadastro não encontrado!";
                 return;
             }
+
             codigo = gdDados.CurrentRow.Cells[cId].Value.ToString();
             Close();
+            
         }
 
         private void fBuscar_Shown(object sender, EventArgs e)

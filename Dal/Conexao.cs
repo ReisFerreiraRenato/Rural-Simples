@@ -15,8 +15,8 @@ namespace RuralSimples.Model
         private string serverName = "localhost";            //localhost
         private string port = "5432";                       //porta default
         private string userName = "postgres";               //nome do administrador
-        private string password = "45a16b25c06D@";          //senha do administrador
-        private string databaseName = "rural_simple_base";  //nome do banco de dados
+        private string password = "admin";                  //senha do administrador
+        private string databaseName = "rural_simples_base"; //nome do banco de dados
         //Constructor
         public Conexao()
         {

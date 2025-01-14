@@ -44,14 +44,17 @@ namespace RuralSimples.View
             }
         }
 
-        private void btSelecionar_Click(object sender, EventArgs e)
-        {
-            codigo = gdDados.CurrentRow.Cells[cId].Value.ToString();
-        }
-
         private void fBuscarPessoa_Scroll(object sender, ScrollEventArgs e)
         {
             gdDados.Columns[cIdentificador].Visible = false;
+        }
+
+        private void btSelecionar_Click(object sender, EventArgs e)
+        {
+            if (!this.erro.Equals(""))
+            { 
+                Funcoes.MensagemErro(this.erro);
+            }
         }
     }
 }
